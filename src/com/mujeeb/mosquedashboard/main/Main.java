@@ -1,20 +1,21 @@
 package com.mujeeb.mosquedashboard.main;
 
-import java.awt.CardLayout;
-import java.awt.Color;
+import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.mujeeb.mosquedashboard.panels.AdvertisementPanel;
 import com.mujeeb.mosquedashboard.panels.GregorianPanel;
 import com.mujeeb.mosquedashboard.panels.HijriPanel;
 import com.mujeeb.mosquedashboard.panels.NamazTimePanel;
 import com.mujeeb.mosquedashboard.panels.TimePanel;
+import com.mujeeb.mosquedashboard.util.JPanelWithBackgroundImage;
 
 public class Main {
 	
@@ -31,58 +32,57 @@ public class Main {
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 		
-		frame.setBackground(Color.BLACK);
-		frame.getContentPane().setBackground(Color.BLACK);
+//		frame.setBackground(Color.BLACK);
+//		frame.getContentPane().setBackground(Color.BLACK);
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
 		
-		JPanel panel = (JPanel) frame.getContentPane();
-		panel.setLayout(new CardLayout());
-		
-		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon("res/background.png"));
-//		panel.add(background);
-		
-		JPanel mainPanel = new JPanel();
+		Image backgroundImage = new ImageIcon("res/background.png").getImage();
+		JPanel mainPanel = new JPanelWithBackgroundImage(backgroundImage);
 		
 		windowWidth = frame.getSize().width;
 		windowHeight = frame.getSize().height;
 		
-		mainPanel.setLayout(new GridBagLayout());
+		JPanel centerPanel = new JPanel();
+		centerPanel.setOpaque(false);
+		centerPanel.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		mainPanel.add(new GregorianPanel(), gbc);
+		centerPanel.add(new GregorianPanel(), gbc);
 		
 		gbc.gridx = 1;
-		mainPanel.add(new TimePanel(), gbc);
+		centerPanel.add(new TimePanel(), gbc);
 		
 		gbc.gridx = 2;
-		mainPanel.add(new HijriPanel(), gbc);
+		centerPanel.add(new HijriPanel(), gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		mainPanel.add(new NamazTimePanel("Asr", "Asr", "5:15"), gbc);
+		centerPanel.add(new NamazTimePanel(false, "Asr", "عصر", "5:15"), gbc);
 		
 		gbc.gridx = 1;
-		mainPanel.add(new NamazTimePanel("Zohor", "Zohor", "1:30"), gbc);
+		centerPanel.add(new NamazTimePanel(false, "Zuhr", "ظہر", "1:30"), gbc);
 		
 		gbc.gridx = 2;
-		mainPanel.add(new NamazTimePanel("Fajr", "Fajr", "6:10"), gbc);
+		centerPanel.add(new NamazTimePanel(false, "Fajr", "فجر", "6:10"), gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 2;
-		mainPanel.add(new NamazTimePanel("Juma", "Juma", "1:00"), gbc);
+		centerPanel.add(new NamazTimePanel(false, "Jumua", "جمعہ", "1:00"), gbc);
 		
 		gbc.gridx = 1;
-		mainPanel.add(new NamazTimePanel("Isha", "Isha", "8:30"), gbc);
+		centerPanel.add(new NamazTimePanel(false, "Isha", "عشا", "8:30"), gbc);
 		
 		gbc.gridx = 2;
-		mainPanel.add(new NamazTimePanel("Maghrib", "Maghrib", "6:32"), gbc);
+		centerPanel.add(new NamazTimePanel(true, "Maghrib", "مغرب", "6:32"), gbc);
 		
-		mainPanel.setOpaque(false);
-		panel.add(mainPanel);
+		mainPanel.setLayout(new BorderLayout());
+		mainPanel.add(centerPanel, BorderLayout.CENTER);
+		mainPanel.add(new AdvertisementPanel(), BorderLayout.SOUTH);
+		
+		frame.setContentPane(mainPanel);
 		frame.setVisible(true);
 		frame.repaint();
 	}

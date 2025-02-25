@@ -4,15 +4,18 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.util.Date;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.mujeeb.mosquedashboard.main.Main;
+import com.mujeeb.mosquedashboard.util.JPanelWithBackgroundImage;
 
-public class GregorianPanel extends JPanel {
+public class GregorianPanel extends JPanelWithBackgroundImage {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -27,21 +30,25 @@ public class GregorianPanel extends JPanel {
 	protected JLabel ishraqTimeLabel = new JLabel();
 	protected JLabel duhaNameLabel = new JLabel();
 	protected JLabel duhaTimeLabel = new JLabel();
+	
+	protected static Image backgroundImage = new ImageIcon("res/sky.jpg").getImage();
 
 	public GregorianPanel() {
 		
+		super(backgroundImage);
+		
 		dateLabel.setText("26 February 2025");
 		dateLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/22));
-		dateLabel.setForeground(Color.GRAY);
+		dateLabel.setForeground(Color.WHITE);
 		dateLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		dayLabel.setText("Wednesday");
 		dayLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/25));
-		dayLabel.setForeground(Color.BLUE);
+		dayLabel.setForeground(Color.YELLOW);
 		dayLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		int fontSize = 32;
-		seheriNameLabel.setText("Seheri");
+		seheriNameLabel.setText("سحر");
 		seheriNameLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/fontSize));
 		seheriNameLabel.setForeground(Color.CYAN);
 		seheriNameLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -51,17 +58,19 @@ public class GregorianPanel extends JPanel {
 		seheriTimeLabel.setForeground(Color.CYAN);
 		seheriTimeLabel.setHorizontalAlignment(JLabel.CENTER);
 		
-		iftarNameLabel.setText("Iftar");
+		iftarNameLabel.setText("افطار");
 		iftarNameLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/fontSize));
 		iftarNameLabel.setForeground(Color.CYAN);
 		iftarNameLabel.setHorizontalAlignment(JLabel.CENTER);
+		iftarNameLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/80, 0, 0, 0));
 		
 		iftarTimeLabel.setText("5:54");
 		iftarTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
 		iftarTimeLabel.setForeground(Color.CYAN);
 		iftarTimeLabel.setHorizontalAlignment(JLabel.CENTER);
+		iftarTimeLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/80, 0, 0, 0));
 		
-		ishraqNameLabel.setText("Ishraq");
+		ishraqNameLabel.setText("اشراق");
 		ishraqNameLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/fontSize));
 		ishraqNameLabel.setForeground(Color.CYAN);
 		ishraqNameLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -71,18 +80,19 @@ public class GregorianPanel extends JPanel {
 		ishraqTimeLabel.setForeground(Color.CYAN);
 		ishraqTimeLabel.setHorizontalAlignment(JLabel.CENTER);
 		
-		duhaNameLabel.setText("Duha");
+		duhaNameLabel.setText("دوہا");
 		duhaNameLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/fontSize));
 		duhaNameLabel.setForeground(Color.CYAN);
 		duhaNameLabel.setHorizontalAlignment(JLabel.CENTER);
+		duhaNameLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/80, 0, 0, 0));
 		
 		duhaTimeLabel.setText("9:30");
 		duhaTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
 		duhaTimeLabel.setForeground(Color.CYAN);
 		duhaTimeLabel.setHorizontalAlignment(JLabel.CENTER);
+		duhaTimeLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/80, 0, 0, 0));
 		
-		setBackground(Color.BLACK);
-		setBorder(BorderFactory.createLineBorder(Color.red));
+		setOpaque(false);
 		setPreferredSize(new Dimension((int)(Main.windowWidth/3), (int)(Main.windowHeight/3)));
 		
 		setLayout(new GridLayout(3, 1));
@@ -91,7 +101,7 @@ public class GregorianPanel extends JPanel {
 		add(dayLabel);
 		
 		JPanel timesPanel = new JPanel();
-		timesPanel.setBackground(Color.BLACK);
+		timesPanel.setOpaque(false);
 		timesPanel.setLayout(new GridLayout(2, 4));
 		
 		timesPanel.add(ishraqTimeLabel);
