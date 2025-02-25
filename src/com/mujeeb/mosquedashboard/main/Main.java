@@ -60,23 +60,23 @@ public class Main {
 		
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		centerPanel.add(new NamazTimePanel(false, "Asr", "عصر", "5:15"), gbc);
+		centerPanel.add(new NamazTimePanel(false, "Asr", "العصر", "5:15"), gbc);
 		
 		gbc.gridx = 1;
-		centerPanel.add(new NamazTimePanel(false, "Zuhr", "ظہر", "1:30"), gbc);
+		centerPanel.add(new NamazTimePanel(false, "Zuhr", "ظهر", "1:30"), gbc);
 		
 		gbc.gridx = 2;
-		centerPanel.add(new NamazTimePanel(false, "Fajr", "فجر", "6:10"), gbc);
+		centerPanel.add(new NamazTimePanel(false, "Fajr", "الفجر", "6:10"), gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 2;
-		centerPanel.add(new NamazTimePanel(false, "Jumua", "جمعہ", "1:00"), gbc);
+		centerPanel.add(new NamazTimePanel(false, "Jumua", "جمعة", "1:00"), gbc);
 		
 		gbc.gridx = 1;
 		centerPanel.add(new NamazTimePanel(false, "Isha", "عشا", "8:30"), gbc);
 		
 		gbc.gridx = 2;
-		centerPanel.add(new NamazTimePanel(true, "Maghrib", "مغرب", "6:32"), gbc);
+		centerPanel.add(new NamazTimePanel(true, "Maghrib", "المغرب", "6:32"), gbc);
 		
 		mainPanel.setLayout(new BorderLayout());
 		mainPanel.add(centerPanel, BorderLayout.CENTER);
