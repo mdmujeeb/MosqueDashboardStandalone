@@ -49,7 +49,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		
 		int fontSize = 32;
 		seheriNameLabel.setText("سحر");
-		seheriNameLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/fontSize));
+		seheriNameLabel.setFont(new Font("Jameel Noori Nastaleeq", Font.PLAIN, Main.windowWidth/fontSize));
 		seheriNameLabel.setForeground(Color.CYAN);
 		seheriNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		
@@ -59,7 +59,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		seheriTimeLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		iftarNameLabel.setText("افطار");
-		iftarNameLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/fontSize));
+		iftarNameLabel.setFont(new Font("Jameel Noori Nastaleeq", Font.PLAIN, Main.windowWidth/fontSize));
 		iftarNameLabel.setForeground(Color.CYAN);
 		iftarNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		iftarNameLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/80, 0, 0, 0));
@@ -71,7 +71,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		iftarTimeLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/80, 0, 0, 0));
 		
 		ishraqNameLabel.setText("اشراق");
-		ishraqNameLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/fontSize));
+		ishraqNameLabel.setFont(new Font("Jameel Noori Nastaleeq", Font.PLAIN, Main.windowWidth/fontSize));
 		ishraqNameLabel.setForeground(Color.CYAN);
 		ishraqNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		
@@ -81,7 +81,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		ishraqTimeLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		duhaNameLabel.setText("دوہا");
-		duhaNameLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/fontSize));
+		duhaNameLabel.setFont(new Font("Jameel Noori Nastaleeq", Font.PLAIN, Main.windowWidth/fontSize));
 		duhaNameLabel.setForeground(Color.CYAN);
 		duhaNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		duhaNameLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/80, 0, 0, 0));
