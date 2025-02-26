@@ -22,7 +22,7 @@ public class HijriPanel extends JPanelWithBackgroundImage {
 	protected JLabel dateLabel = new JLabel();
 	protected JLabel moonImageLabel = new JLabel();
 	
-	protected static Image backgroundImage = new ImageIcon("res/sky.jpg").getImage();
+	protected static Image backgroundImage = new ImageIcon("resources/sky.jpg").getImage();
 	
 	public HijriPanel() {
 		super(backgroundImage);
@@ -31,12 +31,12 @@ public class HijriPanel extends JPanelWithBackgroundImage {
 		setPreferredSize(new Dimension((int)(Main.windowWidth/3), (int)(Main.windowHeight/3)));
 		
 		dateLabel.setText("8 Jumada II 1443");
-		dateLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/27));
+		dateLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/27));
 		dateLabel.setForeground(Color.WHITE);
 		dateLabel.setHorizontalAlignment(JLabel.CENTER);
 		dateLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 		
-		moonImageLabel.setIcon(new ImageIcon("res/moonphases/16.png"));
+		moonImageLabel.setIcon(new ImageIcon("resources/moonphases/16.png"));
 		moonImageLabel.setHorizontalAlignment(JLabel.CENTER);
 		moonImageLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowWidth/80, 0));
 		

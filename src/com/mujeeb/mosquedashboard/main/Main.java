@@ -1,6 +1,7 @@
 package com.mujeeb.mosquedashboard.main;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
@@ -16,6 +17,7 @@ import com.mujeeb.mosquedashboard.panels.HijriPanel;
 import com.mujeeb.mosquedashboard.panels.NamazTimePanel;
 import com.mujeeb.mosquedashboard.panels.TimePanel;
 import com.mujeeb.mosquedashboard.util.JPanelWithBackgroundImage;
+import com.mujeeb.mosquedashboard.util.VoiceUtil;
 
 public class Main {
 	
@@ -25,6 +27,8 @@ public class Main {
 	protected static TimePanel timePanel = new TimePanel();
 
 	public static void main(String[] args) {
+		
+		VoiceUtil.play("resources/Allahu.mp3");
 		
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,8 +40,9 @@ public class Main {
 //		frame.getContentPane().setBackground(Color.BLACK);
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
 		
-		Image backgroundImage = new ImageIcon("res/background.png").getImage();
+		Image backgroundImage = new ImageIcon("resources/background.png").getImage();
 		JPanel mainPanel = new JPanelWithBackgroundImage(backgroundImage);
+		mainPanel.setBackground(Color.BLACK);
 		
 		windowWidth = frame.getSize().width;
 		windowHeight = frame.getSize().height;

@@ -38,14 +38,14 @@ public class NamazTimePanel extends JPanelWithRoundedBorder {
 		setPreferredSize(new Dimension((int)(Main.windowWidth/4), (int)(Main.windowHeight/3.2)));
 		
 		englishNameLabel.setText(englishName);
-		englishNameLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/22));
+		englishNameLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/22));
 		englishNameLabel.setForeground(Color.WHITE);
 		englishNameLabel.setHorizontalAlignment(JLabel.LEFT);
 		englishNameLabel.setBorder(BorderFactory.createEmptyBorder(0, isMaghrib ? Main.windowHeight/78 : Main.windowHeight/15, 0, 0));
 		englishNameLabel.setOpaque(false);
 		
 		arabicNameLabel.setText(arabicName);
-		arabicNameLabel.setFont(new Font("KFGQPC Uthmanic Script HAFS", Font.BOLD, Main.windowWidth/30));
+		arabicNameLabel.setFont(new Font("KFGQPC Uthmanic Script HAFS", Font.PLAIN, Main.windowWidth/30));
 		arabicNameLabel.setForeground(Color.WHITE);
 		arabicNameLabel.setHorizontalAlignment(JLabel.RIGHT);
 		arabicNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, isMaghrib ? Main.windowHeight/78 : Main.windowHeight/15));
