@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.util.Date;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -13,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.mujeeb.mosquedashboard.main.Main;
+import com.mujeeb.mosquedashboard.util.Constants;
+import com.mujeeb.mosquedashboard.util.DateUtil;
 import com.mujeeb.mosquedashboard.util.JPanelWithBackgroundImage;
 
 public class GregorianPanel extends JPanelWithBackgroundImage {
@@ -37,12 +40,15 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		
 		super(backgroundImage);
 		
-		dateLabel.setText("26 February 2025");
+		Map<String,Object> data = Main.getData();
+		Date date = new Date();
+		
+		dateLabel.setText(DateUtil.formatDate("dd MMMM yyyy", date));
 		dateLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/22));
 		dateLabel.setForeground(Color.WHITE);
 		dateLabel.setHorizontalAlignment(JLabel.CENTER);
 		
-		dayLabel.setText("Wednesday");
+		dayLabel.setText(DateUtil.getDayName(date));
 		dayLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/25));
 		dayLabel.setForeground(Color.YELLOW);
 		dayLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -55,7 +61,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		seheriNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		seheriNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
-		seheriTimeLabel.setText("5:16");
+		seheriTimeLabel.setText(DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_SUHUR)));
 		seheriTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
 		seheriTimeLabel.setForeground(Color.CYAN);
 		seheriTimeLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -66,7 +72,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		iftarNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		iftarNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
-		iftarTimeLabel.setText("5:54");
+		iftarTimeLabel.setText(DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_IFTAR)));
 		iftarTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
 		iftarTimeLabel.setForeground(Color.CYAN);
 		iftarTimeLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -77,7 +83,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		ishraqNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		ishraqNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
-		ishraqTimeLabel.setText("6:51");
+		ishraqTimeLabel.setText(DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_ISHRAQ)));
 		ishraqTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
 		ishraqTimeLabel.setForeground(Color.CYAN);
 		ishraqTimeLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -88,7 +94,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		duhaNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		duhaNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
-		duhaTimeLabel.setText("9:30");
+		duhaTimeLabel.setText(DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_DUHA)));
 		duhaTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
 		duhaTimeLabel.setForeground(Color.CYAN);
 		duhaTimeLabel.setHorizontalAlignment(JLabel.CENTER);

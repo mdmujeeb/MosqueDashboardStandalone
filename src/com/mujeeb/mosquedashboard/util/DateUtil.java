@@ -8,6 +8,54 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class DateUtil {
+	
+	public static String formatDate(String expression, Date date) {
+		return new SimpleDateFormat(expression).format(date);
+	}
+	
+	public static String getFormatted12HourTime(int[] time) {
+		int hour = time[0] > 12 ? (time[0]-12) : time[0];
+		String str = "";
+		if(hour < 10) {
+			str = str + "0";
+		}
+		str = str + hour + ":";
+		
+		if(time[1] < 10) {
+			str = str + "0";
+		}
+		str = str + time[1];
+		return str;
+	}
+	
+	public static String getFormatted12HourTimeFromDate(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		int[] time = {cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE)};
+		
+		return getFormatted12HourTime(time);
+	}
+	
+	public static String getDayName(Date date) {
+		switch(getDay(date)) {
+			case Calendar.MONDAY:
+					return "Monday";
+			case Calendar.TUESDAY:
+					return "Tuesday";
+			case Calendar.WEDNESDAY:
+					return "Wednesday";
+			case Calendar.THURSDAY:
+				return "Thursday";
+			case Calendar.FRIDAY:
+				return "Friday";
+			case Calendar.SATURDAY:
+				return "Saturday";
+			case Calendar.SUNDAY:
+				return "Sunday";
+			default:
+				return "Friday";
+		}
+	}
 
 	public static final Date addDaysToDate(Date date, int days) {
 		Calendar cal = Calendar.getInstance();
@@ -191,10 +239,7 @@ public class DateUtil {
 		return new SimpleDateFormat("hh:mm a").format(date);
 	}
 	
-	public static String formatTimeForDeliverySlot(Date date) {
-		return "" + date.getTime();
-	}
-	
+
 	public static String formatTime24HR(Date date) {
 		return new SimpleDateFormat("HH:mm").format(date);
 	}

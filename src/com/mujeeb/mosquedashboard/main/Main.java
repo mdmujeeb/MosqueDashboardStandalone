@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.Map;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -16,8 +17,10 @@ import com.mujeeb.mosquedashboard.panels.GregorianPanel;
 import com.mujeeb.mosquedashboard.panels.HijriPanel;
 import com.mujeeb.mosquedashboard.panels.NamazTimePanel;
 import com.mujeeb.mosquedashboard.panels.TimePanel;
+import com.mujeeb.mosquedashboard.util.Constants;
+import com.mujeeb.mosquedashboard.util.DataUtil;
+import com.mujeeb.mosquedashboard.util.IslamicUtil;
 import com.mujeeb.mosquedashboard.util.JPanelWithBackgroundImage;
-import com.mujeeb.mosquedashboard.util.VoiceUtil;
 
 public class Main {
 	
@@ -25,10 +28,15 @@ public class Main {
 	public static int windowWidth = 0;
 	
 	protected static TimePanel timePanel = new TimePanel();
+	protected static Map<String,Object> data;
 
 	public static void main(String[] args) {
 		
-		VoiceUtil.play("resources/Allahu.mp3");
+		// VoiceUtil.play("resources/Allahu.mp3");
+		
+		// Get the stored Data
+		data = DataUtil.readDataFile();
+		IslamicUtil.getPrayerTimes(data);
 		
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,23 +73,23 @@ public class Main {
 		
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		centerPanel.add(new NamazTimePanel(false, "Asr", "العصر", "5:15"), gbc);
+		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_ASR), gbc);
 		
 		gbc.gridx = 1;
-		centerPanel.add(new NamazTimePanel(false, "Zuhr", "ظهر", "1:30"), gbc);
+		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_ZUHR), gbc);
 		
 		gbc.gridx = 2;
-		centerPanel.add(new NamazTimePanel(false, "Fajr", "الفجر", "6:10"), gbc);
+		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_FAJR), gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 2;
-		centerPanel.add(new NamazTimePanel(false, "Jumua", "جمعة", "1:00"), gbc);
+		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_JUMUA), gbc);
 		
 		gbc.gridx = 1;
-		centerPanel.add(new NamazTimePanel(false, "Isha", "عشا", "8:30"), gbc);
+		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_ISHA), gbc);
 		
 		gbc.gridx = 2;
-		centerPanel.add(new NamazTimePanel(true, "Maghrib", "المغرب", "6:32"), gbc);
+		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_MAGHRIB), gbc);
 		
 		mainPanel.setLayout(new BorderLayout());
 		mainPanel.add(centerPanel, BorderLayout.CENTER);
@@ -92,4 +100,7 @@ public class Main {
 		frame.repaint();
 	}
 
+	public static Map<String,Object> getData() {
+		return data;
+	}
 }

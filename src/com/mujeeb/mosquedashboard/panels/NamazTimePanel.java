@@ -5,12 +5,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.mujeeb.mosquedashboard.main.Main;
+import com.mujeeb.mosquedashboard.util.Constants;
+import com.mujeeb.mosquedashboard.util.DateUtil;
 import com.mujeeb.mosquedashboard.util.JPanelWithRoundedBorder;
 
 public class NamazTimePanel extends JPanelWithRoundedBorder {
@@ -27,12 +30,48 @@ public class NamazTimePanel extends JPanelWithRoundedBorder {
 	
 	protected boolean isMaghrib = false;
 
-	public NamazTimePanel(boolean isMaghrib, String englishName, String arabicName, String time) {
+	public NamazTimePanel(String namazTimeName) {
 		
-		this.isMaghrib = isMaghrib;
-		this.englishName = englishName;
-		this.arabicName = arabicName;
-		this.time = time;
+		Map<String,Object> data = Main.getData();
+		
+		switch(namazTimeName) {
+			case Constants.KEY_NAMAZ_TIME_FAJR:
+				this.isMaghrib = false;
+				this.englishName = "Fajr";
+				this.arabicName = "الفجر";
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_FAJR));
+				break;
+			case Constants.KEY_NAMAZ_TIME_ZUHR:
+				this.isMaghrib = false;
+				this.englishName = "Zuhr";
+				this.arabicName = "ظهر";
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_ZUHR));
+				break;
+			case Constants.KEY_NAMAZ_TIME_ASR:
+				this.isMaghrib = false;
+				this.englishName = "Asr";
+				this.arabicName = "العصر";
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_ASR));
+				break;
+			case Constants.KEY_NAMAZ_TIME_MAGHRIB:
+				this.isMaghrib = true;
+				this.englishName = "Maghrib";
+				this.arabicName = "المغرب";
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_MAGHRIB));
+				break;
+			case Constants.KEY_NAMAZ_TIME_ISHA:
+				this.isMaghrib = false;
+				this.englishName = "Isha";
+				this.arabicName = "عشا";
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_ISHA));
+				break;
+			case Constants.KEY_NAMAZ_TIME_JUMUA:
+				this.isMaghrib = false;
+				this.englishName = "Jumua";
+				this.arabicName = "جمعة";
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_JUMUA));
+				break;
+		}
 		
 		setOpaque(false);
 		setPreferredSize(new Dimension((int)(Main.windowWidth/4), (int)(Main.windowHeight/3.2)));

@@ -1,12 +1,8 @@
 package com.mujeeb.mosquedashboard.util;
 
-//import java.io.IOException;
-//import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
@@ -26,6 +22,7 @@ import org.arabeyes.itl.prayer.astro.Location;
 //import com.google.code.geocoder.model.GeocoderResult;
 //import com.google.code.geocoder.model.LatLng;
 import com.mujeeb.mosquedashboard.beans.DateBean;
+import com.mujeeb.mosquedashboard.main.Main;
 
 
 public class IslamicUtil {
@@ -55,7 +52,7 @@ public class IslamicUtil {
 //		logger.debug(findQibla("London"));  // London
 //		logger.debug(getHijriDate());
 //		logger.debug(getPrayerTimes("bangalore"));
-		System.out.println(getPrayerTimes());
+//		System.out.println(getPrayerTimes());
 //		System.out.println(checkMagribPassed(new Date()));
 		System.out.println(getHijriDate(-1));
 	}
@@ -106,16 +103,25 @@ public class IslamicUtil {
 //	}
 	
 	public static String getHijriDateString() {
+//		/* Convert current date to Hijri calendar. */
+//		SimpleHijriDate hdate = HijriCalc.toHijri(new Date());
+//		
+//		/* Prepare full Hijri date string */
+//		Locale locale = Locale.getDefault();
+//		return new StringBuilder(hdate.getDayOfWeekName(locale)).append(", ")
+//					.append(hdate.getDayOfMonth()).append(" ")
+//					.append(hdate.getMonthName(locale)).append(" ")
+//					.append(hdate.getYear()).append(" ")
+//					.append(hdate.getEraName(locale)).toString();
+		
 		/* Convert current date to Hijri calendar. */
 		SimpleHijriDate hdate = HijriCalc.toHijri(new Date());
 		
 		/* Prepare full Hijri date string */
 		Locale locale = Locale.getDefault();
-		return new StringBuilder(hdate.getDayOfWeekName(locale)).append(", ")
-					.append(hdate.getDayOfMonth()).append(" ")
+		return new StringBuilder().append(hdate.getDayOfMonth()).append(" ")
 					.append(hdate.getMonthName(locale)).append(" ")
-					.append(hdate.getYear()).append(" ")
-					.append(hdate.getEraName(locale)).toString();
+					.append(hdate.getYear()).toString();
 	}
 	
 	public static DateBean getHijriDate(int adjustment) {
@@ -137,19 +143,11 @@ public class IslamicUtil {
 	}*/
 	
 	public static boolean isPostMagrib() {
-		Map<String,String> hijriNamazTimes = IslamicUtil.getPrayerTimes();
-		String[] magribTime = hijriNamazTimes.get("Maghrib").split(":");
-	   	int hour = -1;
-	   	int minute = -1;
+		
+		int[] magribTime = (int[]) Main.getData().get(Constants.KEY_NAMAZ_TIME_MAGHRIB);
+	   	int hour = magribTime[0];
+	   	int minute = magribTime[1];
 	   	
-	   	try {
-	   		hour = Integer.parseInt(magribTime[0]) + 12;
-	   	}catch(Exception ex) { /*Do Nothing*/ }
-	   	
-	   	try {
-	   		minute = Integer.parseInt(magribTime[1]);
-	   	}catch(Exception ex) { /*Do Nothing*/ }
-
 	   	Calendar cal = new GregorianCalendar();
 	   	int currentHours = cal.get(Calendar.HOUR_OF_DAY);
 	   	int currentMinutes = cal.get(Calendar.MINUTE);
@@ -168,7 +166,7 @@ public class IslamicUtil {
 		return calendar.getTime();
 	}
 
-	public static Map<String,String> getPrayerTimes() {
+	public static void getPrayerTimes(Map<String,Object> data) {
 		
 		double latitude = 13.1309241;
 		double longitude = 77.6351945;
@@ -188,24 +186,24 @@ public class IslamicUtil {
 		/* Print it (using default locale). */
 		TimeNames names = TimeNames.getInstance(Locale.getDefault());
 		
-		Map<String,String> times = new HashMap<String,String>();
 		for (int i=0; i < names.size(); ++i) {
 			
 			if(names.get(i).equalsIgnoreCase("Sunrise")) {
-				times.put("Ishraq", getFormattedTime(prayerTimes.get(i).getHour(), prayerTimes.get(i).getMinute(), 20)); // Ishraq
+				data.put(Constants.KEY_NAMAZ_TIME_ISHRAQ, getFormattedTime(prayerTimes.get(i).getHour(), prayerTimes.get(i).getMinute(), 20)); // Ishraq
+				
 			} if(names.get(i).equalsIgnoreCase("Fajr")) {
-				times.put("Suhur", getFormattedTime(prayerTimes.get(i).getHour(), prayerTimes.get(i).getMinute(), 0)); // Ishraq
+				data.put(Constants.KEY_NAMAZ_TIME_SUHUR, getFormattedTime(prayerTimes.get(i).getHour(), prayerTimes.get(i).getMinute(), 0)); // Ishraq
+				
 			} else if(names.get(i).equalsIgnoreCase("Maghrib")) {
-				times.put("Maghrib", getFormattedTime(prayerTimes.get(i).getHour(), prayerTimes.get(i).getMinute(), 3)); // 4 Minutes after Sunset
-				times.put("Iftar", getFormattedTime(prayerTimes.get(i).getHour(), prayerTimes.get(i).getMinute()));
+				data.put(Constants.KEY_NAMAZ_TIME_MAGHRIB, getFormattedTime(prayerTimes.get(i).getHour(), prayerTimes.get(i).getMinute(), 3)); // 3 Minutes after Sunset
+				data.put(Constants.KEY_NAMAZ_TIME_IFTAR, getFormattedTime(prayerTimes.get(i).getHour(), prayerTimes.get(i).getMinute(), 0)); // At Sunset
+				
 			} else {
 //				times.put(names.get(i), getFormattedTime(prayerTimes.get(i).getHour(), prayerTimes.get(i).getMinute()));
 			}
 		}
 		
-		times.put("Duha", getFormattedTime(9, 30));
-		
-		return times;
+		data.put(Constants.KEY_NAMAZ_TIME_DUHA, new int[] {9,30}); // Fixed time 9:30am
 	}
 	
 //	private static long calculateQibla(double latitude, double longitude) {
@@ -236,21 +234,21 @@ public class IslamicUtil {
 //		}
 //	}
 	
-	private static String getFormattedTime(int hour, int minute) {
-		Calendar calendar = new GregorianCalendar();
-		calendar.set(Calendar.HOUR_OF_DAY, hour);
-		calendar.set(Calendar.MINUTE, minute);
-//		return new SimpleDateFormat("hh:mm a").format(calendar.getTime());
-		return new SimpleDateFormat("h:mm").format(calendar.getTime());
-	}
+//	private static String getFormattedTime(int hour, int minute) {
+//		Calendar calendar = new GregorianCalendar();
+//		calendar.set(Calendar.HOUR_OF_DAY, hour);
+//		calendar.set(Calendar.MINUTE, minute);
+////		return new SimpleDateFormat("hh:mm a").format(calendar.getTime());
+//		return new SimpleDateFormat("h:mm").format(calendar.getTime());
+//	}
 	
-	private static String getFormattedTime(int hour, int minute, int minuteOffset) {
+	private static int[] getFormattedTime(int hour, int minute, int minuteOffset) {
 		Calendar calendar = new GregorianCalendar();
 		calendar.set(Calendar.HOUR_OF_DAY, hour);
 		calendar.set(Calendar.MINUTE, minute);
 		calendar.add(Calendar.MINUTE, minuteOffset);
 //		return new SimpleDateFormat("hh:mm a").format(calendar.getTime());
-		return new SimpleDateFormat("h:mm").format(calendar.getTime());
+		return new int[] {calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE)};
 	}
 
 //	private static Method getCalculationMethod(String city) {

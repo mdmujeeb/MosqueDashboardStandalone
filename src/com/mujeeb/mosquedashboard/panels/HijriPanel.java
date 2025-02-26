@@ -6,12 +6,15 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.util.Date;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import com.mujeeb.mosquedashboard.main.Main;
+import com.mujeeb.mosquedashboard.util.Constants;
+import com.mujeeb.mosquedashboard.util.IslamicUtil;
 import com.mujeeb.mosquedashboard.util.JPanelWithBackgroundImage;
 
 public class HijriPanel extends JPanelWithBackgroundImage {
@@ -26,17 +29,19 @@ public class HijriPanel extends JPanelWithBackgroundImage {
 	
 	public HijriPanel() {
 		super(backgroundImage);
-		
 		setOpaque(false);
 		setPreferredSize(new Dimension((int)(Main.windowWidth/3), (int)(Main.windowHeight/3)));
 		
-		dateLabel.setText("8 Jumada II 1443");
+		Map<String,Object> data = Main.getData();
+		
+		dateLabel.setText(IslamicUtil.getHijriDateString());
 		dateLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/27));
 		dateLabel.setForeground(Color.WHITE);
 		dateLabel.setHorizontalAlignment(JLabel.CENTER);
 		dateLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 		
-		moonImageLabel.setIcon(new ImageIcon("resources/moonphases/16.png"));
+		String hijriDate = IslamicUtil.getHijriDate((int) data.get(Constants.KEY_HIJRI_ADJUSTMENT)).getDate();
+		moonImageLabel.setIcon(new ImageIcon("resources/moonphases/" + hijriDate + ".png"));
 		moonImageLabel.setHorizontalAlignment(JLabel.CENTER);
 		moonImageLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowWidth/80, 0));
 		
