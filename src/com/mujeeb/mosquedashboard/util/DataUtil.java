@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.TreeMap;
 
+import com.mujeeb.mosquedashboard.main.Main;
+
 public class DataUtil {
 
 	public static final String DATA_FILE = "resources/settings.dat";
@@ -96,5 +98,22 @@ public class DataUtil {
 	protected static String formatTime(Object objTime) {
 		int[] time = (int[]) objTime;
 		return time[0] + ":" + time[1];
+	}
+	
+	// API Methods
+	public static void changeNamazTIme(String namazTimeName, int hour, int minute) {
+		
+		Map<String,Object> data = Main.getData();
+		data.put(namazTimeName, new int[] {hour, minute});
+		writeDataFile(data);
+		Main.refreshNamazTime(namazTimeName);
+	}
+	
+	public static void changeHijriAdjustment(int hijriAdjustment) {
+		
+		Map<String,Object> data = Main.getData();
+		data.put(Constants.KEY_HIJRI_ADJUSTMENT, hijriAdjustment);
+		writeDataFile(data);
+		Main.refreshHijriDateComponents();
 	}
 }

@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -34,6 +35,8 @@ public class Main {
 	public static int windowWidth = 0;
 	
 	protected static Map<String,Object> data;
+	
+	protected static String AUDIO_FILE_PATH = "resources/Allahu.mp3";
 	
 	protected static GregorianPanel gregorianPanel;
 	protected static TimePanel timePanel;
@@ -259,7 +262,7 @@ public class Main {
 			  
 			  // Play Audio for All namaz times, except Iftar
 			  if(!overlapNamazTime.equals(Constants.KEY_NAMAZ_TIME_IFTAR)) {
-				  VoiceUtil.play("resources/Allahu.mp3");
+				  VoiceUtil.play(AUDIO_FILE_PATH);
 			  }
 		  }
 	}
@@ -318,6 +321,38 @@ public class Main {
 
 	public static Map<String,Object> getData() {
 		return data;
+	}
+	
+	// For Data Saving operations
+	
+	public static void refreshNamazTime(String namazTimeName) {
+		NamazTimePanel panel = namazTimePanels.get(namazTimeName);
+		if(panel != null) {
+			panel.refreshData();
+		}
+	}
+	
+	public static void refreshHijriDateComponents() {
+		refreshNamazTime(Constants.KEY_NAMAZ_TIME_MAGHRIB);
+		gregorianPanel.refreshData();
+		hijriPanel.refreshData();
+	}
+	
+	public static void testAudio() {
+		VoiceUtil.play(AUDIO_FILE_PATH);
+	}
+	
+	public static void changeScreenSaverState(boolean isOn) {
+		// GPIO Code
+	}
+	
+	public static void restartSystem() {
+		try {
+			Runtime.getRuntime().exec(new String[]{"reboot"});
+			
+		} catch (IOException e) {
+			/* Do Nothing */
+		}
 	}
 }
 
