@@ -26,6 +26,7 @@ import com.mujeeb.mosquedashboard.util.Constants;
 import com.mujeeb.mosquedashboard.util.DataUtil;
 import com.mujeeb.mosquedashboard.util.IslamicUtil;
 import com.mujeeb.mosquedashboard.util.JPanelWithBackgroundImage;
+import com.mujeeb.mosquedashboard.util.VoiceUtil;
 
 public class Main {
 	
@@ -38,10 +39,12 @@ public class Main {
 	protected static TimePanel timePanel;
 	protected static HijriPanel hijriPanel;
 	protected static Map<String,NamazTimePanel> namazTimePanels = new HashMap<String,NamazTimePanel>();
+	
+	// Timers for Blinking
+	protected static BlinkData blinkData = new BlinkData();
+	protected static NamazTimes namazTimes = new NamazTimes();
 
 	public static void main(String[] args) {
-		
-		// VoiceUtil.play("resources/Allahu.mp3");
 		
 		data = DataUtil.readDataFile();				// Get the stored Data
 		IslamicUtil.getPrayerTimes(data);			// Calculate Maghrib and other dynamic times
@@ -52,8 +55,8 @@ public class Main {
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 		
-//		frame.setBackground(Color.BLACK);
-//		frame.getContentPane().setBackground(Color.BLACK);
+		frame.setBackground(Color.BLACK);
+		frame.getContentPane().setBackground(Color.BLACK);
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
 		
 		Image backgroundImage = new ImageIcon("resources/background.png").getImage();
@@ -122,6 +125,9 @@ public class Main {
 		hijriPanel.refreshData();
 		namazTimePanels.values().stream().forEach(panel -> panel.refreshData());
 		
+		updateNamazTimeData();
+		checkForNextNamazTime();
+		
 		frame.setVisible(true);
 		frame.repaint();
 		
@@ -137,6 +143,11 @@ public class Main {
 						|| previousDate.get(Calendar.MINUTE) != currentDate.get(Calendar.MINUTE)) {
 
 					timePanel.refreshData();
+					
+					updateNamazTimeData();
+					checkForNextNamazTime();
+					checkIsNowNamazTime();
+					
 					previousDate.set(Calendar.HOUR_OF_DAY, currentDate.get(Calendar.HOUR_OF_DAY));
 					previousDate.set(Calendar.MINUTE, currentDate.get(Calendar.MINUTE));
 				}
@@ -156,9 +167,292 @@ public class Main {
 				}
 			}
 		}, 0, 1000);
+		
+		
+//		startBlinking(Constants.KEY_NAMAZ_TIME_JUMUA);
+	}
+	
+	public static void checkForNextNamazTime() {
+		
+		 String nextNamazTime = Constants.KEY_NAMAZ_TIME_FAJR;
+		
+		 if(namazTimes.getCurrentHour() > namazTimes.getNamazTimeIsha()[0] 
+				 || (namazTimes.getCurrentHour() == namazTimes.getNamazTimeIsha()[0] && namazTimes.getCurrentMinute() > namazTimes.getNamazTimeIsha()[1])) {
+			 nextNamazTime = Constants.KEY_NAMAZ_TIME_FAJR;
+
+	     }else if(namazTimes.getCurrentHour() > namazTimes.getNamazTimeMaghrib()[0] 
+	    		 || (namazTimes.getCurrentHour() == namazTimes.getNamazTimeMaghrib()[0] && namazTimes.getCurrentMinute() > namazTimes.getNamazTimeMaghrib()[1])) {
+	    	 nextNamazTime = Constants.KEY_NAMAZ_TIME_ISHA;
+
+	     }else if(namazTimes.getCurrentHour() > namazTimes.getNamazTimeAsr()[0] 
+	    		 || (namazTimes.getCurrentHour() == namazTimes.getNamazTimeAsr()[0] && namazTimes.getCurrentMinute() > namazTimes.getNamazTimeAsr()[1])) {
+	    	 nextNamazTime = Constants.KEY_NAMAZ_TIME_MAGHRIB;
+
+	     }else if(namazTimes.getCurrentHour() > namazTimes.getNamazTimeNoon()[0]
+	    		 || (namazTimes.getCurrentHour() == namazTimes.getNamazTimeNoon()[0] && namazTimes.getCurrentMinute() >namazTimes.getNamazTimeNoon()[1])) {
+	    	 nextNamazTime = Constants.KEY_NAMAZ_TIME_ASR;
+
+	     }else if(namazTimes.getCurrentHour() > namazTimes.getNamazTimeFajr()[0] 
+	    		 || (namazTimes.getCurrentHour() == namazTimes.getNamazTimeFajr()[0] && namazTimes.getCurrentMinute() > namazTimes.getNamazTimeFajr()[1])) {
+	    	 nextNamazTime = namazTimes.isTodayFriday() ? Constants.KEY_NAMAZ_TIME_JUMUA : Constants.KEY_NAMAZ_TIME_ZUHR;
+
+	     } else {
+	    	 nextNamazTime = Constants.KEY_NAMAZ_TIME_FAJR;
+	     }
+
+	     // Set all Namaz Time namme colors to Grean
+		 namazTimePanels.values().stream().forEach(panel -> panel.nextNamazTime(false));
+
+		 // Set Next namaz time to Cyan
+		 namazTimePanels.get(nextNamazTime).nextNamazTime(true);
+	}
+	
+	public static void checkIsNowNamazTime() {
+		
+		  String overlapNamazTime = null;
+	
+		  if(namazTimes.getCurrentHour() == namazTimes.getNamazTimeIsha()[0] && namazTimes.getCurrentMinute() == namazTimes.getNamazTimeIsha()[1]) {
+		    overlapNamazTime = Constants.KEY_NAMAZ_TIME_ISHA;
+	
+		  }else if(namazTimes.getCurrentHour() == namazTimes.getNamazTimeMaghrib()[0] && namazTimes.getCurrentMinute() == namazTimes.getNamazTimeMaghrib()[1]) {
+		    overlapNamazTime = Constants.KEY_NAMAZ_TIME_MAGHRIB;
+	
+		  }else if(namazTimes.getCurrentHour() == namazTimes.getNamazTimeAsr()[0] && namazTimes.getCurrentMinute() == namazTimes.getNamazTimeAsr()[1]) {
+		    overlapNamazTime = Constants.KEY_NAMAZ_TIME_ASR;
+	
+		  }else if(namazTimes.getCurrentHour() == namazTimes.getNamazTimeNoon()[0] && namazTimes.getCurrentMinute() == namazTimes.getNamazTimeNoon()[1]) {
+		    overlapNamazTime = namazTimes.isTodayFriday() ? Constants.KEY_NAMAZ_TIME_JUMUA : Constants.KEY_NAMAZ_TIME_ZUHR;
+	
+		  }else if(namazTimes.getCurrentHour() == namazTimes.getNamazTimeFajr()[0] && namazTimes.getCurrentMinute() == namazTimes.getNamazTimeFajr()[1]) {
+		    overlapNamazTime = Constants.KEY_NAMAZ_TIME_FAJR;
+	
+		  }else if(namazTimes.getCurrentHour() == namazTimes.getNamazTimeIshraq()[0] && namazTimes.getCurrentMinute() == namazTimes.getNamazTimeIshraq()[1]) {
+		    overlapNamazTime = Constants.KEY_NAMAZ_TIME_ISHRAQ;
+	
+		  }else if(namazTimes.getCurrentHour() == namazTimes.getNamazTimeDuha()[0] && namazTimes.getCurrentMinute() == namazTimes.getNamazTimeDuha()[1]) {
+			    overlapNamazTime = Constants.KEY_NAMAZ_TIME_DUHA;
+				
+		  } else if(namazTimes.getCurrentHour() == namazTimes.getNamazTimeSuhur()[0] && namazTimes.getCurrentMinute() == namazTimes.getNamazTimeSuhur()[1]) {
+		    overlapNamazTime = Constants.KEY_NAMAZ_TIME_SUHUR;
+	
+		  }else if(namazTimes.getCurrentHour() == namazTimes.getNamazTimeIftar()[0] && namazTimes.getCurrentMinute() == namazTimes.getNamazTimeIftar()[1]) {
+		    overlapNamazTime = Constants.KEY_NAMAZ_TIME_IFTAR;
+	
+		  }
+	
+		  // Check if Screen Saver needs to be turned On or Off
+		  if(namazTimes.getCurrentHour() == namazTimes.getScreenOnTime()[0] && namazTimes.getCurrentMinute() == namazTimes.getScreenOnTime()[1]) {
+//		    if(digitalRead(RELAY_PIN) == HIGH) {
+//		      digitalWrite (RELAY_PIN, LOW);
+//		    }
+		  }
+		  if(namazTimes.getCurrentHour() == namazTimes.getScreenOffTime()[0] && namazTimes.getCurrentMinute() == namazTimes.getScreenOffTime()[1]) {
+//		    if(digitalRead(RELAY_PIN) == LOW) {
+//		      digitalWrite (RELAY_PIN, HIGH);
+//		    }
+		  }
+	
+		  if(overlapNamazTime != null) {
+			  
+			  // Start the blinking
+			  startBlinking(overlapNamazTime);
+			  
+			  // Play Audio for All namaz times, except Iftar
+			  if(!overlapNamazTime.equals(Constants.KEY_NAMAZ_TIME_IFTAR)) {
+				  VoiceUtil.play("resources/Allahu.mp3");
+			  }
+		  }
+	}
+	
+	public static void startBlinking(String namazTime) {
+		blinkData.setOn(true);
+		blinkData.setBlinkNamazTime(namazTime);
+		
+		Timer blinkTimer = new Timer();
+		blinkTimer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				NamazTimePanel panel = namazTimePanels.get(blinkData.getBlinkNamazTime());
+				if(panel != null) {
+					panel.setBlink(blinkData.isOn());
+				}
+				gregorianPanel.setBlink(blinkData.getBlinkNamazTime(), blinkData.isOn());
+				blinkData.setOn(!blinkData.isOn());
+			}
+		}, 0, 1000);
+		
+		new Timer().schedule(new TimerTask() {
+			@Override
+			public void run() {
+				blinkTimer.cancel();
+				NamazTimePanel panel = namazTimePanels.get(blinkData.getBlinkNamazTime());
+				if(panel != null) {
+					panel.nextNamazTime(true);
+				}
+				gregorianPanel.stopBlink(blinkData.getBlinkNamazTime());
+			}
+		}, 20000);
+	}
+	
+	public static void updateNamazTimeData() {
+		
+		Calendar currentDate = new GregorianCalendar();
+		// Format Data for Easy Usage
+		namazTimes.setCurrentHour(currentDate.get(Calendar.HOUR_OF_DAY));
+		namazTimes.setCurrentMinute(currentDate.get(Calendar.MINUTE));
+		namazTimes.setTodayFriday(currentDate.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY);
+		namazTimes.setNamazTimeFajr((int[])data.get(Constants.KEY_NAMAZ_TIME_FAJR));
+		namazTimes.setNamazTimeZuhr((int[])data.get(Constants.KEY_NAMAZ_TIME_ZUHR));
+		namazTimes.setNamazTimeAsr((int[])data.get(Constants.KEY_NAMAZ_TIME_ASR));
+		namazTimes.setNamazTimeMaghrib((int[])data.get(Constants.KEY_NAMAZ_TIME_MAGHRIB));
+		namazTimes.setNamazTimeIsha((int[])data.get(Constants.KEY_NAMAZ_TIME_ISHA));
+		namazTimes.setNamazTimeJumua((int[])data.get(Constants.KEY_NAMAZ_TIME_JUMUA));
+		namazTimes.setNamazTimeNoon(namazTimes.isTodayFriday() ? namazTimes.getNamazTimeJumua() : namazTimes.getNamazTimeZuhr());
+		namazTimes.setNamazTimeIshraq((int[])data.get(Constants.KEY_NAMAZ_TIME_ISHRAQ));
+		namazTimes.setNamazTimeDuha((int[])data.get(Constants.KEY_NAMAZ_TIME_DUHA));
+		namazTimes.setNamazTimeSuhur((int[])data.get(Constants.KEY_NAMAZ_TIME_SUHUR));
+		namazTimes.setNamazTimeIftar((int[])data.get(Constants.KEY_NAMAZ_TIME_IFTAR));
+		namazTimes.setScreenOffTime((int[])data.get(Constants.KEY_SCREENSAVER_ON));
+		namazTimes.setScreenOnTime((int[])data.get(Constants.KEY_SCREENSAVER_OFF));
 	}
 
 	public static Map<String,Object> getData() {
 		return data;
+	}
+}
+
+//Class for Blink Data
+class BlinkData {
+	protected boolean isOn;
+	protected String blinkNamazTime;
+	
+	public boolean isOn() {
+		return isOn;
+	}
+	public void setOn(boolean isOn) {
+		this.isOn = isOn;
+	}
+	public String getBlinkNamazTime() {
+		return blinkNamazTime;
+	}
+	public void setBlinkNamazTime(String blinkNamazTime) {
+		this.blinkNamazTime = blinkNamazTime;
+	}
+}
+
+class NamazTimes {
+	
+	int currentHour;
+	int currentMinute;
+    boolean isTodayFriday = false;
+    int[] namazTimeFajr;
+    int[] namazTimeZuhr;
+    int[] namazTimeAsr;
+    int[] namazTimeMaghrib;
+    int[] namazTimeIsha;
+    int[] namazTimeJumua;
+    int[] namazTimeNoon;
+    int[] namazTimeIshraq;
+    int[] namazTimeDuha;
+    int[] namazTimeSuhur;
+    int[] namazTimeIftar;
+    int[] screenOnTime;
+    int[] screenOffTime;
+	 
+	public boolean isTodayFriday() {
+		return isTodayFriday;
+	}
+	public void setTodayFriday(boolean isTodayFriday) {
+		this.isTodayFriday = isTodayFriday;
+	}
+	public int[] getNamazTimeFajr() {
+		return namazTimeFajr;
+	}
+	public void setNamazTimeFajr(int[] namazTimeFajr) {
+		this.namazTimeFajr = namazTimeFajr;
+	}
+	public int[] getNamazTimeZuhr() {
+		return namazTimeZuhr;
+	}
+	public void setNamazTimeZuhr(int[] namazTimeZuhr) {
+		this.namazTimeZuhr = namazTimeZuhr;
+	}
+	public int[] getNamazTimeAsr() {
+		return namazTimeAsr;
+	}
+	public void setNamazTimeAsr(int[] namazTimeAsr) {
+		this.namazTimeAsr = namazTimeAsr;
+	}
+	public int[] getNamazTimeMaghrib() {
+		return namazTimeMaghrib;
+	}
+	public void setNamazTimeMaghrib(int[] namazTimeMaghrib) {
+		this.namazTimeMaghrib = namazTimeMaghrib;
+	}
+	public int[] getNamazTimeIsha() {
+		return namazTimeIsha;
+	}
+	public void setNamazTimeIsha(int[] namazTimeIsha) {
+		this.namazTimeIsha = namazTimeIsha;
+	}
+	public int[] getNamazTimeJumua() {
+		return namazTimeJumua;
+	}
+	public void setNamazTimeJumua(int[] namazTimeJumua) {
+		this.namazTimeJumua = namazTimeJumua;
+	}
+	public int[] getNamazTimeNoon() {
+		return namazTimeNoon;
+	}
+	public void setNamazTimeNoon(int[] namazTimeNoon) {
+		this.namazTimeNoon = namazTimeNoon;
+	}
+	public int getCurrentHour() {
+		return currentHour;
+	}
+	public void setCurrentHour(int currentHour) {
+		this.currentHour = currentHour;
+	}
+	public int getCurrentMinute() {
+		return currentMinute;
+	}
+	public void setCurrentMinute(int currentMinute) {
+		this.currentMinute = currentMinute;
+	}
+	public int[] getNamazTimeIshraq() {
+		return namazTimeIshraq;
+	}
+	public void setNamazTimeIshraq(int[] namazTimeIshraq) {
+		this.namazTimeIshraq = namazTimeIshraq;
+	}
+	public int[] getNamazTimeDuha() {
+		return namazTimeDuha;
+	}
+	public void setNamazTimeDuha(int[] namazTimeDuha) {
+		this.namazTimeDuha = namazTimeDuha;
+	}
+	public int[] getNamazTimeSuhur() {
+		return namazTimeSuhur;
+	}
+	public void setNamazTimeSuhur(int[] namazTimeSuhur) {
+		this.namazTimeSuhur = namazTimeSuhur;
+	}
+	public int[] getNamazTimeIftar() {
+		return namazTimeIftar;
+	}
+	public void setNamazTimeIftar(int[] namazTimeIftar) {
+		this.namazTimeIftar = namazTimeIftar;
+	}
+	public int[] getScreenOnTime() {
+		return screenOnTime;
+	}
+	public void setScreenOnTime(int[] screenOnTime) {
+		this.screenOnTime = screenOnTime;
+	}
+	public int[] getScreenOffTime() {
+		return screenOffTime;
+	}
+	public void setScreenOffTime(int[] screenOffTime) {
+		this.screenOffTime = screenOffTime;
 	}
 }

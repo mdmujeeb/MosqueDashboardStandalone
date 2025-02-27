@@ -134,4 +134,14 @@ public class NamazTimePanel extends JPanelWithRoundedBorder {
 		
 		timeLabel.setText(this.time);
 	}
+	
+	public void nextNamazTime(boolean isTrue) {
+		
+		timeLabel.setForeground(isTrue ? Color.CYAN : Color.GREEN);
+	}
+	
+	public void setBlink(boolean isOn) {
+		
+		timeLabel.setForeground(isOn ? Color.RED : Color.GREEN);
+	}
 }

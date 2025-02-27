@@ -26,7 +26,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 	protected JLabel dateLabel = new JLabel();
 	protected JLabel dayLabel = new JLabel();
 	protected JLabel seheriNameLabel = new JLabel();
-	protected JLabel seheriTimeLabel = new JLabel();
+	protected JLabel suhurTimeLabel = new JLabel();
 	protected JLabel iftarNameLabel = new JLabel();
 	protected JLabel iftarTimeLabel = new JLabel();
 	protected JLabel ishraqNameLabel = new JLabel();
@@ -58,10 +58,10 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		seheriNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		seheriNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
-		seheriTimeLabel.setText("00:00");
-		seheriTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
-		seheriTimeLabel.setForeground(Color.CYAN);
-		seheriTimeLabel.setHorizontalAlignment(JLabel.CENTER);
+		suhurTimeLabel.setText("00:00");
+		suhurTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
+		suhurTimeLabel.setForeground(Color.CYAN);
+		suhurTimeLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		iftarNameLabel.setText("افطار");
 		iftarNameLabel.setFont(new Font(arabicFontName, Font.PLAIN, Main.windowWidth/fontSize));
@@ -111,7 +111,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		
 		timesPanel.add(ishraqTimeLabel);
 		timesPanel.add(ishraqNameLabel);
-		timesPanel.add(seheriTimeLabel);
+		timesPanel.add(suhurTimeLabel);
 		timesPanel.add(seheriNameLabel);
 		timesPanel.add(duhaTimeLabel);
 		timesPanel.add(duhaNameLabel);
@@ -127,9 +127,28 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		
 		dateLabel.setText(DateUtil.formatDate("dd MMMM yyyy", date));
 		dayLabel.setText(DateUtil.getDayName(date));
-		seheriTimeLabel.setText(DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_SUHUR)));
+		suhurTimeLabel.setText(DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_SUHUR)));
 		iftarTimeLabel.setText(DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_IFTAR)));
 		ishraqTimeLabel.setText(DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_ISHRAQ)));
 		duhaTimeLabel.setText(DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_DUHA)));
+	}
+	
+	public void setBlink(String namazTime, boolean isOn) {
+		
+		switch(namazTime) {
+			case Constants.KEY_NAMAZ_TIME_SUHUR: suhurTimeLabel.setForeground(isOn ? Color.RED : Color.GREEN); break;
+			case Constants.KEY_NAMAZ_TIME_IFTAR: iftarTimeLabel.setForeground(isOn ? Color.RED : Color.GREEN); break;
+			case Constants.KEY_NAMAZ_TIME_ISHRAQ: ishraqTimeLabel.setForeground(isOn ? Color.RED : Color.GREEN); break;
+			case Constants.KEY_NAMAZ_TIME_DUHA: duhaTimeLabel.setForeground(isOn ? Color.RED : Color.GREEN); break;
+		}
+	}
+	
+	public void stopBlink(String namazTime) {
+		switch(namazTime) {
+			case Constants.KEY_NAMAZ_TIME_SUHUR: suhurTimeLabel.setForeground(Color.CYAN); break;
+			case Constants.KEY_NAMAZ_TIME_IFTAR: iftarTimeLabel.setForeground(Color.CYAN); break;
+			case Constants.KEY_NAMAZ_TIME_ISHRAQ: ishraqTimeLabel.setForeground(Color.CYAN); break;
+			case Constants.KEY_NAMAZ_TIME_DUHA: duhaTimeLabel.setForeground(Color.CYAN); break;
+		}
 	}
 }
