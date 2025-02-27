@@ -6,8 +6,12 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -39,13 +43,12 @@ public class Main {
 		
 		// VoiceUtil.play("resources/Allahu.mp3");
 		
-		// Get the stored Data
-		data = DataUtil.readDataFile();
-		IslamicUtil.getPrayerTimes(data);
+		data = DataUtil.readDataFile();				// Get the stored Data
+		IslamicUtil.getPrayerTimes(data);			// Calculate Maghrib and other dynamic times
 		
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setAlwaysOnTop(true);
+//		frame.setAlwaysOnTop(true);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 		
@@ -121,6 +124,38 @@ public class Main {
 		
 		frame.setVisible(true);
 		frame.repaint();
+		
+		Calendar previousDate = new GregorianCalendar();
+		
+		// Start a timer to update things every second.
+		new Timer().scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				Calendar currentDate = new GregorianCalendar();
+
+				if(previousDate.get(Calendar.HOUR_OF_DAY) != currentDate.get(Calendar.HOUR_OF_DAY)		// If Time has Changed, refresh Time panel
+						|| previousDate.get(Calendar.MINUTE) != currentDate.get(Calendar.MINUTE)) {
+
+					timePanel.refreshData();
+					previousDate.set(Calendar.HOUR_OF_DAY, currentDate.get(Calendar.HOUR_OF_DAY));
+					previousDate.set(Calendar.MINUTE, currentDate.get(Calendar.MINUTE));
+				}
+				
+				if(previousDate.get(Calendar.DATE) != currentDate.get(Calendar.DATE)					// If Date has Changed, refresh other panels
+						|| previousDate.get(Calendar.MONTH) != currentDate.get(Calendar.MONTH)
+						|| previousDate.get(Calendar.YEAR) != currentDate.get(Calendar.YEAR)) {
+					
+					IslamicUtil.getPrayerTimes(data);			// Calculate Maghrib and other dynamic times
+
+					gregorianPanel.refreshData();
+					hijriPanel.refreshData();
+					namazTimePanels.values().stream().forEach(panel -> panel.refreshData());
+					previousDate.set(Calendar.DATE, currentDate.get(Calendar.DATE));
+					previousDate.set(Calendar.MONTH, currentDate.get(Calendar.MONTH));
+					previousDate.set(Calendar.YEAR, currentDate.get(Calendar.YEAR));
+				}
+			}
+		}, 0, 1000);
 	}
 
 	public static Map<String,Object> getData() {

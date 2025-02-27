@@ -56,7 +56,7 @@ public class DateUtil {
 				return "Friday";
 		}
 	}
-
+	
 	public static final Date addDaysToDate(Date date, int days) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
