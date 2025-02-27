@@ -168,10 +168,10 @@ public class IslamicUtil {
 
 	public static void getPrayerTimes(Map<String,Object> data) {
 		
-		double latitude = 13.1309241;
-		double longitude = 77.6351945;
+		double latitude = (double) data.get(Constants.KEY_LATITUDE);
+		double longitude = (double) data.get(Constants.KEY_LONGITUDE);;
 //		String country = "India";
-		double gmtDifference = +5.5;
+		double gmtDifference = (double) data.get(Constants.KEY_GMT_DIFFERENCE);;;
 		
 //		Method method = getCalculationMethod(country);
 		Method method = DEFAULT_CALCULATION_METHOD;

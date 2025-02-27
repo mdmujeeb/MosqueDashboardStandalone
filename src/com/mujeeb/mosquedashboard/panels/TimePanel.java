@@ -17,17 +17,15 @@ public class TimePanel extends JPanelWithRoundedBorder {
 
 	private static final long serialVersionUID = 1L;
 	
-	protected Date currentTime = new Date();
 	protected JLabel timeLabel = new JLabel();
 //	protected JLabel secondsLabel = new JLabel();
 
 	public TimePanel() {
 		
 		setOpaque(false);
-//		setBorder(BorderFactory.createLineBorder(Color.red));
 		setPreferredSize(new Dimension((int)(Main.windowWidth/3), (int)(Main.windowHeight/3)));
 		
-		timeLabel.setText(DateUtil.getFormatted12HourTimeFromDate(currentTime));
+		timeLabel.setText("00:00");
 		timeLabel.setFont(new Font("Calibri", Font.BOLD, (int)(Main.windowWidth/7.5)));
 		timeLabel.setForeground(Color.RED);
 		timeLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -44,5 +42,10 @@ public class TimePanel extends JPanelWithRoundedBorder {
 		
 		setLayout(new CardLayout());
 		add(timeLabel);
+	}
+	
+	public void refreshData() {
+		
+		timeLabel.setText(DateUtil.getFormatted12HourTimeFromDate(new Date()));
 	}
 }

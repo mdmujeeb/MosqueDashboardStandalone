@@ -20,6 +20,8 @@ public class NamazTimePanel extends JPanelWithRoundedBorder {
 
 	private static final long serialVersionUID = 1L;
 	
+	protected String namazTimeName;
+	
 	protected JLabel englishNameLabel = new JLabel();
 	protected JLabel arabicNameLabel = new JLabel();
 	protected JLabel timeLabel = new JLabel();
@@ -32,44 +34,39 @@ public class NamazTimePanel extends JPanelWithRoundedBorder {
 
 	public NamazTimePanel(String namazTimeName) {
 		
-		Map<String,Object> data = Main.getData();
+		this.namazTimeName = namazTimeName;
+		this.time = "00:00";
 		
 		switch(namazTimeName) {
 			case Constants.KEY_NAMAZ_TIME_FAJR:
 				this.isMaghrib = false;
 				this.englishName = "Fajr";
 				this.arabicName = "الفجر";
-				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_FAJR));
 				break;
 			case Constants.KEY_NAMAZ_TIME_ZUHR:
 				this.isMaghrib = false;
 				this.englishName = "Zuhr";
 				this.arabicName = "ظهر";
-				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_ZUHR));
 				break;
 			case Constants.KEY_NAMAZ_TIME_ASR:
 				this.isMaghrib = false;
 				this.englishName = "Asr";
 				this.arabicName = "العصر";
-				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_ASR));
 				break;
 			case Constants.KEY_NAMAZ_TIME_MAGHRIB:
 				this.isMaghrib = true;
 				this.englishName = "Maghrib";
 				this.arabicName = "المغرب";
-				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_MAGHRIB));
 				break;
 			case Constants.KEY_NAMAZ_TIME_ISHA:
 				this.isMaghrib = false;
 				this.englishName = "Isha";
 				this.arabicName = "عشا";
-				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_ISHA));
 				break;
 			case Constants.KEY_NAMAZ_TIME_JUMUA:
 				this.isMaghrib = false;
 				this.englishName = "Jumua";
 				this.arabicName = "جمعة";
-				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_JUMUA));
 				break;
 		}
 		
@@ -108,5 +105,33 @@ public class NamazTimePanel extends JPanelWithRoundedBorder {
 		setLayout(new BorderLayout());
 		add(namesPanel, BorderLayout.NORTH);
 		add(timeLabel, BorderLayout.CENTER);
+	}
+	
+	public void refreshData() {
+		
+		Map<String,Object> data = Main.getData();
+		
+		switch(this.namazTimeName) {
+			case Constants.KEY_NAMAZ_TIME_FAJR:
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_FAJR));
+				break;
+			case Constants.KEY_NAMAZ_TIME_ZUHR:
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_ZUHR));
+				break;
+			case Constants.KEY_NAMAZ_TIME_ASR:
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_ASR));
+				break;
+			case Constants.KEY_NAMAZ_TIME_MAGHRIB:
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_MAGHRIB));
+				break;
+			case Constants.KEY_NAMAZ_TIME_ISHA:
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_ISHA));
+				break;
+			case Constants.KEY_NAMAZ_TIME_JUMUA:
+				this.time = DateUtil.getFormatted12HourTime((int[])data.get(Constants.KEY_NAMAZ_TIME_JUMUA));
+				break;
+		}
+		
+		timeLabel.setText(this.time);
 	}
 }

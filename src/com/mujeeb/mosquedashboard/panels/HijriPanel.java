@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
-import java.util.Date;
-import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -21,7 +19,6 @@ public class HijriPanel extends JPanelWithBackgroundImage {
 
 	private static final long serialVersionUID = 1L;
 	
-	protected Date currentTime = new Date();
 	protected JLabel dateLabel = new JLabel();
 	protected JLabel moonImageLabel = new JLabel();
 	
@@ -32,21 +29,25 @@ public class HijriPanel extends JPanelWithBackgroundImage {
 		setOpaque(false);
 		setPreferredSize(new Dimension((int)(Main.windowWidth/3), (int)(Main.windowHeight/3)));
 		
-		Map<String,Object> data = Main.getData();
-		
-		dateLabel.setText(IslamicUtil.getHijriDateString());
+		dateLabel.setText("00 Unknown 0000");
 		dateLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/27));
 		dateLabel.setForeground(Color.WHITE);
 		dateLabel.setHorizontalAlignment(JLabel.CENTER);
 		dateLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 		
-		String hijriDate = IslamicUtil.getHijriDate((int) data.get(Constants.KEY_HIJRI_ADJUSTMENT)).getDate();
-		moonImageLabel.setIcon(new ImageIcon("resources/moonphases/" + hijriDate + ".png"));
+		moonImageLabel.setIcon(new ImageIcon("resources/moonphases/16.png"));
 		moonImageLabel.setHorizontalAlignment(JLabel.CENTER);
 		moonImageLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowWidth/80, 0));
 		
 		setLayout(new BorderLayout());
 		add(dateLabel, BorderLayout.NORTH);
 		add(moonImageLabel, BorderLayout.CENTER);
+	}
+	
+	public void refreshData() {
+		
+		dateLabel.setText(IslamicUtil.getHijriDateString());
+		String hijriDate = IslamicUtil.getHijriDate((int) Main.getData().get(Constants.KEY_HIJRI_ADJUSTMENT)).getDate();
+		moonImageLabel.setIcon(new ImageIcon("resources/moonphases/" + hijriDate + ".png"));
 	}
 }

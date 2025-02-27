@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.ImageIcon;
@@ -27,8 +28,12 @@ public class Main {
 	public static int windowHeight = 0;
 	public static int windowWidth = 0;
 	
-	protected static TimePanel timePanel = new TimePanel();
 	protected static Map<String,Object> data;
+	
+	protected static GregorianPanel gregorianPanel;
+	protected static TimePanel timePanel;
+	protected static HijriPanel hijriPanel;
+	protected static Map<String,NamazTimePanel> namazTimePanels = new HashMap<String,NamazTimePanel>();
 
 	public static void main(String[] args) {
 		
@@ -55,6 +60,17 @@ public class Main {
 		windowWidth = frame.getSize().width;
 		windowHeight = frame.getSize().height;
 		
+		// Create all the Panels
+		gregorianPanel = new GregorianPanel();
+		timePanel = new TimePanel();
+		hijriPanel = new HijriPanel();
+		namazTimePanels.put(Constants.KEY_NAMAZ_TIME_FAJR, new NamazTimePanel(Constants.KEY_NAMAZ_TIME_FAJR));
+		namazTimePanels.put(Constants.KEY_NAMAZ_TIME_ZUHR, new NamazTimePanel(Constants.KEY_NAMAZ_TIME_ZUHR));
+		namazTimePanels.put(Constants.KEY_NAMAZ_TIME_ASR, new NamazTimePanel(Constants.KEY_NAMAZ_TIME_ASR));
+		namazTimePanels.put(Constants.KEY_NAMAZ_TIME_MAGHRIB, new NamazTimePanel(Constants.KEY_NAMAZ_TIME_MAGHRIB));
+		namazTimePanels.put(Constants.KEY_NAMAZ_TIME_ISHA, new NamazTimePanel(Constants.KEY_NAMAZ_TIME_ISHA));
+		namazTimePanels.put(Constants.KEY_NAMAZ_TIME_JUMUA, new NamazTimePanel(Constants.KEY_NAMAZ_TIME_JUMUA));
+		
 		JPanel centerPanel = new JPanel();
 		centerPanel.setOpaque(false);
 		centerPanel.setLayout(new GridBagLayout());
@@ -63,39 +79,46 @@ public class Main {
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		centerPanel.add(new GregorianPanel(), gbc);
+		centerPanel.add(gregorianPanel, gbc);
 		
 		gbc.gridx = 1;
-		centerPanel.add(new TimePanel(), gbc);
+		centerPanel.add(timePanel, gbc);
 		
 		gbc.gridx = 2;
-		centerPanel.add(new HijriPanel(), gbc);
+		centerPanel.add(hijriPanel, gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_ASR), gbc);
+		centerPanel.add(namazTimePanels.get(Constants.KEY_NAMAZ_TIME_ASR), gbc);
 		
 		gbc.gridx = 1;
-		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_ZUHR), gbc);
+		centerPanel.add(namazTimePanels.get(Constants.KEY_NAMAZ_TIME_ZUHR), gbc);
 		
 		gbc.gridx = 2;
-		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_FAJR), gbc);
+		centerPanel.add(namazTimePanels.get(Constants.KEY_NAMAZ_TIME_FAJR), gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 2;
-		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_JUMUA), gbc);
+		centerPanel.add(namazTimePanels.get(Constants.KEY_NAMAZ_TIME_JUMUA), gbc);
 		
 		gbc.gridx = 1;
-		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_ISHA), gbc);
+		centerPanel.add(namazTimePanels.get(Constants.KEY_NAMAZ_TIME_ISHA), gbc);
 		
 		gbc.gridx = 2;
-		centerPanel.add(new NamazTimePanel(Constants.KEY_NAMAZ_TIME_MAGHRIB), gbc);
+		centerPanel.add(namazTimePanels.get(Constants.KEY_NAMAZ_TIME_MAGHRIB), gbc);
 		
 		mainPanel.setLayout(new BorderLayout());
 		mainPanel.add(centerPanel, BorderLayout.CENTER);
 		mainPanel.add(new AdvertisementPanel(), BorderLayout.SOUTH);
 		
 		frame.setContentPane(mainPanel);
+		
+		// Refresh Data for All Panels
+		gregorianPanel.refreshData();
+		timePanel.refreshData();
+		hijriPanel.refreshData();
+		namazTimePanels.values().stream().forEach(panel -> panel.refreshData());
+		
 		frame.setVisible(true);
 		frame.repaint();
 	}
