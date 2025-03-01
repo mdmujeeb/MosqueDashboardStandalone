@@ -14,6 +14,7 @@ import com.mujeeb.mosquedashboard.main.Main;
 import com.mujeeb.mosquedashboard.util.Constants;
 import com.mujeeb.mosquedashboard.util.IslamicUtil;
 import com.mujeeb.mosquedashboard.util.JPanelWithBackgroundImage;
+import com.mujeeb.mosquedashboard.util.ResourceStreamUtil;
 
 public class HijriPanel extends JPanelWithBackgroundImage {
 
@@ -22,7 +23,8 @@ public class HijriPanel extends JPanelWithBackgroundImage {
 	protected JLabel dateLabel = new JLabel();
 	protected JLabel moonImageLabel = new JLabel();
 	
-	protected static Image backgroundImage = new ImageIcon("resources/sky.jpg").getImage();
+//	protected static Image backgroundImage = new ImageIcon("resources/sky.jpg").getImage();
+	protected static Image backgroundImage = new ResourceStreamUtil().getResourceImage("resources/sky.jpg");
 	
 	public HijriPanel() {
 		super(backgroundImage);
@@ -30,7 +32,7 @@ public class HijriPanel extends JPanelWithBackgroundImage {
 		setPreferredSize(new Dimension((int)(Main.windowWidth/3), (int)(Main.windowHeight/3)));
 		
 		dateLabel.setText("00 Unknown 0000");
-		dateLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/27));
+		dateLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.PLAIN, Main.windowWidth/27));
 		dateLabel.setForeground(Color.WHITE);
 		dateLabel.setHorizontalAlignment(JLabel.CENTER);
 		dateLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -48,6 +50,7 @@ public class HijriPanel extends JPanelWithBackgroundImage {
 		
 		dateLabel.setText(IslamicUtil.getHijriDateString());
 		String hijriDate = IslamicUtil.getHijriDate((Integer) Main.getData().get(Constants.KEY_HIJRI_ADJUSTMENT)).getDate();
-		moonImageLabel.setIcon(new ImageIcon("resources/moonphases/" + hijriDate + ".png"));
+//		moonImageLabel.setIcon(new ImageIcon("resources/moonphases/" + hijriDate + ".png"));
+		moonImageLabel.setIcon(new ResourceStreamUtil().getResourceImageIcon("resources/moonphases/" + hijriDate + ".png"));
 	}
 }

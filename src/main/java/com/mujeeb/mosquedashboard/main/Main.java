@@ -14,7 +14,6 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -26,8 +25,10 @@ import com.mujeeb.mosquedashboard.panels.NamazTimePanel;
 import com.mujeeb.mosquedashboard.panels.TimePanel;
 import com.mujeeb.mosquedashboard.util.Constants;
 import com.mujeeb.mosquedashboard.util.DataUtil;
+import com.mujeeb.mosquedashboard.util.FontUtil;
 import com.mujeeb.mosquedashboard.util.IslamicUtil;
 import com.mujeeb.mosquedashboard.util.JPanelWithBackgroundImage;
+import com.mujeeb.mosquedashboard.util.ResourceStreamUtil;
 import com.mujeeb.mosquedashboard.util.VoiceUtil;
 
 public class Main {
@@ -38,6 +39,8 @@ public class Main {
 	protected static Map<String,Object> data;
 	
 	protected static String AUDIO_FILE_PATH = "resources/Allahu.mp3";
+	protected static ResourceStreamUtil resourceUtil = new ResourceStreamUtil();
+	protected static FontUtil fontUtil = new FontUtil();
 	
 	protected static GregorianPanel gregorianPanel;
 	protected static TimePanel timePanel;
@@ -63,7 +66,8 @@ public class Main {
 		frame.getContentPane().setBackground(Color.BLACK);
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
 		
-		Image backgroundImage = new ImageIcon("resources/background.png").getImage();
+//		Image backgroundImage = new ImageIcon("resources/background.png").getImage();
+		Image backgroundImage = resourceUtil.getResourceImage("resources/background.png");
 		JPanel mainPanel = new JPanelWithBackgroundImage(backgroundImage);
 		mainPanel.setBackground(Color.BLACK);
 		
@@ -193,6 +197,8 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		VoiceUtil.playStream(resourceUtil.getResourceStream(AUDIO_FILE_PATH));
 	}
 	
 	public static void checkForNextNamazTime() {
@@ -282,7 +288,7 @@ public class Main {
 			  
 			  // Play Audio for All namaz times, except Iftar
 			  if(!overlapNamazTime.equals(Constants.KEY_NAMAZ_TIME_IFTAR)) {
-				  VoiceUtil.play(AUDIO_FILE_PATH);
+				  VoiceUtil.playStream(resourceUtil.getResourceStream(AUDIO_FILE_PATH));
 			  }
 		  }
 	}
@@ -343,6 +349,10 @@ public class Main {
 		return data;
 	}
 	
+	public static FontUtil getFontUtil() {
+		return fontUtil;
+	}
+	
 	// For Data Saving operations
 	
 	public static void refreshNamazTime(String namazTimeName) {
@@ -359,7 +369,7 @@ public class Main {
 	}
 	
 	public static void testAudio() {
-		VoiceUtil.play(AUDIO_FILE_PATH);
+		VoiceUtil.playStream(resourceUtil.getResourceStream(AUDIO_FILE_PATH));
 	}
 	
 	public static void changeScreenSaverState(boolean isOn) {

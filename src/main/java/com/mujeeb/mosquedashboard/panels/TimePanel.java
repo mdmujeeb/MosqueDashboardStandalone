@@ -26,13 +26,13 @@ public class TimePanel extends JPanelWithRoundedBorder {
 		setPreferredSize(new Dimension((int)(Main.windowWidth/3), (int)(Main.windowHeight/3)));
 		
 		timeLabel.setText("00:00");
-		timeLabel.setFont(new Font("Calibri", Font.BOLD, (int)(Main.windowWidth/7.5)));
+		timeLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.BOLD, (float) (Main.windowWidth/7.5)));
 		timeLabel.setForeground(Color.RED);
 		timeLabel.setHorizontalAlignment(JLabel.CENTER);
 		timeLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/15, 0, 0, 0));
 		
 //		secondsLabel.setText("59");
-//		secondsLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/15));
+//		secondsLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.BOLD, (float) (Main.windowWidth/15)));
 //		secondsLabel.setForeground(Color.RED);
 //		secondsLabel.setHorizontalAlignment(JLabel.CENTER);
 		

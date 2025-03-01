@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.Map;
 
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -17,6 +16,7 @@ import com.mujeeb.mosquedashboard.main.Main;
 import com.mujeeb.mosquedashboard.util.Constants;
 import com.mujeeb.mosquedashboard.util.DateUtil;
 import com.mujeeb.mosquedashboard.util.JPanelWithBackgroundImage;
+import com.mujeeb.mosquedashboard.util.ResourceStreamUtil;
 
 public class GregorianPanel extends JPanelWithBackgroundImage {
 
@@ -34,65 +34,65 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 	protected JLabel duhaNameLabel = new JLabel();
 	protected JLabel duhaTimeLabel = new JLabel();
 	
-	protected static Image backgroundImage = new ImageIcon("resources/sky.jpg").getImage();
+//	protected static Image backgroundImage = new ImageIcon("resources/sky.jpg").getImage();
+	protected static Image backgroundImage = new ResourceStreamUtil().getResourceImage("resources/sky.jpg");
 
 	public GregorianPanel() {
 		
 		super(backgroundImage);
 		
 		dateLabel.setText("00 Day 0000");
-		dateLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/22));
+		dateLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.PLAIN, Main.windowWidth/22));
 		dateLabel.setForeground(Color.WHITE);
 		dateLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		dayLabel.setText("Unknown");
-		dayLabel.setFont(new Font("Calibri", Font.PLAIN, Main.windowWidth/25));
+		dayLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.PLAIN, Main.windowWidth/25));
 		dayLabel.setForeground(Color.YELLOW);
 		dayLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		int fontSize = 35;
-		String arabicFontName = "KFGQPC Uthmanic Script HAFS";
 		seheriNameLabel.setText("سحور");
-		seheriNameLabel.setFont(new Font(arabicFontName, Font.PLAIN, Main.windowWidth/fontSize));
+		seheriNameLabel.setFont(Main.getFontUtil().getArabicFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
 		seheriNameLabel.setForeground(Color.LIGHT_GRAY);
 		seheriNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		seheriNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
 		suhurTimeLabel.setText("00:00");
-		suhurTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
+		suhurTimeLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
 		suhurTimeLabel.setForeground(Color.CYAN);
 		suhurTimeLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		iftarNameLabel.setText("افطار");
-		iftarNameLabel.setFont(new Font(arabicFontName, Font.PLAIN, Main.windowWidth/fontSize));
+		iftarNameLabel.setFont(Main.getFontUtil().getArabicFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
 		iftarNameLabel.setForeground(Color.LIGHT_GRAY);
 		iftarNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		iftarNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
 		iftarTimeLabel.setText("00:00");
-		iftarTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
+		iftarTimeLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
 		iftarTimeLabel.setForeground(Color.CYAN);
 		iftarTimeLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		ishraqNameLabel.setText("اشراق");
-		ishraqNameLabel.setFont(new Font(arabicFontName, Font.PLAIN, Main.windowWidth/fontSize));
+		ishraqNameLabel.setFont(Main.getFontUtil().getArabicFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
 		ishraqNameLabel.setForeground(Color.LIGHT_GRAY);
 		ishraqNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		ishraqNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
 		ishraqTimeLabel.setText("00:00");
-		ishraqTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
+		ishraqTimeLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
 		ishraqTimeLabel.setForeground(Color.CYAN);
 		ishraqTimeLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		duhaNameLabel.setText("الضحى");
-		duhaNameLabel.setFont(new Font(arabicFontName, Font.PLAIN, Main.windowWidth/fontSize));
+		duhaNameLabel.setFont(Main.getFontUtil().getArabicFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
 		duhaNameLabel.setForeground(Color.LIGHT_GRAY);
 		duhaNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		duhaNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
 		duhaTimeLabel.setText("00:00");
-		duhaTimeLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/fontSize));
+		duhaTimeLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
 		duhaTimeLabel.setForeground(Color.CYAN);
 		duhaTimeLabel.setHorizontalAlignment(JLabel.CENTER);
 //		duhaTimeLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/80, 0, 0, 0));

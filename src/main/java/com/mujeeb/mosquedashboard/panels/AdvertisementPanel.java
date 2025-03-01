@@ -1,6 +1,7 @@
 package com.mujeeb.mosquedashboard.panels;
 
 import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -27,19 +28,19 @@ public class AdvertisementPanel extends JPanelWithRoundedBorder {
 		Color textColor = Color.WHITE;
 		
 		phoneLabel.setText("9880506766");
-		phoneLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/60));
+		phoneLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.BOLD, Main.windowWidth/60));
 		phoneLabel.setForeground(textColor);
 		phoneLabel.setHorizontalAlignment(JLabel.CENTER);
 		phoneLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/80, 0, 0, 0));
 		
 		nameLabel.setText("Mujeeb Mohammad");
-		nameLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/60));
+		nameLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.BOLD, Main.windowWidth/60));
 		nameLabel.setForeground(textColor);
 		nameLabel.setHorizontalAlignment(JLabel.CENTER);
 		nameLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/80, 0, 0, 0));
 		
 		emailLabel.setText("mohammad.mujeeb@gmail.com");
-		emailLabel.setFont(new Font("Calibri", Font.BOLD, Main.windowWidth/60));
+		emailLabel.setFont(Main.getFontUtil().getCalibriFont().deriveFont(Font.BOLD, Main.windowWidth/60));
 		emailLabel.setForeground(textColor);
 		emailLabel.setHorizontalAlignment(JLabel.CENTER);
 		emailLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/80, 0, 0, 0));
