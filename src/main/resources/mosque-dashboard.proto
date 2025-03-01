@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+//option java_package = "com.mujeeb.mosquedashboard.grpc";
+option java_outer_classname = "MosqueDashboardProto";
+option objc_class_prefix = "HLW";
+
+option java_package = "com.mujeeb.mosquedashboard.grpc";
+package com.mujeeb.mosquedashboard.grpc;
+
+// The Mosque Dashboard Service Definition.
+service MosqueDashboardService {
+  // Sends a greeting
+  rpc UpdateNamazTime(NamazTimeUpdateRequest) returns (GenericReply) {}
+  rpc ChangeHijriAdjustment(HijriAdjustmentUpdateRequest) returns (GenericReply) {}
+  rpc TestAudio(EmptyRequest) returns (GenericReply) {}
+  rpc ChangeScreenSaverState(ScreenSaverStateUpdateRequest) returns (GenericReply) {}
+  rpc RestartSystem(EmptyRequest) returns (GenericReply) {}
+}
+
+// Request Beans
+message NamazTimeUpdateRequest {
+  string namazTimeName = 1;
+  int32 hour = 2;
+  int32 minute = 3;
+}
+
+message HijriAdjustmentUpdateRequest {
+  int32 hijriAdjustment = 1;
+}
+
+message ScreenSaverStateUpdateRequest {
+  bool isOn = 1;
+}
+
+// The response message containing the response
+message GenericReply {
+  string description = 1;
+  int32 responseCode = 2;
+}
+
+message EmptyRequest {
+}
