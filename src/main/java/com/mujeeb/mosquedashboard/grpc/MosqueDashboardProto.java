@@ -3,6 +3,7 @@
 
 package com.mujeeb.mosquedashboard.grpc;
 
+@SuppressWarnings("deprecation")
 public final class MosqueDashboardProto {
   private MosqueDashboardProto() {}
   public static void registerAllExtensions(

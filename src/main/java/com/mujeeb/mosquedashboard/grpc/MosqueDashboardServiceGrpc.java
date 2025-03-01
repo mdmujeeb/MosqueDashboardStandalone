@@ -591,7 +591,6 @@ public final class MosqueDashboardServiceGrpc {
     }
 
     @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
