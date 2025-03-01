@@ -8,19 +8,19 @@ package com.mujeeb.mosquedashboard.grpc;
  * Request Beans
  * </pre>
  *
- * Protobuf type {@code com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest}
+ * Protobuf type {@code com.mujeeb.mosquedashboard.grpc.NamazTime}
  */
 @SuppressWarnings("deprecation")
-public final class NamazTimeUpdateRequest extends
+public final class NamazTime extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest)
-    NamazTimeUpdateRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:com.mujeeb.mosquedashboard.grpc.NamazTime)
+    NamazTimeOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use NamazTimeUpdateRequest.newBuilder() to construct.
-  private NamazTimeUpdateRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use NamazTime.newBuilder() to construct.
+  private NamazTime(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private NamazTimeUpdateRequest() {
+  private NamazTime() {
     namazTimeName_ = "";
   }
 
@@ -28,7 +28,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new NamazTimeUpdateRequest();
+    return new NamazTime();
   }
 
   @java.lang.Override
@@ -36,7 +36,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NamazTimeUpdateRequest(
+  private NamazTime(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -91,15 +91,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_NamazTimeUpdateRequest_descriptor;
+    return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_NamazTime_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_NamazTimeUpdateRequest_fieldAccessorTable
+    return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_NamazTime_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest.class, com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest.Builder.class);
+            com.mujeeb.mosquedashboard.grpc.NamazTime.class, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder.class);
   }
 
   public static final int NAMAZTIMENAME_FIELD_NUMBER = 1;
@@ -215,10 +215,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest)) {
+    if (!(obj instanceof com.mujeeb.mosquedashboard.grpc.NamazTime)) {
       return super.equals(obj);
     }
-    com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest other = (com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest) obj;
+    com.mujeeb.mosquedashboard.grpc.NamazTime other = (com.mujeeb.mosquedashboard.grpc.NamazTime) obj;
 
     if (!getNamazTimeName()
         .equals(other.getNamazTimeName())) return false;
@@ -249,69 +249,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseFrom(byte[] data)
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseFrom(java.io.InputStream input)
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseDelimitedFrom(
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -324,7 +324,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest prototype) {
+  public static Builder newBuilder(com.mujeeb.mosquedashboard.grpc.NamazTime prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -344,26 +344,26 @@ private static final long serialVersionUID = 0L;
    * Request Beans
    * </pre>
    *
-   * Protobuf type {@code com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest}
+   * Protobuf type {@code com.mujeeb.mosquedashboard.grpc.NamazTime}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest)
-      com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.mujeeb.mosquedashboard.grpc.NamazTime)
+      com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_NamazTimeUpdateRequest_descriptor;
+      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_NamazTime_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_NamazTimeUpdateRequest_fieldAccessorTable
+      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_NamazTime_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest.class, com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest.Builder.class);
+              com.mujeeb.mosquedashboard.grpc.NamazTime.class, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder.class);
     }
 
-    // Construct using com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest.newBuilder()
+    // Construct using com.mujeeb.mosquedashboard.grpc.NamazTime.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -393,17 +393,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_NamazTimeUpdateRequest_descriptor;
+      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_NamazTime_descriptor;
     }
 
     @java.lang.Override
-    public com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest getDefaultInstanceForType() {
-      return com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest.getDefaultInstance();
+    public com.mujeeb.mosquedashboard.grpc.NamazTime getDefaultInstanceForType() {
+      return com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest build() {
-      com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest result = buildPartial();
+    public com.mujeeb.mosquedashboard.grpc.NamazTime build() {
+      com.mujeeb.mosquedashboard.grpc.NamazTime result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -411,8 +411,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest buildPartial() {
-      com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest result = new com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest(this);
+    public com.mujeeb.mosquedashboard.grpc.NamazTime buildPartial() {
+      com.mujeeb.mosquedashboard.grpc.NamazTime result = new com.mujeeb.mosquedashboard.grpc.NamazTime(this);
       result.namazTimeName_ = namazTimeName_;
       result.hour_ = hour_;
       result.minute_ = minute_;
@@ -454,16 +454,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest) {
-        return mergeFrom((com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest)other);
+      if (other instanceof com.mujeeb.mosquedashboard.grpc.NamazTime) {
+        return mergeFrom((com.mujeeb.mosquedashboard.grpc.NamazTime)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest other) {
-      if (other == com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.mujeeb.mosquedashboard.grpc.NamazTime other) {
+      if (other == com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance()) return this;
       if (!other.getNamazTimeName().isEmpty()) {
         namazTimeName_ = other.namazTimeName_;
         onChanged();
@@ -489,11 +489,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest parsedMessage = null;
+      com.mujeeb.mosquedashboard.grpc.NamazTime parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.mujeeb.mosquedashboard.grpc.NamazTime) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -653,41 +653,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest)
+    // @@protoc_insertion_point(builder_scope:com.mujeeb.mosquedashboard.grpc.NamazTime)
   }
 
-  // @@protoc_insertion_point(class_scope:com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest)
-  private static final com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.mujeeb.mosquedashboard.grpc.NamazTime)
+  private static final com.mujeeb.mosquedashboard.grpc.NamazTime DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest();
+    DEFAULT_INSTANCE = new com.mujeeb.mosquedashboard.grpc.NamazTime();
   }
 
-  public static com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest getDefaultInstance() {
+  public static com.mujeeb.mosquedashboard.grpc.NamazTime getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<NamazTimeUpdateRequest>
-      PARSER = new com.google.protobuf.AbstractParser<NamazTimeUpdateRequest>() {
+  private static final com.google.protobuf.Parser<NamazTime>
+      PARSER = new com.google.protobuf.AbstractParser<NamazTime>() {
     @java.lang.Override
-    public NamazTimeUpdateRequest parsePartialFrom(
+    public NamazTime parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NamazTimeUpdateRequest(input, extensionRegistry);
+      return new NamazTime(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<NamazTimeUpdateRequest> parser() {
+  public static com.google.protobuf.Parser<NamazTime> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<NamazTimeUpdateRequest> getParserForType() {
+  public com.google.protobuf.Parser<NamazTime> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest getDefaultInstanceForType() {
+  public com.mujeeb.mosquedashboard.grpc.NamazTime getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

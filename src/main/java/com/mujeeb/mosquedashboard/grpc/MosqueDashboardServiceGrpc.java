@@ -18,27 +18,58 @@ public final class MosqueDashboardServiceGrpc {
   public static final String SERVICE_NAME = "com.mujeeb.mosquedashboard.grpc.MosqueDashboardService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest,
+  private static volatile io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.EmptyRequest,
+      com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest> getGetDataForMobileAppMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetDataForMobileApp",
+      requestType = com.mujeeb.mosquedashboard.grpc.EmptyRequest.class,
+      responseType = com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.EmptyRequest,
+      com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest> getGetDataForMobileAppMethod() {
+    io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.EmptyRequest, com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest> getGetDataForMobileAppMethod;
+    if ((getGetDataForMobileAppMethod = MosqueDashboardServiceGrpc.getGetDataForMobileAppMethod) == null) {
+      synchronized (MosqueDashboardServiceGrpc.class) {
+        if ((getGetDataForMobileAppMethod = MosqueDashboardServiceGrpc.getGetDataForMobileAppMethod) == null) {
+          MosqueDashboardServiceGrpc.getGetDataForMobileAppMethod = getGetDataForMobileAppMethod =
+              io.grpc.MethodDescriptor.<com.mujeeb.mosquedashboard.grpc.EmptyRequest, com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetDataForMobileApp"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.mujeeb.mosquedashboard.grpc.EmptyRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest.getDefaultInstance()))
+              .setSchemaDescriptor(new MosqueDashboardServiceMethodDescriptorSupplier("GetDataForMobileApp"))
+              .build();
+        }
+      }
+    }
+    return getGetDataForMobileAppMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.NamazTime,
       com.mujeeb.mosquedashboard.grpc.GenericReply> getUpdateNamazTimeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateNamazTime",
-      requestType = com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest.class,
+      requestType = com.mujeeb.mosquedashboard.grpc.NamazTime.class,
       responseType = com.mujeeb.mosquedashboard.grpc.GenericReply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest,
+  public static io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.NamazTime,
       com.mujeeb.mosquedashboard.grpc.GenericReply> getUpdateNamazTimeMethod() {
-    io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest, com.mujeeb.mosquedashboard.grpc.GenericReply> getUpdateNamazTimeMethod;
+    io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.GenericReply> getUpdateNamazTimeMethod;
     if ((getUpdateNamazTimeMethod = MosqueDashboardServiceGrpc.getUpdateNamazTimeMethod) == null) {
       synchronized (MosqueDashboardServiceGrpc.class) {
         if ((getUpdateNamazTimeMethod = MosqueDashboardServiceGrpc.getUpdateNamazTimeMethod) == null) {
           MosqueDashboardServiceGrpc.getUpdateNamazTimeMethod = getUpdateNamazTimeMethod =
-              io.grpc.MethodDescriptor.<com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest, com.mujeeb.mosquedashboard.grpc.GenericReply>newBuilder()
+              io.grpc.MethodDescriptor.<com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.GenericReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateNamazTime"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest.getDefaultInstance()))
+                  com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.mujeeb.mosquedashboard.grpc.GenericReply.getDefaultInstance()))
               .setSchemaDescriptor(new MosqueDashboardServiceMethodDescriptorSupplier("UpdateNamazTime"))
@@ -225,11 +256,15 @@ public final class MosqueDashboardServiceGrpc {
   public static abstract class MosqueDashboardServiceImplBase implements io.grpc.BindableService {
 
     /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
      */
-    public void updateNamazTime(com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest request,
+    public void getDataForMobileApp(com.mujeeb.mosquedashboard.grpc.EmptyRequest request,
+        io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetDataForMobileAppMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void updateNamazTime(com.mujeeb.mosquedashboard.grpc.NamazTime request,
         io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GenericReply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateNamazTimeMethod(), responseObserver);
     }
@@ -265,10 +300,17 @@ public final class MosqueDashboardServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
+            getGetDataForMobileAppMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.mujeeb.mosquedashboard.grpc.EmptyRequest,
+                com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest>(
+                  this, METHODID_GET_DATA_FOR_MOBILE_APP)))
+          .addMethod(
             getUpdateNamazTimeMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest,
+                com.mujeeb.mosquedashboard.grpc.NamazTime,
                 com.mujeeb.mosquedashboard.grpc.GenericReply>(
                   this, METHODID_UPDATE_NAMAZ_TIME)))
           .addMethod(
@@ -321,11 +363,16 @@ public final class MosqueDashboardServiceGrpc {
     }
 
     /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
      */
-    public void updateNamazTime(com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest request,
+    public void getDataForMobileApp(com.mujeeb.mosquedashboard.grpc.EmptyRequest request,
+        io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetDataForMobileAppMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateNamazTime(com.mujeeb.mosquedashboard.grpc.NamazTime request,
         io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GenericReply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateNamazTimeMethod(), getCallOptions()), request, responseObserver);
@@ -382,11 +429,15 @@ public final class MosqueDashboardServiceGrpc {
     }
 
     /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
      */
-    public com.mujeeb.mosquedashboard.grpc.GenericReply updateNamazTime(com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest request) {
+    public com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest getDataForMobileApp(com.mujeeb.mosquedashboard.grpc.EmptyRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetDataForMobileAppMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.mujeeb.mosquedashboard.grpc.GenericReply updateNamazTime(com.mujeeb.mosquedashboard.grpc.NamazTime request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateNamazTimeMethod(), getCallOptions(), request);
     }
@@ -438,12 +489,17 @@ public final class MosqueDashboardServiceGrpc {
     }
 
     /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest> getDataForMobileApp(
+        com.mujeeb.mosquedashboard.grpc.EmptyRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetDataForMobileAppMethod(), getCallOptions()), request);
+    }
+
+    /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.mujeeb.mosquedashboard.grpc.GenericReply> updateNamazTime(
-        com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest request) {
+        com.mujeeb.mosquedashboard.grpc.NamazTime request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateNamazTimeMethod(), getCallOptions()), request);
     }
@@ -481,11 +537,12 @@ public final class MosqueDashboardServiceGrpc {
     }
   }
 
-  private static final int METHODID_UPDATE_NAMAZ_TIME = 0;
-  private static final int METHODID_CHANGE_HIJRI_ADJUSTMENT = 1;
-  private static final int METHODID_TEST_AUDIO = 2;
-  private static final int METHODID_CHANGE_SCREEN_SAVER_STATE = 3;
-  private static final int METHODID_RESTART_SYSTEM = 4;
+  private static final int METHODID_GET_DATA_FOR_MOBILE_APP = 0;
+  private static final int METHODID_UPDATE_NAMAZ_TIME = 1;
+  private static final int METHODID_CHANGE_HIJRI_ADJUSTMENT = 2;
+  private static final int METHODID_TEST_AUDIO = 3;
+  private static final int METHODID_CHANGE_SCREEN_SAVER_STATE = 4;
+  private static final int METHODID_RESTART_SYSTEM = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -504,8 +561,12 @@ public final class MosqueDashboardServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_GET_DATA_FOR_MOBILE_APP:
+          serviceImpl.getDataForMobileApp((com.mujeeb.mosquedashboard.grpc.EmptyRequest) request,
+              (io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GetDataForMobileAppRequest>) responseObserver);
+          break;
         case METHODID_UPDATE_NAMAZ_TIME:
-          serviceImpl.updateNamazTime((com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest) request,
+          serviceImpl.updateNamazTime((com.mujeeb.mosquedashboard.grpc.NamazTime) request,
               (io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GenericReply>) responseObserver);
           break;
         case METHODID_CHANGE_HIJRI_ADJUSTMENT:
@@ -530,6 +591,7 @@ public final class MosqueDashboardServiceGrpc {
     }
 
     @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -584,6 +646,7 @@ public final class MosqueDashboardServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new MosqueDashboardServiceFileDescriptorSupplier())
+              .addMethod(getGetDataForMobileAppMethod())
               .addMethod(getUpdateNamazTimeMethod())
               .addMethod(getChangeHijriAdjustmentMethod())
               .addMethod(getTestAudioMethod())

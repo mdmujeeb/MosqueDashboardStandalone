@@ -3,7 +3,6 @@
 
 package com.mujeeb.mosquedashboard.grpc;
 
-@SuppressWarnings("deprecation")
 public final class MosqueDashboardProto {
   private MosqueDashboardProto() {}
   public static void registerAllExtensions(
@@ -16,23 +15,28 @@ public final class MosqueDashboardProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_mujeeb_mosquedashboard_grpc_NamazTimeUpdateRequest_descriptor;
-static final 
+    internal_static_com_mujeeb_mosquedashboard_grpc_NamazTime_descriptor;
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_mujeeb_mosquedashboard_grpc_NamazTimeUpdateRequest_fieldAccessorTable;
+      internal_static_com_mujeeb_mosquedashboard_grpc_NamazTime_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_mujeeb_mosquedashboard_grpc_GetDataForMobileAppRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_mujeeb_mosquedashboard_grpc_GetDataForMobileAppRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_mujeeb_mosquedashboard_grpc_HijriAdjustmentUpdateRequest_descriptor;
-static final 
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_mujeeb_mosquedashboard_grpc_HijriAdjustmentUpdateRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_mujeeb_mosquedashboard_grpc_ScreenSaverStateUpdateRequest_descriptor;
-static final 
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_mujeeb_mosquedashboard_grpc_ScreenSaverStateUpdateRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_mujeeb_mosquedashboard_grpc_GenericReply_descriptor;
-static final 
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_mujeeb_mosquedashboard_grpc_GenericReply_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
@@ -50,62 +54,85 @@ static final
   static {
     java.lang.String[] descriptorData = {
       "\n\026mosque-dashboard.proto\022\037com.mujeeb.mos" +
-      "quedashboard.grpc\"M\n\026NamazTimeUpdateRequ" +
-      "est\022\025\n\rnamazTimeName\030\001 \001(\t\022\014\n\004hour\030\002 \001(\005" +
-      "\022\016\n\006minute\030\003 \001(\005\"7\n\034HijriAdjustmentUpdat" +
-      "eRequest\022\027\n\017hijriAdjustment\030\001 \001(\005\"-\n\035Scr" +
-      "eenSaverStateUpdateRequest\022\014\n\004isOn\030\001 \001(\010" +
-      "\"9\n\014GenericReply\022\023\n\013description\030\001 \001(\t\022\024\n" +
-      "\014responseCode\030\002 \001(\005\"\016\n\014EmptyRequest2\211\005\n\026" +
-      "MosqueDashboardService\022{\n\017UpdateNamazTim" +
-      "e\0227.com.mujeeb.mosquedashboard.grpc.Nama" +
-      "zTimeUpdateRequest\032-.com.mujeeb.mosqueda" +
-      "shboard.grpc.GenericReply\"\000\022\207\001\n\025ChangeHi" +
-      "jriAdjustment\022=.com.mujeeb.mosquedashboa" +
-      "rd.grpc.HijriAdjustmentUpdateRequest\032-.c" +
-      "om.mujeeb.mosquedashboard.grpc.GenericRe" +
-      "ply\"\000\022k\n\tTestAudio\022-.com.mujeeb.mosqueda" +
-      "shboard.grpc.EmptyRequest\032-.com.mujeeb.m" +
-      "osquedashboard.grpc.GenericReply\"\000\022\211\001\n\026C" +
-      "hangeScreenSaverState\022>.com.mujeeb.mosqu" +
-      "edashboard.grpc.ScreenSaverStateUpdateRe" +
-      "quest\032-.com.mujeeb.mosquedashboard.grpc." +
-      "GenericReply\"\000\022o\n\rRestartSystem\022-.com.mu" +
-      "jeeb.mosquedashboard.grpc.EmptyRequest\032-" +
-      ".com.mujeeb.mosquedashboard.grpc.Generic" +
-      "Reply\"\000B?\n\037com.mujeeb.mosquedashboard.gr" +
-      "pcB\024MosqueDashboardProtoP\001\242\002\003HLWb\006proto3"
+      "quedashboard.grpc\"@\n\tNamazTime\022\025\n\rnamazT" +
+      "imeName\030\001 \001(\t\022\014\n\004hour\030\002 \001(\005\022\016\n\006minute\030\003 " +
+      "\001(\005\"\264\004\n\032GetDataForMobileAppRequest\022<\n\010fa" +
+      "jrTime\030\001 \001(\0132*.com.mujeeb.mosquedashboar" +
+      "d.grpc.NamazTime\022<\n\010zuhrTime\030\002 \001(\0132*.com" +
+      ".mujeeb.mosquedashboard.grpc.NamazTime\022;" +
+      "\n\007asrTime\030\003 \001(\0132*.com.mujeeb.mosquedashb" +
+      "oard.grpc.NamazTime\022<\n\010ishaTime\030\004 \001(\0132*." +
+      "com.mujeeb.mosquedashboard.grpc.NamazTim" +
+      "e\022=\n\tjumuaTime\030\005 \001(\0132*.com.mujeeb.mosque" +
+      "dashboard.grpc.NamazTime\022E\n\021screenSaverO" +
+      "nTime\030\006 \001(\0132*.com.mujeeb.mosquedashboard" +
+      ".grpc.NamazTime\022F\n\022screenSaverOffTime\030\007 " +
+      "\001(\0132*.com.mujeeb.mosquedashboard.grpc.Na" +
+      "mazTime\022\027\n\017hijriAdjustment\030\010 \001(\005\022\021\n\thijr" +
+      "iDate\030\t \001(\005\022\022\n\nhijriMonth\030\n \001(\t\022\021\n\thijri" +
+      "Year\030\013 \001(\005\"7\n\034HijriAdjustmentUpdateReque" +
+      "st\022\027\n\017hijriAdjustment\030\001 \001(\005\"-\n\035ScreenSav" +
+      "erStateUpdateRequest\022\014\n\004isOn\030\001 \001(\010\"9\n\014Ge" +
+      "nericReply\022\023\n\013description\030\001 \001(\t\022\024\n\014respo" +
+      "nseCode\030\002 \001(\005\"\016\n\014EmptyRequest2\202\006\n\026Mosque" +
+      "DashboardService\022\203\001\n\023GetDataForMobileApp" +
+      "\022-.com.mujeeb.mosquedashboard.grpc.Empty" +
+      "Request\032;.com.mujeeb.mosquedashboard.grp" +
+      "c.GetDataForMobileAppRequest\"\000\022n\n\017Update" +
+      "NamazTime\022*.com.mujeeb.mosquedashboard.g" +
+      "rpc.NamazTime\032-.com.mujeeb.mosquedashboa" +
+      "rd.grpc.GenericReply\"\000\022\207\001\n\025ChangeHijriAd" +
+      "justment\022=.com.mujeeb.mosquedashboard.gr" +
+      "pc.HijriAdjustmentUpdateRequest\032-.com.mu" +
+      "jeeb.mosquedashboard.grpc.GenericReply\"\000" +
+      "\022k\n\tTestAudio\022-.com.mujeeb.mosquedashboa" +
+      "rd.grpc.EmptyRequest\032-.com.mujeeb.mosque" +
+      "dashboard.grpc.GenericReply\"\000\022\211\001\n\026Change" +
+      "ScreenSaverState\022>.com.mujeeb.mosquedash" +
+      "board.grpc.ScreenSaverStateUpdateRequest" +
+      "\032-.com.mujeeb.mosquedashboard.grpc.Gener" +
+      "icReply\"\000\022o\n\rRestartSystem\022-.com.mujeeb." +
+      "mosquedashboard.grpc.EmptyRequest\032-.com." +
+      "mujeeb.mosquedashboard.grpc.GenericReply" +
+      "\"\000B?\n\037com.mujeeb.mosquedashboard.grpcB\024M" +
+      "osqueDashboardProtoP\001\242\002\003HLWb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_com_mujeeb_mosquedashboard_grpc_NamazTimeUpdateRequest_descriptor =
+    internal_static_com_mujeeb_mosquedashboard_grpc_NamazTime_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_com_mujeeb_mosquedashboard_grpc_NamazTimeUpdateRequest_fieldAccessorTable = new
+    internal_static_com_mujeeb_mosquedashboard_grpc_NamazTime_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_mujeeb_mosquedashboard_grpc_NamazTimeUpdateRequest_descriptor,
+        internal_static_com_mujeeb_mosquedashboard_grpc_NamazTime_descriptor,
         new java.lang.String[] { "NamazTimeName", "Hour", "Minute", });
-    internal_static_com_mujeeb_mosquedashboard_grpc_HijriAdjustmentUpdateRequest_descriptor =
+    internal_static_com_mujeeb_mosquedashboard_grpc_GetDataForMobileAppRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_com_mujeeb_mosquedashboard_grpc_GetDataForMobileAppRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_mujeeb_mosquedashboard_grpc_GetDataForMobileAppRequest_descriptor,
+        new java.lang.String[] { "FajrTime", "ZuhrTime", "AsrTime", "IshaTime", "JumuaTime", "ScreenSaverOnTime", "ScreenSaverOffTime", "HijriAdjustment", "HijriDate", "HijriMonth", "HijriYear", });
+    internal_static_com_mujeeb_mosquedashboard_grpc_HijriAdjustmentUpdateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_com_mujeeb_mosquedashboard_grpc_HijriAdjustmentUpdateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_mujeeb_mosquedashboard_grpc_HijriAdjustmentUpdateRequest_descriptor,
         new java.lang.String[] { "HijriAdjustment", });
     internal_static_com_mujeeb_mosquedashboard_grpc_ScreenSaverStateUpdateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_com_mujeeb_mosquedashboard_grpc_ScreenSaverStateUpdateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_mujeeb_mosquedashboard_grpc_ScreenSaverStateUpdateRequest_descriptor,
         new java.lang.String[] { "IsOn", });
     internal_static_com_mujeeb_mosquedashboard_grpc_GenericReply_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_com_mujeeb_mosquedashboard_grpc_GenericReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_mujeeb_mosquedashboard_grpc_GenericReply_descriptor,
         new java.lang.String[] { "Description", "ResponseCode", });
     internal_static_com_mujeeb_mosquedashboard_grpc_EmptyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_com_mujeeb_mosquedashboard_grpc_EmptyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_mujeeb_mosquedashboard_grpc_EmptyRequest_descriptor,

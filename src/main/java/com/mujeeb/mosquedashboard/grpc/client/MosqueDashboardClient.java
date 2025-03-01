@@ -6,7 +6,7 @@ import com.mujeeb.mosquedashboard.grpc.GenericReply;
 import com.mujeeb.mosquedashboard.grpc.MosqueDashboardServiceGrpc;
 import com.mujeeb.mosquedashboard.grpc.MosqueDashboardServiceGrpc.MosqueDashboardServiceBlockingStub;
 import com.mujeeb.mosquedashboard.grpc.MosqueDashboardServiceGrpc.MosqueDashboardServiceStub;
-import com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest;
+import com.mujeeb.mosquedashboard.grpc.NamazTime;
 import com.mujeeb.mosquedashboard.util.Constants;
 
 import io.grpc.ManagedChannel;
@@ -32,7 +32,7 @@ public class MosqueDashboardClient  {
 	
 	public static void sendRequestToServer() {
 		
-		NamazTimeUpdateRequest request = NamazTimeUpdateRequest.newBuilder()
+		NamazTime request = NamazTime.newBuilder()
 						.setNamazTimeName(Constants.KEY_NAMAZ_TIME_ISHA)
 						.setHour(8)
 						.setMinute(15).build();

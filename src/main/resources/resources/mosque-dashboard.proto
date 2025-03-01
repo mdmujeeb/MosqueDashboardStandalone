@@ -10,8 +10,8 @@ package com.mujeeb.mosquedashboard.grpc;
 
 // The Mosque Dashboard Service Definition.
 service MosqueDashboardService {
-  // Sends a greeting
-  rpc UpdateNamazTime(NamazTimeUpdateRequest) returns (GenericReply) {}
+  rpc GetDataForMobileApp(EmptyRequest) returns (GetDataForMobileAppRequest) {}
+  rpc UpdateNamazTime(NamazTime) returns (GenericReply) {}
   rpc ChangeHijriAdjustment(HijriAdjustmentUpdateRequest) returns (GenericReply) {}
   rpc TestAudio(EmptyRequest) returns (GenericReply) {}
   rpc ChangeScreenSaverState(ScreenSaverStateUpdateRequest) returns (GenericReply) {}
@@ -19,10 +19,24 @@ service MosqueDashboardService {
 }
 
 // Request Beans
-message NamazTimeUpdateRequest {
+message NamazTime {
   string namazTimeName = 1;
   int32 hour = 2;
   int32 minute = 3;
+}
+
+message GetDataForMobileAppRequest {
+	NamazTime fajrTime = 1;
+	NamazTime zuhrTime = 2;
+	NamazTime asrTime = 3;
+	NamazTime ishaTime = 4;
+	NamazTime jumuaTime = 5;
+	NamazTime screenSaverOnTime = 6;
+	NamazTime screenSaverOffTime = 7;
+	int32 hijriAdjustment = 8;
+	int32 hijriDate = 9;
+	string hijriMonth = 10;
+	int32 hijriYear = 11;
 }
 
 message HijriAdjustmentUpdateRequest {

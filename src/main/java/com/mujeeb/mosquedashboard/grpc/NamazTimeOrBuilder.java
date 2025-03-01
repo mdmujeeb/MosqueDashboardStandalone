@@ -3,8 +3,8 @@
 
 package com.mujeeb.mosquedashboard.grpc;
 
-public interface NamazTimeUpdateRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.mujeeb.mosquedashboard.grpc.NamazTimeUpdateRequest)
+public interface NamazTimeOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:com.mujeeb.mosquedashboard.grpc.NamazTime)
     com.google.protobuf.MessageOrBuilder {
 
   /**

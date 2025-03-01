@@ -13,13 +13,14 @@ public final class EmptyRequest extends
     EmptyRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use EmptyRequest.newBuilder() to construct.
-private EmptyRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  private EmptyRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
   private EmptyRequest() {
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
     return new EmptyRequest();
