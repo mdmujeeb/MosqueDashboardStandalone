@@ -54,7 +54,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		int fontSize = 35;
 		seheriNameLabel.setText("سحور");
 		seheriNameLabel.setFont(Main.getFontUtil().getArabicFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
-		seheriNameLabel.setForeground(Color.LIGHT_GRAY);
+		seheriNameLabel.setForeground(Color.WHITE);
 		seheriNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		seheriNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
@@ -65,7 +65,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		
 		iftarNameLabel.setText("افطار");
 		iftarNameLabel.setFont(Main.getFontUtil().getArabicFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
-		iftarNameLabel.setForeground(Color.LIGHT_GRAY);
+		iftarNameLabel.setForeground(Color.WHITE);
 		iftarNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		iftarNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
@@ -76,7 +76,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		
 		ishraqNameLabel.setText("اشراق");
 		ishraqNameLabel.setFont(Main.getFontUtil().getArabicFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
-		ishraqNameLabel.setForeground(Color.LIGHT_GRAY);
+		ishraqNameLabel.setForeground(Color.WHITE);
 		ishraqNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		ishraqNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		
@@ -87,7 +87,7 @@ public class GregorianPanel extends JPanelWithBackgroundImage {
 		
 		duhaNameLabel.setText("الضحى");
 		duhaNameLabel.setFont(Main.getFontUtil().getArabicFont().deriveFont(Font.PLAIN, Main.windowWidth/fontSize));
-		duhaNameLabel.setForeground(Color.LIGHT_GRAY);
+		duhaNameLabel.setForeground(Color.WHITE);
 		duhaNameLabel.setHorizontalAlignment(JLabel.CENTER);
 		duhaNameLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, Main.windowHeight/50, 0));
 		

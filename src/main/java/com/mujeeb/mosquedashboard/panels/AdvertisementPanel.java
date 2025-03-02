@@ -43,7 +43,7 @@ public class AdvertisementPanel extends JPanelWithRoundedBorder {
 		label.setForeground(textColor);
 		label.setSize(Main.windowWidth/3, 30);
 		label.setHorizontalAlignment(JLabel.CENTER);
-//		label.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/120, 0, 0, 0));
+		label.setBorder(BorderFactory.createEmptyBorder(1, 0, 0, 0));
 		JPanel containerPanel = new JPanel();
 		containerPanel.setOpaque(false);
 		containerPanel.setLayout(new FlowLayout());

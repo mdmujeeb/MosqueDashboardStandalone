@@ -92,7 +92,7 @@ public class NamazTimePanel extends JPanelWithRoundedBorder {
 		timeLabel.setForeground(Color.GREEN);
 		timeLabel.setHorizontalAlignment(JLabel.CENTER);
 		timeLabel.setOpaque(false);
-		timeLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/30, 0, 0, 0));
+		timeLabel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/25, 0, 0, 0));
 		
 		JPanel namesPanel = new JPanel();
 		namesPanel.setBorder(BorderFactory.createEmptyBorder(Main.windowHeight/30, 0, 0, 0));
