@@ -11,6 +11,8 @@ import com.mujeeb.mosquedashboard.main.Main;
 public class DataUtil {
 
 	public static final String DATA_FILE = "settings.dat";
+
+	protected static String AUDIO_FILE_PATH = "resources/Allahu.mp3";
 	
 	public static Map<String,Object> readDataFile() {
 		
@@ -103,10 +105,15 @@ public class DataUtil {
 	// API Methods
 	public static void changeNamazTIme(String namazTimeName, int hour, int minute) {
 		
-		Map<String,Object> data = Main.getData();
-		data.put(namazTimeName, new int[] {hour, minute});
-		writeDataFile(data);
-		Main.refreshNamazTime(namazTimeName);
+		if(namazTimeName.equals("ALLAHU")) {
+			VoiceUtil.playStream(new ResourceStreamUtil().getResourceStream(AUDIO_FILE_PATH));
+			
+		} else {
+			Map<String,Object> data = Main.getData();
+			data.put(namazTimeName, new int[] {hour, minute});
+			writeDataFile(data);
+			Main.refreshNamazTime(namazTimeName);
+		}
 	}
 	
 	public static void changeHijriAdjustment(int hijriAdjustment) {

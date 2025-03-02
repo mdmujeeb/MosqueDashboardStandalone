@@ -38,8 +38,8 @@ public class Main {
 	public static int windowWidth = 0;
 	
 	protected static Map<String,Object> data;
-	
-	protected static String AUDIO_FILE_PATH = "resources/Allahu.mp3";
+
+	protected static String AUDIO_FILE_PATH = "resources/bismillah.mp3";
 	protected static ResourceStreamUtil resourceUtil = new ResourceStreamUtil();
 	protected static FontUtil fontUtil = new FontUtil();
 	
