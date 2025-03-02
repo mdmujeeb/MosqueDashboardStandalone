@@ -173,6 +173,37 @@ public final class MosqueDashboardServiceGrpc {
     return getChangeScreenSaverStateMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.StringContainer,
+      com.mujeeb.mosquedashboard.grpc.GenericReply> getSetDateTimeMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SetDateTime",
+      requestType = com.mujeeb.mosquedashboard.grpc.StringContainer.class,
+      responseType = com.mujeeb.mosquedashboard.grpc.GenericReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.StringContainer,
+      com.mujeeb.mosquedashboard.grpc.GenericReply> getSetDateTimeMethod() {
+    io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.StringContainer, com.mujeeb.mosquedashboard.grpc.GenericReply> getSetDateTimeMethod;
+    if ((getSetDateTimeMethod = MosqueDashboardServiceGrpc.getSetDateTimeMethod) == null) {
+      synchronized (MosqueDashboardServiceGrpc.class) {
+        if ((getSetDateTimeMethod = MosqueDashboardServiceGrpc.getSetDateTimeMethod) == null) {
+          MosqueDashboardServiceGrpc.getSetDateTimeMethod = getSetDateTimeMethod =
+              io.grpc.MethodDescriptor.<com.mujeeb.mosquedashboard.grpc.StringContainer, com.mujeeb.mosquedashboard.grpc.GenericReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SetDateTime"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.mujeeb.mosquedashboard.grpc.StringContainer.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.mujeeb.mosquedashboard.grpc.GenericReply.getDefaultInstance()))
+              .setSchemaDescriptor(new MosqueDashboardServiceMethodDescriptorSupplier("SetDateTime"))
+              .build();
+        }
+      }
+    }
+    return getSetDateTimeMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.EmptyRequest,
       com.mujeeb.mosquedashboard.grpc.GenericReply> getRestartSystemMethod;
 
@@ -202,6 +233,37 @@ public final class MosqueDashboardServiceGrpc {
       }
     }
     return getRestartSystemMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.EmptyRequest,
+      com.mujeeb.mosquedashboard.grpc.StringContainer> getHasDateChangedMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "HasDateChanged",
+      requestType = com.mujeeb.mosquedashboard.grpc.EmptyRequest.class,
+      responseType = com.mujeeb.mosquedashboard.grpc.StringContainer.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.EmptyRequest,
+      com.mujeeb.mosquedashboard.grpc.StringContainer> getHasDateChangedMethod() {
+    io.grpc.MethodDescriptor<com.mujeeb.mosquedashboard.grpc.EmptyRequest, com.mujeeb.mosquedashboard.grpc.StringContainer> getHasDateChangedMethod;
+    if ((getHasDateChangedMethod = MosqueDashboardServiceGrpc.getHasDateChangedMethod) == null) {
+      synchronized (MosqueDashboardServiceGrpc.class) {
+        if ((getHasDateChangedMethod = MosqueDashboardServiceGrpc.getHasDateChangedMethod) == null) {
+          MosqueDashboardServiceGrpc.getHasDateChangedMethod = getHasDateChangedMethod =
+              io.grpc.MethodDescriptor.<com.mujeeb.mosquedashboard.grpc.EmptyRequest, com.mujeeb.mosquedashboard.grpc.StringContainer>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "HasDateChanged"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.mujeeb.mosquedashboard.grpc.EmptyRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.mujeeb.mosquedashboard.grpc.StringContainer.getDefaultInstance()))
+              .setSchemaDescriptor(new MosqueDashboardServiceMethodDescriptorSupplier("HasDateChanged"))
+              .build();
+        }
+      }
+    }
+    return getHasDateChangedMethod;
   }
 
   /**
@@ -292,9 +354,23 @@ public final class MosqueDashboardServiceGrpc {
 
     /**
      */
+    public void setDateTime(com.mujeeb.mosquedashboard.grpc.StringContainer request,
+        io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GenericReply> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSetDateTimeMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void restartSystem(com.mujeeb.mosquedashboard.grpc.EmptyRequest request,
         io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GenericReply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRestartSystemMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void hasDateChanged(com.mujeeb.mosquedashboard.grpc.EmptyRequest request,
+        io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.StringContainer> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getHasDateChangedMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -335,12 +411,26 @@ public final class MosqueDashboardServiceGrpc {
                 com.mujeeb.mosquedashboard.grpc.GenericReply>(
                   this, METHODID_CHANGE_SCREEN_SAVER_STATE)))
           .addMethod(
+            getSetDateTimeMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.mujeeb.mosquedashboard.grpc.StringContainer,
+                com.mujeeb.mosquedashboard.grpc.GenericReply>(
+                  this, METHODID_SET_DATE_TIME)))
+          .addMethod(
             getRestartSystemMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.mujeeb.mosquedashboard.grpc.EmptyRequest,
                 com.mujeeb.mosquedashboard.grpc.GenericReply>(
                   this, METHODID_RESTART_SYSTEM)))
+          .addMethod(
+            getHasDateChangedMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.mujeeb.mosquedashboard.grpc.EmptyRequest,
+                com.mujeeb.mosquedashboard.grpc.StringContainer>(
+                  this, METHODID_HAS_DATE_CHANGED)))
           .build();
     }
   }
@@ -404,10 +494,26 @@ public final class MosqueDashboardServiceGrpc {
 
     /**
      */
+    public void setDateTime(com.mujeeb.mosquedashboard.grpc.StringContainer request,
+        io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GenericReply> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getSetDateTimeMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void restartSystem(com.mujeeb.mosquedashboard.grpc.EmptyRequest request,
         io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GenericReply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getRestartSystemMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void hasDateChanged(com.mujeeb.mosquedashboard.grpc.EmptyRequest request,
+        io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.StringContainer> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getHasDateChangedMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -465,9 +571,23 @@ public final class MosqueDashboardServiceGrpc {
 
     /**
      */
+    public com.mujeeb.mosquedashboard.grpc.GenericReply setDateTime(com.mujeeb.mosquedashboard.grpc.StringContainer request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getSetDateTimeMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public com.mujeeb.mosquedashboard.grpc.GenericReply restartSystem(com.mujeeb.mosquedashboard.grpc.EmptyRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getRestartSystemMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.mujeeb.mosquedashboard.grpc.StringContainer hasDateChanged(com.mujeeb.mosquedashboard.grpc.EmptyRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getHasDateChangedMethod(), getCallOptions(), request);
     }
   }
 
@@ -530,10 +650,26 @@ public final class MosqueDashboardServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.mujeeb.mosquedashboard.grpc.GenericReply> setDateTime(
+        com.mujeeb.mosquedashboard.grpc.StringContainer request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getSetDateTimeMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.mujeeb.mosquedashboard.grpc.GenericReply> restartSystem(
         com.mujeeb.mosquedashboard.grpc.EmptyRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getRestartSystemMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.mujeeb.mosquedashboard.grpc.StringContainer> hasDateChanged(
+        com.mujeeb.mosquedashboard.grpc.EmptyRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getHasDateChangedMethod(), getCallOptions()), request);
     }
   }
 
@@ -542,7 +678,9 @@ public final class MosqueDashboardServiceGrpc {
   private static final int METHODID_CHANGE_HIJRI_ADJUSTMENT = 2;
   private static final int METHODID_TEST_AUDIO = 3;
   private static final int METHODID_CHANGE_SCREEN_SAVER_STATE = 4;
-  private static final int METHODID_RESTART_SYSTEM = 5;
+  private static final int METHODID_SET_DATE_TIME = 5;
+  private static final int METHODID_RESTART_SYSTEM = 6;
+  private static final int METHODID_HAS_DATE_CHANGED = 7;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -581,9 +719,17 @@ public final class MosqueDashboardServiceGrpc {
           serviceImpl.changeScreenSaverState((com.mujeeb.mosquedashboard.grpc.ScreenSaverStateUpdateRequest) request,
               (io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GenericReply>) responseObserver);
           break;
+        case METHODID_SET_DATE_TIME:
+          serviceImpl.setDateTime((com.mujeeb.mosquedashboard.grpc.StringContainer) request,
+              (io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GenericReply>) responseObserver);
+          break;
         case METHODID_RESTART_SYSTEM:
           serviceImpl.restartSystem((com.mujeeb.mosquedashboard.grpc.EmptyRequest) request,
               (io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.GenericReply>) responseObserver);
+          break;
+        case METHODID_HAS_DATE_CHANGED:
+          serviceImpl.hasDateChanged((com.mujeeb.mosquedashboard.grpc.EmptyRequest) request,
+              (io.grpc.stub.StreamObserver<com.mujeeb.mosquedashboard.grpc.StringContainer>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -650,7 +796,9 @@ public final class MosqueDashboardServiceGrpc {
               .addMethod(getChangeHijriAdjustmentMethod())
               .addMethod(getTestAudioMethod())
               .addMethod(getChangeScreenSaverStateMethod())
+              .addMethod(getSetDateTimeMethod())
               .addMethod(getRestartSystemMethod())
+              .addMethod(getHasDateChangedMethod())
               .build();
         }
       }

@@ -102,7 +102,7 @@ public class IslamicUtil {
 //		}
 //	}
 	
-	public static String getHijriDateString() {
+	public static String getHijriDateString(int adjustment) {
 //		/* Convert current date to Hijri calendar. */
 //		SimpleHijriDate hdate = HijriCalc.toHijri(new Date());
 //		
@@ -115,7 +115,9 @@ public class IslamicUtil {
 //					.append(hdate.getEraName(locale)).toString();
 		
 		/* Convert current date to Hijri calendar. */
-		SimpleHijriDate hdate = HijriCalc.toHijri(new Date());
+		Date date = new Date();
+		date = addDayToDate(date, adjustment);
+		SimpleHijriDate hdate = HijriCalc.toHijri(date);
 		
 		/* Prepare full Hijri date string */
 		Locale locale = Locale.getDefault();

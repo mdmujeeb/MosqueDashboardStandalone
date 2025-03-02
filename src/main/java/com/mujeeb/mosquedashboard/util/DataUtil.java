@@ -10,7 +10,7 @@ import com.mujeeb.mosquedashboard.main.Main;
 
 public class DataUtil {
 
-	public static final String DATA_FILE = "resources/settings.dat";
+	public static final String DATA_FILE = "settings.dat";
 	
 	public static Map<String,Object> readDataFile() {
 		

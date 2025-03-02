@@ -51,6 +51,9 @@ public class Main {
 	// Timers for Blinking
 	protected static BlinkData blinkData = new BlinkData();
 	protected static NamazTimes namazTimes = new NamazTimes();
+	
+	protected static boolean hasDateChanged = false;
+	protected static String newDate;
 
 	public static void main(String[] args) {
 		
@@ -170,6 +173,7 @@ public class Main {
 					gregorianPanel.refreshData();
 					hijriPanel.refreshData();
 					namazTimePanels.values().stream().forEach(panel -> panel.refreshData());
+					
 					previousDate.set(Calendar.DATE, currentDate.get(Calendar.DATE));
 					previousDate.set(Calendar.MONTH, currentDate.get(Calendar.MONTH));
 					previousDate.set(Calendar.YEAR, currentDate.get(Calendar.YEAR));
@@ -199,7 +203,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		VoiceUtil.playStream(resourceUtil.getResourceStream(AUDIO_FILE_PATH));
+//		VoiceUtil.playStream(resourceUtil.getResourceStream(AUDIO_FILE_PATH));
 	}
 	
 	public static void checkForNextNamazTime() {
@@ -379,6 +383,24 @@ public class Main {
 	
 	public static void changeScreenSaverState(boolean isOn) {
 		// GPIO Code
+		System.out.println(isOn ? "Screen Saver Turned On!" : "Screen Saver Turned Off!");
+	}
+	
+	public static void setDateTime(String dateTime) {
+		
+		hasDateChanged = true;
+		newDate = dateTime;
+	}
+	
+	public static String hasDateChanged() {
+		
+		if(hasDateChanged) {
+			hasDateChanged = false;
+			return newDate;
+			
+		} else {
+			return "";
+		}
 	}
 	
 	public static void restartSystem() {
@@ -392,7 +414,7 @@ public class Main {
 					Runtime.getRuntime().exec(new String[]{"reboot"});
 					
 				} catch (IOException e) {
-					/* Do Nothing */
+					e.printStackTrace();
 				}
 			}
 		}, 2000);

@@ -9,6 +9,7 @@ import com.mujeeb.mosquedashboard.grpc.HijriAdjustmentUpdateRequest;
 import com.mujeeb.mosquedashboard.grpc.MosqueDashboardServiceGrpc;
 import com.mujeeb.mosquedashboard.grpc.NamazTime;
 import com.mujeeb.mosquedashboard.grpc.ScreenSaverStateUpdateRequest;
+import com.mujeeb.mosquedashboard.grpc.StringContainer;
 import com.mujeeb.mosquedashboard.main.Main;
 import com.mujeeb.mosquedashboard.util.Constants;
 import com.mujeeb.mosquedashboard.util.DataUtil;
@@ -95,10 +96,25 @@ public class MosqueDashboardService extends MosqueDashboardServiceGrpc.MosqueDas
 	}
 
 	@Override
+	public void setDateTime(StringContainer request, StreamObserver<GenericReply> responseObserver) {
+
+		Main.setDateTime(request.getStr());
+		responseObserver.onNext(GenericReply.newBuilder().setResponseCode(0).setDescription("Success!!").build());
+	    responseObserver.onCompleted();
+	}
+
+	@Override
 	public void restartSystem(EmptyRequest request, StreamObserver<GenericReply> responseObserver) {
 		
 		Main.restartSystem();
 		responseObserver.onNext(GenericReply.newBuilder().setResponseCode(0).setDescription("Success!!").build());
+	    responseObserver.onCompleted();
+	}
+
+	@Override
+	public void hasDateChanged(EmptyRequest request, StreamObserver<StringContainer> responseObserver) {
+
+		responseObserver.onNext(StringContainer.newBuilder().setStr(Main.hasDateChanged()).build());
 	    responseObserver.onCompleted();
 	}
 }

@@ -48,8 +48,9 @@ public class HijriPanel extends JPanelWithBackgroundImage {
 	
 	public void refreshData() {
 		
-		dateLabel.setText(IslamicUtil.getHijriDateString());
-		String hijriDate = IslamicUtil.getHijriDate((Integer) Main.getData().get(Constants.KEY_HIJRI_ADJUSTMENT)).getDate();
+		int hijriAdjustment = (int) Main.getData().get(Constants.KEY_HIJRI_ADJUSTMENT);
+		dateLabel.setText(IslamicUtil.getHijriDateString(hijriAdjustment));
+		String hijriDate = IslamicUtil.getHijriDate(hijriAdjustment).getDate();
 //		moonImageLabel.setIcon(new ImageIcon("resources/moonphases/" + hijriDate + ".png"));
 		moonImageLabel.setIcon(new ResourceStreamUtil().getResourceImageIcon("resources/moonphases/" + hijriDate + ".png"));
 	}

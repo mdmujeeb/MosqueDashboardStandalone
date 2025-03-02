@@ -15,7 +15,9 @@ service MosqueDashboardService {
   rpc ChangeHijriAdjustment(HijriAdjustmentUpdateRequest) returns (GenericReply) {}
   rpc TestAudio(EmptyRequest) returns (GenericReply) {}
   rpc ChangeScreenSaverState(ScreenSaverStateUpdateRequest) returns (GenericReply) {}
+  rpc SetDateTime(StringContainer) returns (GenericReply) {}
   rpc RestartSystem(EmptyRequest) returns (GenericReply) {}
+  rpc HasDateChanged(EmptyRequest) returns (StringContainer) {}
 }
 
 // Request Beans
@@ -45,6 +47,10 @@ message HijriAdjustmentUpdateRequest {
 
 message ScreenSaverStateUpdateRequest {
   bool isOn = 1;
+}
+
+message StringContainer {
+  string str = 1;
 }
 
 // The response message containing the response
