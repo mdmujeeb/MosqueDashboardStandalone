@@ -22,6 +22,7 @@ public class DataUtil {
 			
 			Map<String,Object> data = new TreeMap<String,Object>();
 			
+			data.put(Constants.KEY_RUNNING_ON_PI, Boolean.parseBoolean(dataFile.getOrDefault(Constants.KEY_RUNNING_ON_PI, "true").toString()));
 			data.put(Constants.KEY_LATITUDE, Double.parseDouble(dataFile.getOrDefault(Constants.KEY_LATITUDE, "13.1309241").toString()));
 			data.put(Constants.KEY_LONGITUDE, Double.parseDouble(dataFile.getOrDefault(Constants.KEY_LONGITUDE, "77.6351945").toString()));
 			data.put(Constants.KEY_GMT_DIFFERENCE, Double.parseDouble(dataFile.getOrDefault(Constants.KEY_GMT_DIFFERENCE, "5.5").toString()));
@@ -43,6 +44,7 @@ public class DataUtil {
 			
 			Map<String, Object> data = new TreeMap<String,Object>();
 			
+			data.put(Constants.KEY_RUNNING_ON_PI, true);
 			data.put(Constants.KEY_LATITUDE, 13.1309241);
 			data.put(Constants.KEY_LONGITUDE, 77.6351945);
 			data.put(Constants.KEY_GMT_DIFFERENCE, 5.5);
@@ -74,6 +76,7 @@ public class DataUtil {
 		
 		writer.println("# Data File for Mosque Dashboard System.\n");
 		
+		writer.println(Constants.KEY_RUNNING_ON_PI + "=" + data.get(Constants.KEY_RUNNING_ON_PI));
 		writer.println(Constants.KEY_LATITUDE + "=" + data.get(Constants.KEY_LATITUDE));
 		writer.println(Constants.KEY_LONGITUDE + "=" + data.get(Constants.KEY_LONGITUDE));
 		writer.println(Constants.KEY_GMT_DIFFERENCE + "=" + data.get(Constants.KEY_GMT_DIFFERENCE));

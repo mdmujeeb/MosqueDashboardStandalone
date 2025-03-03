@@ -51,6 +51,19 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
+            com.mujeeb.mosquedashboard.grpc.AuthData.Builder subBuilder = null;
+            if (authData_ != null) {
+              subBuilder = authData_.toBuilder();
+            }
+            authData_ = input.readMessage(com.mujeeb.mosquedashboard.grpc.AuthData.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(authData_);
+              authData_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
             str_ = s;
@@ -88,10 +101,36 @@ private static final long serialVersionUID = 0L;
             com.mujeeb.mosquedashboard.grpc.StringContainer.class, com.mujeeb.mosquedashboard.grpc.StringContainer.Builder.class);
   }
 
-  public static final int STR_FIELD_NUMBER = 1;
+  public static final int AUTHDATA_FIELD_NUMBER = 1;
+  private com.mujeeb.mosquedashboard.grpc.AuthData authData_;
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   * @return Whether the authData field is set.
+   */
+  @java.lang.Override
+  public boolean hasAuthData() {
+    return authData_ != null;
+  }
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   * @return The authData.
+   */
+  @java.lang.Override
+  public com.mujeeb.mosquedashboard.grpc.AuthData getAuthData() {
+    return authData_ == null ? com.mujeeb.mosquedashboard.grpc.AuthData.getDefaultInstance() : authData_;
+  }
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   */
+  @java.lang.Override
+  public com.mujeeb.mosquedashboard.grpc.AuthDataOrBuilder getAuthDataOrBuilder() {
+    return getAuthData();
+  }
+
+  public static final int STR_FIELD_NUMBER = 2;
   private volatile java.lang.Object str_;
   /**
-   * <code>string str = 1;</code>
+   * <code>string str = 2;</code>
    * @return The str.
    */
   @java.lang.Override
@@ -108,7 +147,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string str = 1;</code>
+   * <code>string str = 2;</code>
    * @return The bytes for str.
    */
   @java.lang.Override
@@ -140,8 +179,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (authData_ != null) {
+      output.writeMessage(1, getAuthData());
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(str_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, str_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, str_);
     }
     unknownFields.writeTo(output);
   }
@@ -152,8 +194,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (authData_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getAuthData());
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(str_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, str_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, str_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -170,6 +216,11 @@ private static final long serialVersionUID = 0L;
     }
     com.mujeeb.mosquedashboard.grpc.StringContainer other = (com.mujeeb.mosquedashboard.grpc.StringContainer) obj;
 
+    if (hasAuthData() != other.hasAuthData()) return false;
+    if (hasAuthData()) {
+      if (!getAuthData()
+          .equals(other.getAuthData())) return false;
+    }
     if (!getStr()
         .equals(other.getStr())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -184,6 +235,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasAuthData()) {
+      hash = (37 * hash) + AUTHDATA_FIELD_NUMBER;
+      hash = (53 * hash) + getAuthData().hashCode();
+    }
     hash = (37 * hash) + STR_FIELD_NUMBER;
     hash = (53 * hash) + getStr().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -319,6 +374,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      if (authDataBuilder_ == null) {
+        authData_ = null;
+      } else {
+        authData_ = null;
+        authDataBuilder_ = null;
+      }
       str_ = "";
 
       return this;
@@ -347,6 +408,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.mujeeb.mosquedashboard.grpc.StringContainer buildPartial() {
       com.mujeeb.mosquedashboard.grpc.StringContainer result = new com.mujeeb.mosquedashboard.grpc.StringContainer(this);
+      if (authDataBuilder_ == null) {
+        result.authData_ = authData_;
+      } else {
+        result.authData_ = authDataBuilder_.build();
+      }
       result.str_ = str_;
       onBuilt();
       return result;
@@ -396,6 +462,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.mujeeb.mosquedashboard.grpc.StringContainer other) {
       if (other == com.mujeeb.mosquedashboard.grpc.StringContainer.getDefaultInstance()) return this;
+      if (other.hasAuthData()) {
+        mergeAuthData(other.getAuthData());
+      }
       if (!other.getStr().isEmpty()) {
         str_ = other.str_;
         onChanged();
@@ -429,9 +498,128 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.mujeeb.mosquedashboard.grpc.AuthData authData_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.mujeeb.mosquedashboard.grpc.AuthData, com.mujeeb.mosquedashboard.grpc.AuthData.Builder, com.mujeeb.mosquedashboard.grpc.AuthDataOrBuilder> authDataBuilder_;
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+     * @return Whether the authData field is set.
+     */
+    public boolean hasAuthData() {
+      return authDataBuilder_ != null || authData_ != null;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+     * @return The authData.
+     */
+    public com.mujeeb.mosquedashboard.grpc.AuthData getAuthData() {
+      if (authDataBuilder_ == null) {
+        return authData_ == null ? com.mujeeb.mosquedashboard.grpc.AuthData.getDefaultInstance() : authData_;
+      } else {
+        return authDataBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+     */
+    public Builder setAuthData(com.mujeeb.mosquedashboard.grpc.AuthData value) {
+      if (authDataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        authData_ = value;
+        onChanged();
+      } else {
+        authDataBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+     */
+    public Builder setAuthData(
+        com.mujeeb.mosquedashboard.grpc.AuthData.Builder builderForValue) {
+      if (authDataBuilder_ == null) {
+        authData_ = builderForValue.build();
+        onChanged();
+      } else {
+        authDataBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+     */
+    public Builder mergeAuthData(com.mujeeb.mosquedashboard.grpc.AuthData value) {
+      if (authDataBuilder_ == null) {
+        if (authData_ != null) {
+          authData_ =
+            com.mujeeb.mosquedashboard.grpc.AuthData.newBuilder(authData_).mergeFrom(value).buildPartial();
+        } else {
+          authData_ = value;
+        }
+        onChanged();
+      } else {
+        authDataBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+     */
+    public Builder clearAuthData() {
+      if (authDataBuilder_ == null) {
+        authData_ = null;
+        onChanged();
+      } else {
+        authData_ = null;
+        authDataBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+     */
+    public com.mujeeb.mosquedashboard.grpc.AuthData.Builder getAuthDataBuilder() {
+      
+      onChanged();
+      return getAuthDataFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+     */
+    public com.mujeeb.mosquedashboard.grpc.AuthDataOrBuilder getAuthDataOrBuilder() {
+      if (authDataBuilder_ != null) {
+        return authDataBuilder_.getMessageOrBuilder();
+      } else {
+        return authData_ == null ?
+            com.mujeeb.mosquedashboard.grpc.AuthData.getDefaultInstance() : authData_;
+      }
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.mujeeb.mosquedashboard.grpc.AuthData, com.mujeeb.mosquedashboard.grpc.AuthData.Builder, com.mujeeb.mosquedashboard.grpc.AuthDataOrBuilder> 
+        getAuthDataFieldBuilder() {
+      if (authDataBuilder_ == null) {
+        authDataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.mujeeb.mosquedashboard.grpc.AuthData, com.mujeeb.mosquedashboard.grpc.AuthData.Builder, com.mujeeb.mosquedashboard.grpc.AuthDataOrBuilder>(
+                getAuthData(),
+                getParentForChildren(),
+                isClean());
+        authData_ = null;
+      }
+      return authDataBuilder_;
+    }
+
     private java.lang.Object str_ = "";
     /**
-     * <code>string str = 1;</code>
+     * <code>string str = 2;</code>
      * @return The str.
      */
     public java.lang.String getStr() {
@@ -447,7 +635,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string str = 1;</code>
+     * <code>string str = 2;</code>
      * @return The bytes for str.
      */
     public com.google.protobuf.ByteString
@@ -464,7 +652,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string str = 1;</code>
+     * <code>string str = 2;</code>
      * @param value The str to set.
      * @return This builder for chaining.
      */
@@ -479,7 +667,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string str = 1;</code>
+     * <code>string str = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearStr() {
@@ -489,7 +677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string str = 1;</code>
+     * <code>string str = 2;</code>
      * @param value The bytes for str to set.
      * @return This builder for chaining.
      */

@@ -20,5 +20,5 @@ public interface Constants {
 	public static final String KEY_SCREENSAVER_OFF    = "SCREEN_SAVER_OFF";
 	public static final String KEY_USER_ID            = "USER_ID";
 	public static final String KEY_PASSWORD           = "PASSWORD";
-	
+	public static final String KEY_RUNNING_ON_PI	  = "IS_RUNNING_ON_RASPBERRY_PI";
 }

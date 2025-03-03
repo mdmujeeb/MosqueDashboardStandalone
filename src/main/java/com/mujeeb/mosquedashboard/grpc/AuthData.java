@@ -4,30 +4,28 @@
 package com.mujeeb.mosquedashboard.grpc;
 
 /**
- * <pre>
- * The response message containing the response
- * </pre>
- *
- * Protobuf type {@code com.mujeeb.mosquedashboard.grpc.GenericReply}
+ * Protobuf type {@code com.mujeeb.mosquedashboard.grpc.AuthData}
  */
 @SuppressWarnings("deprecation")
-public final class GenericReply extends
+public final class AuthData extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.mujeeb.mosquedashboard.grpc.GenericReply)
-    GenericReplyOrBuilder {
+    // @@protoc_insertion_point(message_implements:com.mujeeb.mosquedashboard.grpc.AuthData)
+    AuthDataOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use GenericReply.newBuilder() to construct.
-  private GenericReply(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use AuthData.newBuilder() to construct.
+  private AuthData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GenericReply() {
-    description_ = "";
+  private AuthData() {
+    userName_ = "";
+    password_ = "";
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new GenericReply();
+    return new AuthData();
   }
 
   @java.lang.Override
@@ -35,7 +33,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GenericReply(
+  private AuthData(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -56,12 +54,13 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            description_ = s;
+            userName_ = s;
             break;
           }
-          case 16: {
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            responseCode_ = input.readInt32();
+            password_ = s;
             break;
           }
           default: {
@@ -85,64 +84,91 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_GenericReply_descriptor;
+    return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_AuthData_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_GenericReply_fieldAccessorTable
+    return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_AuthData_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.mujeeb.mosquedashboard.grpc.GenericReply.class, com.mujeeb.mosquedashboard.grpc.GenericReply.Builder.class);
+            com.mujeeb.mosquedashboard.grpc.AuthData.class, com.mujeeb.mosquedashboard.grpc.AuthData.Builder.class);
   }
 
-  public static final int DESCRIPTION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object description_;
+  public static final int USERNAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object userName_;
   /**
-   * <code>string description = 1;</code>
-   * @return The description.
+   * <code>string userName = 1;</code>
+   * @return The userName.
    */
   @java.lang.Override
-  public java.lang.String getDescription() {
-    java.lang.Object ref = description_;
+  public java.lang.String getUserName() {
+    java.lang.Object ref = userName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      description_ = s;
+      userName_ = s;
       return s;
     }
   }
   /**
-   * <code>string description = 1;</code>
-   * @return The bytes for description.
+   * <code>string userName = 1;</code>
+   * @return The bytes for userName.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getDescriptionBytes() {
-    java.lang.Object ref = description_;
+      getUserNameBytes() {
+    java.lang.Object ref = userName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      description_ = b;
+      userName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int RESPONSECODE_FIELD_NUMBER = 2;
-  private int responseCode_;
+  public static final int PASSWORD_FIELD_NUMBER = 2;
+  private volatile java.lang.Object password_;
   /**
-   * <code>int32 responseCode = 2;</code>
-   * @return The responseCode.
+   * <code>string password = 2;</code>
+   * @return The password.
    */
   @java.lang.Override
-  public int getResponseCode() {
-    return responseCode_;
+  public java.lang.String getPassword() {
+    java.lang.Object ref = password_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      password_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string password = 2;</code>
+   * @return The bytes for password.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPasswordBytes() {
+    java.lang.Object ref = password_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      password_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -159,11 +185,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, description_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userName_);
     }
-    if (responseCode_ != 0) {
-      output.writeInt32(2, responseCode_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
     }
     unknownFields.writeTo(output);
   }
@@ -174,12 +200,11 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, description_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userName_);
     }
-    if (responseCode_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, responseCode_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -191,15 +216,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.mujeeb.mosquedashboard.grpc.GenericReply)) {
+    if (!(obj instanceof com.mujeeb.mosquedashboard.grpc.AuthData)) {
       return super.equals(obj);
     }
-    com.mujeeb.mosquedashboard.grpc.GenericReply other = (com.mujeeb.mosquedashboard.grpc.GenericReply) obj;
+    com.mujeeb.mosquedashboard.grpc.AuthData other = (com.mujeeb.mosquedashboard.grpc.AuthData) obj;
 
-    if (!getDescription()
-        .equals(other.getDescription())) return false;
-    if (getResponseCode()
-        != other.getResponseCode()) return false;
+    if (!getUserName()
+        .equals(other.getUserName())) return false;
+    if (!getPassword()
+        .equals(other.getPassword())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -212,78 +237,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-    hash = (53 * hash) + getDescription().hashCode();
-    hash = (37 * hash) + RESPONSECODE_FIELD_NUMBER;
-    hash = (53 * hash) + getResponseCode();
+    hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+    hash = (53 * hash) + getUserName().hashCode();
+    hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+    hash = (53 * hash) + getPassword().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseFrom(byte[] data)
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseFrom(java.io.InputStream input)
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseDelimitedFrom(java.io.InputStream input)
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseDelimitedFrom(
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply parseFrom(
+  public static com.mujeeb.mosquedashboard.grpc.AuthData parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -296,7 +321,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.mujeeb.mosquedashboard.grpc.GenericReply prototype) {
+  public static Builder newBuilder(com.mujeeb.mosquedashboard.grpc.AuthData prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -312,30 +337,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * The response message containing the response
-   * </pre>
-   *
-   * Protobuf type {@code com.mujeeb.mosquedashboard.grpc.GenericReply}
+   * Protobuf type {@code com.mujeeb.mosquedashboard.grpc.AuthData}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.mujeeb.mosquedashboard.grpc.GenericReply)
-      com.mujeeb.mosquedashboard.grpc.GenericReplyOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.mujeeb.mosquedashboard.grpc.AuthData)
+      com.mujeeb.mosquedashboard.grpc.AuthDataOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_GenericReply_descriptor;
+      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_AuthData_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_GenericReply_fieldAccessorTable
+      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_AuthData_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.mujeeb.mosquedashboard.grpc.GenericReply.class, com.mujeeb.mosquedashboard.grpc.GenericReply.Builder.class);
+              com.mujeeb.mosquedashboard.grpc.AuthData.class, com.mujeeb.mosquedashboard.grpc.AuthData.Builder.class);
     }
 
-    // Construct using com.mujeeb.mosquedashboard.grpc.GenericReply.newBuilder()
+    // Construct using com.mujeeb.mosquedashboard.grpc.AuthData.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -353,9 +374,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      description_ = "";
+      userName_ = "";
 
-      responseCode_ = 0;
+      password_ = "";
 
       return this;
     }
@@ -363,17 +384,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_GenericReply_descriptor;
+      return com.mujeeb.mosquedashboard.grpc.MosqueDashboardProto.internal_static_com_mujeeb_mosquedashboard_grpc_AuthData_descriptor;
     }
 
     @java.lang.Override
-    public com.mujeeb.mosquedashboard.grpc.GenericReply getDefaultInstanceForType() {
-      return com.mujeeb.mosquedashboard.grpc.GenericReply.getDefaultInstance();
+    public com.mujeeb.mosquedashboard.grpc.AuthData getDefaultInstanceForType() {
+      return com.mujeeb.mosquedashboard.grpc.AuthData.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.mujeeb.mosquedashboard.grpc.GenericReply build() {
-      com.mujeeb.mosquedashboard.grpc.GenericReply result = buildPartial();
+    public com.mujeeb.mosquedashboard.grpc.AuthData build() {
+      com.mujeeb.mosquedashboard.grpc.AuthData result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -381,10 +402,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.mujeeb.mosquedashboard.grpc.GenericReply buildPartial() {
-      com.mujeeb.mosquedashboard.grpc.GenericReply result = new com.mujeeb.mosquedashboard.grpc.GenericReply(this);
-      result.description_ = description_;
-      result.responseCode_ = responseCode_;
+    public com.mujeeb.mosquedashboard.grpc.AuthData buildPartial() {
+      com.mujeeb.mosquedashboard.grpc.AuthData result = new com.mujeeb.mosquedashboard.grpc.AuthData(this);
+      result.userName_ = userName_;
+      result.password_ = password_;
       onBuilt();
       return result;
     }
@@ -423,22 +444,23 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.mujeeb.mosquedashboard.grpc.GenericReply) {
-        return mergeFrom((com.mujeeb.mosquedashboard.grpc.GenericReply)other);
+      if (other instanceof com.mujeeb.mosquedashboard.grpc.AuthData) {
+        return mergeFrom((com.mujeeb.mosquedashboard.grpc.AuthData)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.mujeeb.mosquedashboard.grpc.GenericReply other) {
-      if (other == com.mujeeb.mosquedashboard.grpc.GenericReply.getDefaultInstance()) return this;
-      if (!other.getDescription().isEmpty()) {
-        description_ = other.description_;
+    public Builder mergeFrom(com.mujeeb.mosquedashboard.grpc.AuthData other) {
+      if (other == com.mujeeb.mosquedashboard.grpc.AuthData.getDefaultInstance()) return this;
+      if (!other.getUserName().isEmpty()) {
+        userName_ = other.userName_;
         onChanged();
       }
-      if (other.getResponseCode() != 0) {
-        setResponseCode(other.getResponseCode());
+      if (!other.getPassword().isEmpty()) {
+        password_ = other.password_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -455,11 +477,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.mujeeb.mosquedashboard.grpc.GenericReply parsedMessage = null;
+      com.mujeeb.mosquedashboard.grpc.AuthData parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.mujeeb.mosquedashboard.grpc.GenericReply) e.getUnfinishedMessage();
+        parsedMessage = (com.mujeeb.mosquedashboard.grpc.AuthData) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -469,109 +491,154 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object description_ = "";
+    private java.lang.Object userName_ = "";
     /**
-     * <code>string description = 1;</code>
-     * @return The description.
+     * <code>string userName = 1;</code>
+     * @return The userName.
      */
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        description_ = s;
+        userName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string description = 1;</code>
-     * @return The bytes for description.
+     * <code>string userName = 1;</code>
+     * @return The bytes for userName.
      */
     public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
+        getUserNameBytes() {
+      java.lang.Object ref = userName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        description_ = b;
+        userName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string description = 1;</code>
-     * @param value The description to set.
+     * <code>string userName = 1;</code>
+     * @param value The userName to set.
      * @return This builder for chaining.
      */
-    public Builder setDescription(
+    public Builder setUserName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      description_ = value;
+      userName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string description = 1;</code>
+     * <code>string userName = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearDescription() {
+    public Builder clearUserName() {
       
-      description_ = getDefaultInstance().getDescription();
+      userName_ = getDefaultInstance().getUserName();
       onChanged();
       return this;
     }
     /**
-     * <code>string description = 1;</code>
-     * @param value The bytes for description to set.
+     * <code>string userName = 1;</code>
+     * @param value The bytes for userName to set.
      * @return This builder for chaining.
      */
-    public Builder setDescriptionBytes(
+    public Builder setUserNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      description_ = value;
+      userName_ = value;
       onChanged();
       return this;
     }
 
-    private int responseCode_ ;
+    private java.lang.Object password_ = "";
     /**
-     * <code>int32 responseCode = 2;</code>
-     * @return The responseCode.
+     * <code>string password = 2;</code>
+     * @return The password.
      */
-    @java.lang.Override
-    public int getResponseCode() {
-      return responseCode_;
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 responseCode = 2;</code>
-     * @param value The responseCode to set.
+     * <code>string password = 2;</code>
+     * @return The bytes for password.
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string password = 2;</code>
+     * @param value The password to set.
      * @return This builder for chaining.
      */
-    public Builder setResponseCode(int value) {
-      
-      responseCode_ = value;
+    public Builder setPassword(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      password_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 responseCode = 2;</code>
+     * <code>string password = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearResponseCode() {
+    public Builder clearPassword() {
       
-      responseCode_ = 0;
+      password_ = getDefaultInstance().getPassword();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string password = 2;</code>
+     * @param value The bytes for password to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPasswordBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      password_ = value;
       onChanged();
       return this;
     }
@@ -588,41 +655,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.mujeeb.mosquedashboard.grpc.GenericReply)
+    // @@protoc_insertion_point(builder_scope:com.mujeeb.mosquedashboard.grpc.AuthData)
   }
 
-  // @@protoc_insertion_point(class_scope:com.mujeeb.mosquedashboard.grpc.GenericReply)
-  private static final com.mujeeb.mosquedashboard.grpc.GenericReply DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.mujeeb.mosquedashboard.grpc.AuthData)
+  private static final com.mujeeb.mosquedashboard.grpc.AuthData DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.mujeeb.mosquedashboard.grpc.GenericReply();
+    DEFAULT_INSTANCE = new com.mujeeb.mosquedashboard.grpc.AuthData();
   }
 
-  public static com.mujeeb.mosquedashboard.grpc.GenericReply getDefaultInstance() {
+  public static com.mujeeb.mosquedashboard.grpc.AuthData getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GenericReply>
-      PARSER = new com.google.protobuf.AbstractParser<GenericReply>() {
+  private static final com.google.protobuf.Parser<AuthData>
+      PARSER = new com.google.protobuf.AbstractParser<AuthData>() {
     @java.lang.Override
-    public GenericReply parsePartialFrom(
+    public AuthData parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GenericReply(input, extensionRegistry);
+      return new AuthData(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<GenericReply> parser() {
+  public static com.google.protobuf.Parser<AuthData> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<GenericReply> getParserForType() {
+  public com.google.protobuf.Parser<AuthData> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.mujeeb.mosquedashboard.grpc.GenericReply getDefaultInstanceForType() {
+  public com.mujeeb.mosquedashboard.grpc.AuthData getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

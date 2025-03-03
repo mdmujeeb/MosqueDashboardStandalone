@@ -8,12 +8,27 @@ public interface StringContainerOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string str = 1;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   * @return Whether the authData field is set.
+   */
+  boolean hasAuthData();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   * @return The authData.
+   */
+  com.mujeeb.mosquedashboard.grpc.AuthData getAuthData();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   */
+  com.mujeeb.mosquedashboard.grpc.AuthDataOrBuilder getAuthDataOrBuilder();
+
+  /**
+   * <code>string str = 2;</code>
    * @return The str.
    */
   java.lang.String getStr();
   /**
-   * <code>string str = 1;</code>
+   * <code>string str = 2;</code>
    * @return The bytes for str.
    */
   com.google.protobuf.ByteString

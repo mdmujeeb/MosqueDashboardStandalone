@@ -8,7 +8,22 @@ public interface ScreenSaverStateUpdateRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool isOn = 1;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   * @return Whether the authData field is set.
+   */
+  boolean hasAuthData();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   * @return The authData.
+   */
+  com.mujeeb.mosquedashboard.grpc.AuthData getAuthData();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   */
+  com.mujeeb.mosquedashboard.grpc.AuthDataOrBuilder getAuthDataOrBuilder();
+
+  /**
+   * <code>bool isOn = 2;</code>
    * @return The isOn.
    */
   boolean getIsOn();

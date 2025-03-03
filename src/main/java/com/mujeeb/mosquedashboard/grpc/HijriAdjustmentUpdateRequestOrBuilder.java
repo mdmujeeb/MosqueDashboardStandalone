@@ -8,7 +8,22 @@ public interface HijriAdjustmentUpdateRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 hijriAdjustment = 1;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   * @return Whether the authData field is set.
+   */
+  boolean hasAuthData();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   * @return The authData.
+   */
+  com.mujeeb.mosquedashboard.grpc.AuthData getAuthData();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   */
+  com.mujeeb.mosquedashboard.grpc.AuthDataOrBuilder getAuthDataOrBuilder();
+
+  /**
+   * <code>int32 hijriAdjustment = 2;</code>
    * @return The hijriAdjustment.
    */
   int getHijriAdjustment();

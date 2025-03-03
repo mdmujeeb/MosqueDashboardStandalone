@@ -22,9 +22,10 @@ service MosqueDashboardService {
 
 // Request Beans
 message NamazTime {
-  string namazTimeName = 1;
-  int32 hour = 2;
-  int32 minute = 3;
+  AuthData authData = 1;
+  string namazTimeName = 2;
+  int32 hour = 3;
+  int32 minute = 4;
 }
 
 message GetDataForMobileAppRequest {
@@ -42,15 +43,23 @@ message GetDataForMobileAppRequest {
 }
 
 message HijriAdjustmentUpdateRequest {
-  int32 hijriAdjustment = 1;
+  AuthData authData = 1;
+  int32 hijriAdjustment = 2;
 }
 
 message ScreenSaverStateUpdateRequest {
-  bool isOn = 1;
+  AuthData authData = 1;
+  bool isOn = 2;
 }
 
 message StringContainer {
-  string str = 1;
+  AuthData authData = 1;
+  string str = 2;
+}
+
+message AuthData {
+  string userName = 1;
+  string password = 2;
 }
 
 // The response message containing the response

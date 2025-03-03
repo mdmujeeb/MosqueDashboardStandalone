@@ -1,5 +1,7 @@
 package com.mujeeb.mosquedashboard.grpc.server;
 
+import java.util.Map;
+
 import com.mujeeb.mosquedashboard.beans.DateBean;
 import com.mujeeb.mosquedashboard.beans.NamazTimes;
 import com.mujeeb.mosquedashboard.grpc.EmptyRequest;
@@ -21,6 +23,16 @@ public class MosqueDashboardService extends MosqueDashboardServiceGrpc.MosqueDas
 
 	@Override
 	public void updateNamazTime(NamazTime request, StreamObserver<GenericReply> responseObserver) {
+		
+		Map<String,Object> data = Main.getData();
+		if(!data.get(Constants.KEY_USER_ID).toString().equals(request.getAuthData().getUserName())
+				|| !data.get(Constants.KEY_PASSWORD).toString().equals(request.getAuthData().getPassword())) {
+			
+			// Authentication Failed			
+			responseObserver.onNext(GenericReply.newBuilder().setResponseCode(-1).setDescription("Authentication Failed!").build());
+		    responseObserver.onCompleted();
+		    return;
+		}
 		
 		DataUtil.changeNamazTIme(request.getNamazTimeName(), request.getHour(), request.getMinute());
 		responseObserver.onNext(GenericReply.newBuilder().setResponseCode(0).setDescription("Success!!").build());
@@ -74,6 +86,16 @@ public class MosqueDashboardService extends MosqueDashboardServiceGrpc.MosqueDas
 	@Override
 	public void changeHijriAdjustment(HijriAdjustmentUpdateRequest request, StreamObserver<GenericReply> responseObserver) {
 		
+		Map<String,Object> data = Main.getData();
+		if(!data.get(Constants.KEY_USER_ID).toString().equals(request.getAuthData().getUserName())
+				|| !data.get(Constants.KEY_PASSWORD).toString().equals(request.getAuthData().getPassword())) {
+			
+			// Authentication Failed			
+			responseObserver.onNext(GenericReply.newBuilder().setResponseCode(-1).setDescription("Authentication Failed!").build());
+		    responseObserver.onCompleted();
+		    return;
+		}
+		
 		DataUtil.changeHijriAdjustment(request.getHijriAdjustment());
 		responseObserver.onNext(GenericReply.newBuilder().setResponseCode(0).setDescription("Success!!").build());
 	    responseObserver.onCompleted();
@@ -90,6 +112,16 @@ public class MosqueDashboardService extends MosqueDashboardServiceGrpc.MosqueDas
 	@Override
 	public void changeScreenSaverState(ScreenSaverStateUpdateRequest request, StreamObserver<GenericReply> responseObserver) {
 
+		Map<String,Object> data = Main.getData();
+		if(!data.get(Constants.KEY_USER_ID).toString().equals(request.getAuthData().getUserName())
+				|| !data.get(Constants.KEY_PASSWORD).toString().equals(request.getAuthData().getPassword())) {
+			
+			// Authentication Failed			
+			responseObserver.onNext(GenericReply.newBuilder().setResponseCode(-1).setDescription("Authentication Failed!").build());
+		    responseObserver.onCompleted();
+		    return;
+		}
+		
 		Main.changeScreenSaverState(request.getIsOn());
 		responseObserver.onNext(GenericReply.newBuilder().setResponseCode(0).setDescription("Success!!").build());
 	    responseObserver.onCompleted();
@@ -98,6 +130,16 @@ public class MosqueDashboardService extends MosqueDashboardServiceGrpc.MosqueDas
 	@Override
 	public void setDateTime(StringContainer request, StreamObserver<GenericReply> responseObserver) {
 
+		Map<String,Object> data = Main.getData();
+		if(!data.get(Constants.KEY_USER_ID).toString().equals(request.getAuthData().getUserName())
+				|| !data.get(Constants.KEY_PASSWORD).toString().equals(request.getAuthData().getPassword())) {
+			
+			// Authentication Failed			
+			responseObserver.onNext(GenericReply.newBuilder().setResponseCode(-1).setDescription("Authentication Failed!").build());
+		    responseObserver.onCompleted();
+		    return;
+		}
+		
 		Main.setDateTime(request.getStr());
 		responseObserver.onNext(GenericReply.newBuilder().setResponseCode(0).setDescription("Success!!").build());
 	    responseObserver.onCompleted();

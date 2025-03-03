@@ -8,25 +8,40 @@ public interface NamazTimeOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string namazTimeName = 1;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   * @return Whether the authData field is set.
+   */
+  boolean hasAuthData();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   * @return The authData.
+   */
+  com.mujeeb.mosquedashboard.grpc.AuthData getAuthData();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.AuthData authData = 1;</code>
+   */
+  com.mujeeb.mosquedashboard.grpc.AuthDataOrBuilder getAuthDataOrBuilder();
+
+  /**
+   * <code>string namazTimeName = 2;</code>
    * @return The namazTimeName.
    */
   java.lang.String getNamazTimeName();
   /**
-   * <code>string namazTimeName = 1;</code>
+   * <code>string namazTimeName = 2;</code>
    * @return The bytes for namazTimeName.
    */
   com.google.protobuf.ByteString
       getNamazTimeNameBytes();
 
   /**
-   * <code>int32 hour = 2;</code>
+   * <code>int32 hour = 3;</code>
    * @return The hour.
    */
   int getHour();
 
   /**
-   * <code>int32 minute = 3;</code>
+   * <code>int32 minute = 4;</code>
    * @return The minute.
    */
   int getMinute();

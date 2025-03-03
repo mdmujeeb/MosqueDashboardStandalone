@@ -43,6 +43,8 @@ public class Main {
 	protected static ResourceStreamUtil resourceUtil = new ResourceStreamUtil();
 	protected static FontUtil fontUtil = new FontUtil();
 	
+	protected static int RELAY_PIN = 5;
+	
 	protected static GregorianPanel gregorianPanel;
 	protected static TimePanel timePanel;
 	protected static HijriPanel hijriPanel;
@@ -59,6 +61,16 @@ public class Main {
 		
 		data = DataUtil.readDataFile();				// Get the stored Data
 		IslamicUtil.getPrayerTimes(data);			// Calculate Maghrib and other dynamic times
+		
+		// Initialize the GPIO
+		if(isRunningOnPi()) {
+			try {
+				Runtime.getRuntime().exec("gpio -g mode " + RELAY_PIN + " out");
+				Runtime.getRuntime().exec("gpio -g write " + RELAY_PIN + " 1");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -276,14 +288,10 @@ public class Main {
 	
 		  // Check if Screen Saver needs to be turned On or Off
 		  if(namazTimes.getCurrentHour() == namazTimes.getScreenOnTime()[0] && namazTimes.getCurrentMinute() == namazTimes.getScreenOnTime()[1]) {
-//		    if(digitalRead(RELAY_PIN) == HIGH) {
-//		      digitalWrite (RELAY_PIN, LOW);
-//		    }
+			  changeScreenSaverState(false);
 		  }
 		  if(namazTimes.getCurrentHour() == namazTimes.getScreenOffTime()[0] && namazTimes.getCurrentMinute() == namazTimes.getScreenOffTime()[1]) {
-//		    if(digitalRead(RELAY_PIN) == LOW) {
-//		      digitalWrite (RELAY_PIN, HIGH);
-//		    }
+			  changeScreenSaverState(true);
 		  }
 	
 		  if(overlapNamazTime != null) {
@@ -354,6 +362,10 @@ public class Main {
 		return data;
 	}
 	
+	public static boolean isRunningOnPi() {
+		return (boolean) data.get(Constants.KEY_RUNNING_ON_PI);
+	}
+	
 	public static NamazTimes getNamazTimes() {
 		return namazTimes;
 	}
@@ -383,7 +395,16 @@ public class Main {
 	
 	public static void changeScreenSaverState(boolean isOn) {
 		// GPIO Code
-		System.out.println(isOn ? "Screen Saver Turned On!" : "Screen Saver Turned Off!");
+//		System.out.println(isOn ? "Screen Saver Turned On!" : "Screen Saver Turned Off!");
+		
+		if(isRunningOnPi()) {
+			
+			try {
+				Runtime.getRuntime().exec("gpio -g write " + RELAY_PIN + (isOn ? " 0" : " 1"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public static void setDateTime(String dateTime) {
