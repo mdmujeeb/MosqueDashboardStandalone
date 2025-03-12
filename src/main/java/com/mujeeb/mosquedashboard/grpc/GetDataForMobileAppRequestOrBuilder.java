@@ -83,61 +83,121 @@ public interface GetDataForMobileAppRequestOrBuilder extends
   com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getJumuaTimeOrBuilder();
 
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+   * @return Whether the ishraqTime field is set.
+   */
+  boolean hasIshraqTime();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+   * @return The ishraqTime.
+   */
+  com.mujeeb.mosquedashboard.grpc.NamazTime getIshraqTime();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+   */
+  com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getIshraqTimeOrBuilder();
+
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+   * @return Whether the duhaTime field is set.
+   */
+  boolean hasDuhaTime();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+   * @return The duhaTime.
+   */
+  com.mujeeb.mosquedashboard.grpc.NamazTime getDuhaTime();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+   */
+  com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getDuhaTimeOrBuilder();
+
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+   * @return Whether the suhurTime field is set.
+   */
+  boolean hasSuhurTime();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+   * @return The suhurTime.
+   */
+  com.mujeeb.mosquedashboard.grpc.NamazTime getSuhurTime();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+   */
+  com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getSuhurTimeOrBuilder();
+
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+   * @return Whether the iftarTime field is set.
+   */
+  boolean hasIftarTime();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+   * @return The iftarTime.
+   */
+  com.mujeeb.mosquedashboard.grpc.NamazTime getIftarTime();
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+   */
+  com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getIftarTimeOrBuilder();
+
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
    * @return Whether the screenSaverOnTime field is set.
    */
   boolean hasScreenSaverOnTime();
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
    * @return The screenSaverOnTime.
    */
   com.mujeeb.mosquedashboard.grpc.NamazTime getScreenSaverOnTime();
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
    */
   com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getScreenSaverOnTimeOrBuilder();
 
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
    * @return Whether the screenSaverOffTime field is set.
    */
   boolean hasScreenSaverOffTime();
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
    * @return The screenSaverOffTime.
    */
   com.mujeeb.mosquedashboard.grpc.NamazTime getScreenSaverOffTime();
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
    */
   com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getScreenSaverOffTimeOrBuilder();
 
   /**
-   * <code>int32 hijriAdjustment = 8;</code>
+   * <code>int32 hijriAdjustment = 12;</code>
    * @return The hijriAdjustment.
    */
   int getHijriAdjustment();
 
   /**
-   * <code>int32 hijriDate = 9;</code>
+   * <code>int32 hijriDate = 13;</code>
    * @return The hijriDate.
    */
   int getHijriDate();
 
   /**
-   * <code>string hijriMonth = 10;</code>
+   * <code>string hijriMonth = 14;</code>
    * @return The hijriMonth.
    */
   java.lang.String getHijriMonth();
   /**
-   * <code>string hijriMonth = 10;</code>
+   * <code>string hijriMonth = 14;</code>
    * @return The bytes for hijriMonth.
    */
   com.google.protobuf.ByteString
       getHijriMonthBytes();
 
   /**
-   * <code>int32 hijriYear = 11;</code>
+   * <code>int32 hijriYear = 15;</code>
    * @return The hijriYear.
    */
   int getHijriYear();

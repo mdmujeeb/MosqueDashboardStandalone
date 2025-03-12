@@ -34,12 +34,16 @@ message GetDataForMobileAppRequest {
 	NamazTime asrTime = 3;
 	NamazTime ishaTime = 4;
 	NamazTime jumuaTime = 5;
-	NamazTime screenSaverOnTime = 6;
-	NamazTime screenSaverOffTime = 7;
-	int32 hijriAdjustment = 8;
-	int32 hijriDate = 9;
-	string hijriMonth = 10;
-	int32 hijriYear = 11;
+	NamazTime ishraqTime = 6;
+	NamazTime duhaTime = 7;
+	NamazTime suhurTime = 8;
+	NamazTime iftarTime = 9;
+	NamazTime screenSaverOnTime = 10;
+	NamazTime screenSaverOffTime = 11;
+	int32 hijriAdjustment = 12;
+	int32 hijriDate = 13;
+	string hijriMonth = 14;
+	int32 hijriYear = 15;
 }
 
 message HijriAdjustmentUpdateRequest {

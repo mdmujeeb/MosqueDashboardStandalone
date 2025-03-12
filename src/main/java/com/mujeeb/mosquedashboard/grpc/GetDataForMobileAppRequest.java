@@ -117,6 +117,58 @@ private static final long serialVersionUID = 0L;
           }
           case 50: {
             com.mujeeb.mosquedashboard.grpc.NamazTime.Builder subBuilder = null;
+            if (ishraqTime_ != null) {
+              subBuilder = ishraqTime_.toBuilder();
+            }
+            ishraqTime_ = input.readMessage(com.mujeeb.mosquedashboard.grpc.NamazTime.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(ishraqTime_);
+              ishraqTime_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 58: {
+            com.mujeeb.mosquedashboard.grpc.NamazTime.Builder subBuilder = null;
+            if (duhaTime_ != null) {
+              subBuilder = duhaTime_.toBuilder();
+            }
+            duhaTime_ = input.readMessage(com.mujeeb.mosquedashboard.grpc.NamazTime.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(duhaTime_);
+              duhaTime_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 66: {
+            com.mujeeb.mosquedashboard.grpc.NamazTime.Builder subBuilder = null;
+            if (suhurTime_ != null) {
+              subBuilder = suhurTime_.toBuilder();
+            }
+            suhurTime_ = input.readMessage(com.mujeeb.mosquedashboard.grpc.NamazTime.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(suhurTime_);
+              suhurTime_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 74: {
+            com.mujeeb.mosquedashboard.grpc.NamazTime.Builder subBuilder = null;
+            if (iftarTime_ != null) {
+              subBuilder = iftarTime_.toBuilder();
+            }
+            iftarTime_ = input.readMessage(com.mujeeb.mosquedashboard.grpc.NamazTime.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(iftarTime_);
+              iftarTime_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 82: {
+            com.mujeeb.mosquedashboard.grpc.NamazTime.Builder subBuilder = null;
             if (screenSaverOnTime_ != null) {
               subBuilder = screenSaverOnTime_.toBuilder();
             }
@@ -128,7 +180,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 58: {
+          case 90: {
             com.mujeeb.mosquedashboard.grpc.NamazTime.Builder subBuilder = null;
             if (screenSaverOffTime_ != null) {
               subBuilder = screenSaverOffTime_.toBuilder();
@@ -141,23 +193,23 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 64: {
+          case 96: {
 
             hijriAdjustment_ = input.readInt32();
             break;
           }
-          case 72: {
+          case 104: {
 
             hijriDate_ = input.readInt32();
             break;
           }
-          case 82: {
+          case 114: {
             java.lang.String s = input.readStringRequireUtf8();
 
             hijriMonth_ = s;
             break;
           }
-          case 88: {
+          case 120: {
 
             hijriYear_ = input.readInt32();
             break;
@@ -324,10 +376,114 @@ private static final long serialVersionUID = 0L;
     return getJumuaTime();
   }
 
-  public static final int SCREENSAVERONTIME_FIELD_NUMBER = 6;
+  public static final int ISHRAQTIME_FIELD_NUMBER = 6;
+  private com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime_;
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+   * @return Whether the ishraqTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasIshraqTime() {
+    return ishraqTime_ != null;
+  }
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+   * @return The ishraqTime.
+   */
+  @java.lang.Override
+  public com.mujeeb.mosquedashboard.grpc.NamazTime getIshraqTime() {
+    return ishraqTime_ == null ? com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : ishraqTime_;
+  }
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+   */
+  @java.lang.Override
+  public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getIshraqTimeOrBuilder() {
+    return getIshraqTime();
+  }
+
+  public static final int DUHATIME_FIELD_NUMBER = 7;
+  private com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime_;
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+   * @return Whether the duhaTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasDuhaTime() {
+    return duhaTime_ != null;
+  }
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+   * @return The duhaTime.
+   */
+  @java.lang.Override
+  public com.mujeeb.mosquedashboard.grpc.NamazTime getDuhaTime() {
+    return duhaTime_ == null ? com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : duhaTime_;
+  }
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+   */
+  @java.lang.Override
+  public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getDuhaTimeOrBuilder() {
+    return getDuhaTime();
+  }
+
+  public static final int SUHURTIME_FIELD_NUMBER = 8;
+  private com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime_;
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+   * @return Whether the suhurTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasSuhurTime() {
+    return suhurTime_ != null;
+  }
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+   * @return The suhurTime.
+   */
+  @java.lang.Override
+  public com.mujeeb.mosquedashboard.grpc.NamazTime getSuhurTime() {
+    return suhurTime_ == null ? com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : suhurTime_;
+  }
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+   */
+  @java.lang.Override
+  public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getSuhurTimeOrBuilder() {
+    return getSuhurTime();
+  }
+
+  public static final int IFTARTIME_FIELD_NUMBER = 9;
+  private com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime_;
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+   * @return Whether the iftarTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasIftarTime() {
+    return iftarTime_ != null;
+  }
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+   * @return The iftarTime.
+   */
+  @java.lang.Override
+  public com.mujeeb.mosquedashboard.grpc.NamazTime getIftarTime() {
+    return iftarTime_ == null ? com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : iftarTime_;
+  }
+  /**
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+   */
+  @java.lang.Override
+  public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getIftarTimeOrBuilder() {
+    return getIftarTime();
+  }
+
+  public static final int SCREENSAVERONTIME_FIELD_NUMBER = 10;
   private com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime_;
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
    * @return Whether the screenSaverOnTime field is set.
    */
   @java.lang.Override
@@ -335,7 +491,7 @@ private static final long serialVersionUID = 0L;
     return screenSaverOnTime_ != null;
   }
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
    * @return The screenSaverOnTime.
    */
   @java.lang.Override
@@ -343,17 +499,17 @@ private static final long serialVersionUID = 0L;
     return screenSaverOnTime_ == null ? com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : screenSaverOnTime_;
   }
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
    */
   @java.lang.Override
   public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getScreenSaverOnTimeOrBuilder() {
     return getScreenSaverOnTime();
   }
 
-  public static final int SCREENSAVEROFFTIME_FIELD_NUMBER = 7;
+  public static final int SCREENSAVEROFFTIME_FIELD_NUMBER = 11;
   private com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime_;
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
    * @return Whether the screenSaverOffTime field is set.
    */
   @java.lang.Override
@@ -361,7 +517,7 @@ private static final long serialVersionUID = 0L;
     return screenSaverOffTime_ != null;
   }
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
    * @return The screenSaverOffTime.
    */
   @java.lang.Override
@@ -369,17 +525,17 @@ private static final long serialVersionUID = 0L;
     return screenSaverOffTime_ == null ? com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : screenSaverOffTime_;
   }
   /**
-   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+   * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
    */
   @java.lang.Override
   public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getScreenSaverOffTimeOrBuilder() {
     return getScreenSaverOffTime();
   }
 
-  public static final int HIJRIADJUSTMENT_FIELD_NUMBER = 8;
+  public static final int HIJRIADJUSTMENT_FIELD_NUMBER = 12;
   private int hijriAdjustment_;
   /**
-   * <code>int32 hijriAdjustment = 8;</code>
+   * <code>int32 hijriAdjustment = 12;</code>
    * @return The hijriAdjustment.
    */
   @java.lang.Override
@@ -387,10 +543,10 @@ private static final long serialVersionUID = 0L;
     return hijriAdjustment_;
   }
 
-  public static final int HIJRIDATE_FIELD_NUMBER = 9;
+  public static final int HIJRIDATE_FIELD_NUMBER = 13;
   private int hijriDate_;
   /**
-   * <code>int32 hijriDate = 9;</code>
+   * <code>int32 hijriDate = 13;</code>
    * @return The hijriDate.
    */
   @java.lang.Override
@@ -398,10 +554,10 @@ private static final long serialVersionUID = 0L;
     return hijriDate_;
   }
 
-  public static final int HIJRIMONTH_FIELD_NUMBER = 10;
+  public static final int HIJRIMONTH_FIELD_NUMBER = 14;
   private volatile java.lang.Object hijriMonth_;
   /**
-   * <code>string hijriMonth = 10;</code>
+   * <code>string hijriMonth = 14;</code>
    * @return The hijriMonth.
    */
   @java.lang.Override
@@ -418,7 +574,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string hijriMonth = 10;</code>
+   * <code>string hijriMonth = 14;</code>
    * @return The bytes for hijriMonth.
    */
   @java.lang.Override
@@ -436,10 +592,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int HIJRIYEAR_FIELD_NUMBER = 11;
+  public static final int HIJRIYEAR_FIELD_NUMBER = 15;
   private int hijriYear_;
   /**
-   * <code>int32 hijriYear = 11;</code>
+   * <code>int32 hijriYear = 15;</code>
    * @return The hijriYear.
    */
   @java.lang.Override
@@ -476,23 +632,35 @@ private static final long serialVersionUID = 0L;
     if (jumuaTime_ != null) {
       output.writeMessage(5, getJumuaTime());
     }
+    if (ishraqTime_ != null) {
+      output.writeMessage(6, getIshraqTime());
+    }
+    if (duhaTime_ != null) {
+      output.writeMessage(7, getDuhaTime());
+    }
+    if (suhurTime_ != null) {
+      output.writeMessage(8, getSuhurTime());
+    }
+    if (iftarTime_ != null) {
+      output.writeMessage(9, getIftarTime());
+    }
     if (screenSaverOnTime_ != null) {
-      output.writeMessage(6, getScreenSaverOnTime());
+      output.writeMessage(10, getScreenSaverOnTime());
     }
     if (screenSaverOffTime_ != null) {
-      output.writeMessage(7, getScreenSaverOffTime());
+      output.writeMessage(11, getScreenSaverOffTime());
     }
     if (hijriAdjustment_ != 0) {
-      output.writeInt32(8, hijriAdjustment_);
+      output.writeInt32(12, hijriAdjustment_);
     }
     if (hijriDate_ != 0) {
-      output.writeInt32(9, hijriDate_);
+      output.writeInt32(13, hijriDate_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hijriMonth_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, hijriMonth_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, hijriMonth_);
     }
     if (hijriYear_ != 0) {
-      output.writeInt32(11, hijriYear_);
+      output.writeInt32(15, hijriYear_);
     }
     unknownFields.writeTo(output);
   }
@@ -523,28 +691,44 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getJumuaTime());
     }
+    if (ishraqTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getIshraqTime());
+    }
+    if (duhaTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getDuhaTime());
+    }
+    if (suhurTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getSuhurTime());
+    }
+    if (iftarTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getIftarTime());
+    }
     if (screenSaverOnTime_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, getScreenSaverOnTime());
+        .computeMessageSize(10, getScreenSaverOnTime());
     }
     if (screenSaverOffTime_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, getScreenSaverOffTime());
+        .computeMessageSize(11, getScreenSaverOffTime());
     }
     if (hijriAdjustment_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(8, hijriAdjustment_);
+        .computeInt32Size(12, hijriAdjustment_);
     }
     if (hijriDate_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(9, hijriDate_);
+        .computeInt32Size(13, hijriDate_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hijriMonth_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, hijriMonth_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, hijriMonth_);
     }
     if (hijriYear_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(11, hijriYear_);
+        .computeInt32Size(15, hijriYear_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -585,6 +769,26 @@ private static final long serialVersionUID = 0L;
     if (hasJumuaTime()) {
       if (!getJumuaTime()
           .equals(other.getJumuaTime())) return false;
+    }
+    if (hasIshraqTime() != other.hasIshraqTime()) return false;
+    if (hasIshraqTime()) {
+      if (!getIshraqTime()
+          .equals(other.getIshraqTime())) return false;
+    }
+    if (hasDuhaTime() != other.hasDuhaTime()) return false;
+    if (hasDuhaTime()) {
+      if (!getDuhaTime()
+          .equals(other.getDuhaTime())) return false;
+    }
+    if (hasSuhurTime() != other.hasSuhurTime()) return false;
+    if (hasSuhurTime()) {
+      if (!getSuhurTime()
+          .equals(other.getSuhurTime())) return false;
+    }
+    if (hasIftarTime() != other.hasIftarTime()) return false;
+    if (hasIftarTime()) {
+      if (!getIftarTime()
+          .equals(other.getIftarTime())) return false;
     }
     if (hasScreenSaverOnTime() != other.hasScreenSaverOnTime()) return false;
     if (hasScreenSaverOnTime()) {
@@ -635,6 +839,22 @@ private static final long serialVersionUID = 0L;
     if (hasJumuaTime()) {
       hash = (37 * hash) + JUMUATIME_FIELD_NUMBER;
       hash = (53 * hash) + getJumuaTime().hashCode();
+    }
+    if (hasIshraqTime()) {
+      hash = (37 * hash) + ISHRAQTIME_FIELD_NUMBER;
+      hash = (53 * hash) + getIshraqTime().hashCode();
+    }
+    if (hasDuhaTime()) {
+      hash = (37 * hash) + DUHATIME_FIELD_NUMBER;
+      hash = (53 * hash) + getDuhaTime().hashCode();
+    }
+    if (hasSuhurTime()) {
+      hash = (37 * hash) + SUHURTIME_FIELD_NUMBER;
+      hash = (53 * hash) + getSuhurTime().hashCode();
+    }
+    if (hasIftarTime()) {
+      hash = (37 * hash) + IFTARTIME_FIELD_NUMBER;
+      hash = (53 * hash) + getIftarTime().hashCode();
     }
     if (hasScreenSaverOnTime()) {
       hash = (37 * hash) + SCREENSAVERONTIME_FIELD_NUMBER;
@@ -815,6 +1035,30 @@ private static final long serialVersionUID = 0L;
         jumuaTime_ = null;
         jumuaTimeBuilder_ = null;
       }
+      if (ishraqTimeBuilder_ == null) {
+        ishraqTime_ = null;
+      } else {
+        ishraqTime_ = null;
+        ishraqTimeBuilder_ = null;
+      }
+      if (duhaTimeBuilder_ == null) {
+        duhaTime_ = null;
+      } else {
+        duhaTime_ = null;
+        duhaTimeBuilder_ = null;
+      }
+      if (suhurTimeBuilder_ == null) {
+        suhurTime_ = null;
+      } else {
+        suhurTime_ = null;
+        suhurTimeBuilder_ = null;
+      }
+      if (iftarTimeBuilder_ == null) {
+        iftarTime_ = null;
+      } else {
+        iftarTime_ = null;
+        iftarTimeBuilder_ = null;
+      }
       if (screenSaverOnTimeBuilder_ == null) {
         screenSaverOnTime_ = null;
       } else {
@@ -885,6 +1129,26 @@ private static final long serialVersionUID = 0L;
         result.jumuaTime_ = jumuaTime_;
       } else {
         result.jumuaTime_ = jumuaTimeBuilder_.build();
+      }
+      if (ishraqTimeBuilder_ == null) {
+        result.ishraqTime_ = ishraqTime_;
+      } else {
+        result.ishraqTime_ = ishraqTimeBuilder_.build();
+      }
+      if (duhaTimeBuilder_ == null) {
+        result.duhaTime_ = duhaTime_;
+      } else {
+        result.duhaTime_ = duhaTimeBuilder_.build();
+      }
+      if (suhurTimeBuilder_ == null) {
+        result.suhurTime_ = suhurTime_;
+      } else {
+        result.suhurTime_ = suhurTimeBuilder_.build();
+      }
+      if (iftarTimeBuilder_ == null) {
+        result.iftarTime_ = iftarTime_;
+      } else {
+        result.iftarTime_ = iftarTimeBuilder_.build();
       }
       if (screenSaverOnTimeBuilder_ == null) {
         result.screenSaverOnTime_ = screenSaverOnTime_;
@@ -962,6 +1226,18 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasJumuaTime()) {
         mergeJumuaTime(other.getJumuaTime());
+      }
+      if (other.hasIshraqTime()) {
+        mergeIshraqTime(other.getIshraqTime());
+      }
+      if (other.hasDuhaTime()) {
+        mergeDuhaTime(other.getDuhaTime());
+      }
+      if (other.hasSuhurTime()) {
+        mergeSuhurTime(other.getSuhurTime());
+      }
+      if (other.hasIftarTime()) {
+        mergeIftarTime(other.getIftarTime());
       }
       if (other.hasScreenSaverOnTime()) {
         mergeScreenSaverOnTime(other.getScreenSaverOnTime());
@@ -1606,18 +1882,494 @@ private static final long serialVersionUID = 0L;
       return jumuaTimeBuilder_;
     }
 
+    private com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> ishraqTimeBuilder_;
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+     * @return Whether the ishraqTime field is set.
+     */
+    public boolean hasIshraqTime() {
+      return ishraqTimeBuilder_ != null || ishraqTime_ != null;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+     * @return The ishraqTime.
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTime getIshraqTime() {
+      if (ishraqTimeBuilder_ == null) {
+        return ishraqTime_ == null ? com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : ishraqTime_;
+      } else {
+        return ishraqTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+     */
+    public Builder setIshraqTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
+      if (ishraqTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ishraqTime_ = value;
+        onChanged();
+      } else {
+        ishraqTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+     */
+    public Builder setIshraqTime(
+        com.mujeeb.mosquedashboard.grpc.NamazTime.Builder builderForValue) {
+      if (ishraqTimeBuilder_ == null) {
+        ishraqTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        ishraqTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+     */
+    public Builder mergeIshraqTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
+      if (ishraqTimeBuilder_ == null) {
+        if (ishraqTime_ != null) {
+          ishraqTime_ =
+            com.mujeeb.mosquedashboard.grpc.NamazTime.newBuilder(ishraqTime_).mergeFrom(value).buildPartial();
+        } else {
+          ishraqTime_ = value;
+        }
+        onChanged();
+      } else {
+        ishraqTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+     */
+    public Builder clearIshraqTime() {
+      if (ishraqTimeBuilder_ == null) {
+        ishraqTime_ = null;
+        onChanged();
+      } else {
+        ishraqTime_ = null;
+        ishraqTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTime.Builder getIshraqTimeBuilder() {
+      
+      onChanged();
+      return getIshraqTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getIshraqTimeOrBuilder() {
+      if (ishraqTimeBuilder_ != null) {
+        return ishraqTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return ishraqTime_ == null ?
+            com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : ishraqTime_;
+      }
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime ishraqTime = 6;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> 
+        getIshraqTimeFieldBuilder() {
+      if (ishraqTimeBuilder_ == null) {
+        ishraqTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder>(
+                getIshraqTime(),
+                getParentForChildren(),
+                isClean());
+        ishraqTime_ = null;
+      }
+      return ishraqTimeBuilder_;
+    }
+
+    private com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> duhaTimeBuilder_;
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+     * @return Whether the duhaTime field is set.
+     */
+    public boolean hasDuhaTime() {
+      return duhaTimeBuilder_ != null || duhaTime_ != null;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+     * @return The duhaTime.
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTime getDuhaTime() {
+      if (duhaTimeBuilder_ == null) {
+        return duhaTime_ == null ? com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : duhaTime_;
+      } else {
+        return duhaTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+     */
+    public Builder setDuhaTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
+      if (duhaTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        duhaTime_ = value;
+        onChanged();
+      } else {
+        duhaTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+     */
+    public Builder setDuhaTime(
+        com.mujeeb.mosquedashboard.grpc.NamazTime.Builder builderForValue) {
+      if (duhaTimeBuilder_ == null) {
+        duhaTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        duhaTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+     */
+    public Builder mergeDuhaTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
+      if (duhaTimeBuilder_ == null) {
+        if (duhaTime_ != null) {
+          duhaTime_ =
+            com.mujeeb.mosquedashboard.grpc.NamazTime.newBuilder(duhaTime_).mergeFrom(value).buildPartial();
+        } else {
+          duhaTime_ = value;
+        }
+        onChanged();
+      } else {
+        duhaTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+     */
+    public Builder clearDuhaTime() {
+      if (duhaTimeBuilder_ == null) {
+        duhaTime_ = null;
+        onChanged();
+      } else {
+        duhaTime_ = null;
+        duhaTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTime.Builder getDuhaTimeBuilder() {
+      
+      onChanged();
+      return getDuhaTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getDuhaTimeOrBuilder() {
+      if (duhaTimeBuilder_ != null) {
+        return duhaTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return duhaTime_ == null ?
+            com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : duhaTime_;
+      }
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime duhaTime = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> 
+        getDuhaTimeFieldBuilder() {
+      if (duhaTimeBuilder_ == null) {
+        duhaTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder>(
+                getDuhaTime(),
+                getParentForChildren(),
+                isClean());
+        duhaTime_ = null;
+      }
+      return duhaTimeBuilder_;
+    }
+
+    private com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> suhurTimeBuilder_;
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+     * @return Whether the suhurTime field is set.
+     */
+    public boolean hasSuhurTime() {
+      return suhurTimeBuilder_ != null || suhurTime_ != null;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+     * @return The suhurTime.
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTime getSuhurTime() {
+      if (suhurTimeBuilder_ == null) {
+        return suhurTime_ == null ? com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : suhurTime_;
+      } else {
+        return suhurTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+     */
+    public Builder setSuhurTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
+      if (suhurTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        suhurTime_ = value;
+        onChanged();
+      } else {
+        suhurTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+     */
+    public Builder setSuhurTime(
+        com.mujeeb.mosquedashboard.grpc.NamazTime.Builder builderForValue) {
+      if (suhurTimeBuilder_ == null) {
+        suhurTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        suhurTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+     */
+    public Builder mergeSuhurTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
+      if (suhurTimeBuilder_ == null) {
+        if (suhurTime_ != null) {
+          suhurTime_ =
+            com.mujeeb.mosquedashboard.grpc.NamazTime.newBuilder(suhurTime_).mergeFrom(value).buildPartial();
+        } else {
+          suhurTime_ = value;
+        }
+        onChanged();
+      } else {
+        suhurTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+     */
+    public Builder clearSuhurTime() {
+      if (suhurTimeBuilder_ == null) {
+        suhurTime_ = null;
+        onChanged();
+      } else {
+        suhurTime_ = null;
+        suhurTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTime.Builder getSuhurTimeBuilder() {
+      
+      onChanged();
+      return getSuhurTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getSuhurTimeOrBuilder() {
+      if (suhurTimeBuilder_ != null) {
+        return suhurTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return suhurTime_ == null ?
+            com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : suhurTime_;
+      }
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime suhurTime = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> 
+        getSuhurTimeFieldBuilder() {
+      if (suhurTimeBuilder_ == null) {
+        suhurTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder>(
+                getSuhurTime(),
+                getParentForChildren(),
+                isClean());
+        suhurTime_ = null;
+      }
+      return suhurTimeBuilder_;
+    }
+
+    private com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> iftarTimeBuilder_;
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+     * @return Whether the iftarTime field is set.
+     */
+    public boolean hasIftarTime() {
+      return iftarTimeBuilder_ != null || iftarTime_ != null;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+     * @return The iftarTime.
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTime getIftarTime() {
+      if (iftarTimeBuilder_ == null) {
+        return iftarTime_ == null ? com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : iftarTime_;
+      } else {
+        return iftarTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+     */
+    public Builder setIftarTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
+      if (iftarTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        iftarTime_ = value;
+        onChanged();
+      } else {
+        iftarTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+     */
+    public Builder setIftarTime(
+        com.mujeeb.mosquedashboard.grpc.NamazTime.Builder builderForValue) {
+      if (iftarTimeBuilder_ == null) {
+        iftarTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        iftarTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+     */
+    public Builder mergeIftarTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
+      if (iftarTimeBuilder_ == null) {
+        if (iftarTime_ != null) {
+          iftarTime_ =
+            com.mujeeb.mosquedashboard.grpc.NamazTime.newBuilder(iftarTime_).mergeFrom(value).buildPartial();
+        } else {
+          iftarTime_ = value;
+        }
+        onChanged();
+      } else {
+        iftarTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+     */
+    public Builder clearIftarTime() {
+      if (iftarTimeBuilder_ == null) {
+        iftarTime_ = null;
+        onChanged();
+      } else {
+        iftarTime_ = null;
+        iftarTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTime.Builder getIftarTimeBuilder() {
+      
+      onChanged();
+      return getIftarTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+     */
+    public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getIftarTimeOrBuilder() {
+      if (iftarTimeBuilder_ != null) {
+        return iftarTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return iftarTime_ == null ?
+            com.mujeeb.mosquedashboard.grpc.NamazTime.getDefaultInstance() : iftarTime_;
+      }
+    }
+    /**
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime iftarTime = 9;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> 
+        getIftarTimeFieldBuilder() {
+      if (iftarTimeBuilder_ == null) {
+        iftarTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder>(
+                getIftarTime(),
+                getParentForChildren(),
+                isClean());
+        iftarTime_ = null;
+      }
+      return iftarTimeBuilder_;
+    }
+
     private com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> screenSaverOnTimeBuilder_;
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
      * @return Whether the screenSaverOnTime field is set.
      */
     public boolean hasScreenSaverOnTime() {
       return screenSaverOnTimeBuilder_ != null || screenSaverOnTime_ != null;
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
      * @return The screenSaverOnTime.
      */
     public com.mujeeb.mosquedashboard.grpc.NamazTime getScreenSaverOnTime() {
@@ -1628,7 +2380,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
      */
     public Builder setScreenSaverOnTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
       if (screenSaverOnTimeBuilder_ == null) {
@@ -1644,7 +2396,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
      */
     public Builder setScreenSaverOnTime(
         com.mujeeb.mosquedashboard.grpc.NamazTime.Builder builderForValue) {
@@ -1658,7 +2410,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
      */
     public Builder mergeScreenSaverOnTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
       if (screenSaverOnTimeBuilder_ == null) {
@@ -1676,7 +2428,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
      */
     public Builder clearScreenSaverOnTime() {
       if (screenSaverOnTimeBuilder_ == null) {
@@ -1690,7 +2442,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
      */
     public com.mujeeb.mosquedashboard.grpc.NamazTime.Builder getScreenSaverOnTimeBuilder() {
       
@@ -1698,7 +2450,7 @@ private static final long serialVersionUID = 0L;
       return getScreenSaverOnTimeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
      */
     public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getScreenSaverOnTimeOrBuilder() {
       if (screenSaverOnTimeBuilder_ != null) {
@@ -1709,7 +2461,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 6;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOnTime = 10;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> 
@@ -1729,14 +2481,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> screenSaverOffTimeBuilder_;
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
      * @return Whether the screenSaverOffTime field is set.
      */
     public boolean hasScreenSaverOffTime() {
       return screenSaverOffTimeBuilder_ != null || screenSaverOffTime_ != null;
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
      * @return The screenSaverOffTime.
      */
     public com.mujeeb.mosquedashboard.grpc.NamazTime getScreenSaverOffTime() {
@@ -1747,7 +2499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
      */
     public Builder setScreenSaverOffTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
       if (screenSaverOffTimeBuilder_ == null) {
@@ -1763,7 +2515,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
      */
     public Builder setScreenSaverOffTime(
         com.mujeeb.mosquedashboard.grpc.NamazTime.Builder builderForValue) {
@@ -1777,7 +2529,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
      */
     public Builder mergeScreenSaverOffTime(com.mujeeb.mosquedashboard.grpc.NamazTime value) {
       if (screenSaverOffTimeBuilder_ == null) {
@@ -1795,7 +2547,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
      */
     public Builder clearScreenSaverOffTime() {
       if (screenSaverOffTimeBuilder_ == null) {
@@ -1809,7 +2561,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
      */
     public com.mujeeb.mosquedashboard.grpc.NamazTime.Builder getScreenSaverOffTimeBuilder() {
       
@@ -1817,7 +2569,7 @@ private static final long serialVersionUID = 0L;
       return getScreenSaverOffTimeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
      */
     public com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder getScreenSaverOffTimeOrBuilder() {
       if (screenSaverOffTimeBuilder_ != null) {
@@ -1828,7 +2580,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 7;</code>
+     * <code>.com.mujeeb.mosquedashboard.grpc.NamazTime screenSaverOffTime = 11;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.mujeeb.mosquedashboard.grpc.NamazTime, com.mujeeb.mosquedashboard.grpc.NamazTime.Builder, com.mujeeb.mosquedashboard.grpc.NamazTimeOrBuilder> 
@@ -1846,7 +2598,7 @@ private static final long serialVersionUID = 0L;
 
     private int hijriAdjustment_ ;
     /**
-     * <code>int32 hijriAdjustment = 8;</code>
+     * <code>int32 hijriAdjustment = 12;</code>
      * @return The hijriAdjustment.
      */
     @java.lang.Override
@@ -1854,7 +2606,7 @@ private static final long serialVersionUID = 0L;
       return hijriAdjustment_;
     }
     /**
-     * <code>int32 hijriAdjustment = 8;</code>
+     * <code>int32 hijriAdjustment = 12;</code>
      * @param value The hijriAdjustment to set.
      * @return This builder for chaining.
      */
@@ -1865,7 +2617,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 hijriAdjustment = 8;</code>
+     * <code>int32 hijriAdjustment = 12;</code>
      * @return This builder for chaining.
      */
     public Builder clearHijriAdjustment() {
@@ -1877,7 +2629,7 @@ private static final long serialVersionUID = 0L;
 
     private int hijriDate_ ;
     /**
-     * <code>int32 hijriDate = 9;</code>
+     * <code>int32 hijriDate = 13;</code>
      * @return The hijriDate.
      */
     @java.lang.Override
@@ -1885,7 +2637,7 @@ private static final long serialVersionUID = 0L;
       return hijriDate_;
     }
     /**
-     * <code>int32 hijriDate = 9;</code>
+     * <code>int32 hijriDate = 13;</code>
      * @param value The hijriDate to set.
      * @return This builder for chaining.
      */
@@ -1896,7 +2648,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 hijriDate = 9;</code>
+     * <code>int32 hijriDate = 13;</code>
      * @return This builder for chaining.
      */
     public Builder clearHijriDate() {
@@ -1908,7 +2660,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object hijriMonth_ = "";
     /**
-     * <code>string hijriMonth = 10;</code>
+     * <code>string hijriMonth = 14;</code>
      * @return The hijriMonth.
      */
     public java.lang.String getHijriMonth() {
@@ -1924,7 +2676,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string hijriMonth = 10;</code>
+     * <code>string hijriMonth = 14;</code>
      * @return The bytes for hijriMonth.
      */
     public com.google.protobuf.ByteString
@@ -1941,7 +2693,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string hijriMonth = 10;</code>
+     * <code>string hijriMonth = 14;</code>
      * @param value The hijriMonth to set.
      * @return This builder for chaining.
      */
@@ -1956,7 +2708,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string hijriMonth = 10;</code>
+     * <code>string hijriMonth = 14;</code>
      * @return This builder for chaining.
      */
     public Builder clearHijriMonth() {
@@ -1966,7 +2718,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string hijriMonth = 10;</code>
+     * <code>string hijriMonth = 14;</code>
      * @param value The bytes for hijriMonth to set.
      * @return This builder for chaining.
      */
@@ -1984,7 +2736,7 @@ private static final long serialVersionUID = 0L;
 
     private int hijriYear_ ;
     /**
-     * <code>int32 hijriYear = 11;</code>
+     * <code>int32 hijriYear = 15;</code>
      * @return The hijriYear.
      */
     @java.lang.Override
@@ -1992,7 +2744,7 @@ private static final long serialVersionUID = 0L;
       return hijriYear_;
     }
     /**
-     * <code>int32 hijriYear = 11;</code>
+     * <code>int32 hijriYear = 15;</code>
      * @param value The hijriYear to set.
      * @return This builder for chaining.
      */
@@ -2003,7 +2755,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 hijriYear = 11;</code>
+     * <code>int32 hijriYear = 15;</code>
      * @return This builder for chaining.
      */
     public Builder clearHijriYear() {
