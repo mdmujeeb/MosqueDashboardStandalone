@@ -56,6 +56,7 @@ public class Main {
 	
 	protected static boolean hasDateChanged = false;
 	protected static String newDate;
+	protected static boolean hasHijriDateChanged = false;
 
 	public static void main(String[] args) {
 		
@@ -65,8 +66,8 @@ public class Main {
 		// Initialize the GPIO
 		if(isRunningOnPi()) {
 			try {
-				Runtime.getRuntime().exec("gpio -g mode " + RELAY_PIN + " out");
 				Runtime.getRuntime().exec("gpio -g write " + RELAY_PIN + " 1");
+				Runtime.getRuntime().exec("gpio -g mode " + RELAY_PIN + " out");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -251,6 +252,17 @@ public class Main {
 
 		 // Set Next namaz time to Cyan
 		 namazTimePanels.get(nextNamazTime).nextNamazTime(true);
+		 
+		 if(nextNamazTime.equals(Constants.KEY_NAMAZ_TIME_ISHA) 
+				 || (nextNamazTime.equals(Constants.KEY_NAMAZ_TIME_FAJR)
+						 && namazTimes.getCurrentHour() > namazTimes.getNamazTimeIsha()[0])) {
+			 hasHijriDateChanged = true;
+			 IslamicUtil.getPrayerTimes(data);			// Calculate Maghrib and other dynamic times
+			 updateNamazTimeData();
+			 refreshHijriDateComponents();
+		 } else {
+			 hasHijriDateChanged = false;
+		 }
 	}
 	
 	public static void checkIsNowNamazTime() {
@@ -422,6 +434,10 @@ public class Main {
 		} else {
 			return "";
 		}
+	}
+	
+	public static boolean hasHijriDateChanged() {
+		return hasHijriDateChanged;
 	}
 	
 	public static void restartSystem() {

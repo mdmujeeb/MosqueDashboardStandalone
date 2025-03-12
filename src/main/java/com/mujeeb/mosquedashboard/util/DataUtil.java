@@ -124,6 +124,7 @@ public class DataUtil {
 		Map<String,Object> data = Main.getData();
 		data.put(Constants.KEY_HIJRI_ADJUSTMENT, hijriAdjustment);
 		writeDataFile(data);
+		IslamicUtil.getPrayerTimes(data);			// Calculate Maghrib and other dynamic times
 		Main.refreshHijriDateComponents();
 	}
 }

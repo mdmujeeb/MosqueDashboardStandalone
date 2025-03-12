@@ -183,7 +183,8 @@ public class IslamicUtil {
 		
 		/* Calculate prayer times for today, after adjusting with HIJRI_ADJUSTMENT. */
 		Date date = new Date();
-		date = addDayToDate(date, (int)data.get(Constants.KEY_HIJRI_ADJUSTMENT));
+		date = addDayToDate(date, (int)data.get(Constants.KEY_HIJRI_ADJUSTMENT)
+												+ (Main.hasHijriDateChanged() ? 1 : 0));
 		
 		PrayerTimes prayerTimes = calculator.getPrayerTimes(date);
 		
