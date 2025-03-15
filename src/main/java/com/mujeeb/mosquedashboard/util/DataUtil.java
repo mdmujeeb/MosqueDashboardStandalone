@@ -12,8 +12,6 @@ public class DataUtil {
 
 	public static final String DATA_FILE = "settings.dat";
 
-	protected static String AUDIO_FILE_PATH = "resources/Allahu.mp3";
-	
 	public static Map<String,Object> readDataFile() {
 		
 		try {
@@ -109,7 +107,10 @@ public class DataUtil {
 	public static void changeNamazTIme(String namazTimeName, int hour, int minute) {
 		
 		if(namazTimeName.equals("ALLAHU")) {
-			VoiceUtil.playStream(new ResourceStreamUtil().getResourceStream(AUDIO_FILE_PATH));
+			VoiceUtil.playStream(new ResourceStreamUtil().getResourceStream("resources/zikr/Allahu.mp3"));
+			
+		} else if(namazTimeName.startsWith("ZIKR")) {
+			VoiceUtil.playStream(new ResourceStreamUtil().getResourceStream("resources/zikr/" + namazTimeName + ".mp3"));
 			
 		} else {
 			Map<String,Object> data = Main.getData();
