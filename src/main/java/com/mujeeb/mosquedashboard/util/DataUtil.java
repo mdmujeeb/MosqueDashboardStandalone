@@ -109,9 +109,9 @@ public class DataUtil {
 		if(namazTimeName.equals("ALLAHU")) {
 			VoiceUtil.playStream(new ResourceStreamUtil().getResourceStream("resources/zikr/Allahu.mp3"));
 			
-		} else if(namazTimeName.startsWith("ZIKR")) {
-			VoiceUtil.playStream(new ResourceStreamUtil().getResourceStream("resources/zikr/" + namazTimeName + ".mp3"));
-			
+//		} else if(namazTimeName.startsWith("ZIKR")) {
+//			VoiceUtil.playStream(new ResourceStreamUtil().getResourceStream("resources/zikr/" + namazTimeName + ".mp3"));
+//			
 		} else {
 			Map<String,Object> data = Main.getData();
 			data.put(namazTimeName, new int[] {hour, minute});
